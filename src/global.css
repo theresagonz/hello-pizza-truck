@@ -40,6 +40,11 @@ section {
   color: white
 }
 
+.feature {
+  text-align: center;
+  font-size: 1.75em;
+}
+
 textarea:focus{
   animation: none !important
 }
