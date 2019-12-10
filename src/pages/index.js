@@ -11,9 +11,8 @@ function Index() {
     <div>
       <LandingPage/>
       <Services/>
-      <Team/>
       <End/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

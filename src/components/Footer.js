@@ -4,7 +4,7 @@ import { SocialIcon } from "react-social-icons"
 function Footer() {
   return (
     <div>
-      <footer className="py-2" style={{ backgroundColor: "#5E35B1" }}>
+      <footer className="py-2" style={{ backgroundColor: "#000" }}>
         <div className="container">
           <p className="float-right">Krisp | © Copyright 2019</p>
           <p>

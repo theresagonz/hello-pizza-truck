@@ -15,6 +15,10 @@ section {
   width: 100%;
 }
 
+h1 {
+  font-size: 3.5rem;
+}
+
 .flexbox {
   height: 100%;
   display: flex;
@@ -27,27 +31,41 @@ section {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 55px;
+  padding-bottom: 55px;
 }
 
 .inputBox{
   width: 100%;
-  background-color: #673AB7;
+  background-color: #ab666a;
   border: none;
   border-radius: 10px;
   padding: 20px;
   text-decoration-color: white;
-  color: white
+  color: white;
+}
+
+::placeholder {
+  color: #E5D0C8;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: light-grey;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: light-grey;
 }
 
 .feature {
   text-align: center;
   font-size: 1.75em;
-  background-color: red;
   padding: 25px;
-  -webkit-box-shadow: 10px 10px 21px 0px rgba(0,0,0,0.33);
-  -moz-box-shadow: 10px 10px 21px 0px rgba(0,0,0,0.33);
-  box-shadow: 10px 10px 21px 0px rgba(0,0,0,0.33);
+  display: none;
+}
+
+.feature.is-visible {
+  display: block;
 }
 
 textarea:focus{
@@ -55,7 +73,8 @@ textarea:focus{
 }
 
 footer{
-  color: #B9A4DE
+  background-color: black;
+  color: #B9A4DE;
 }
 
 footer a {
