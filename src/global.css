@@ -43,6 +43,7 @@ section {
 .feature {
   text-align: center;
   font-size: 1.75em;
+  background-color: red;
 }
 
 textarea:focus{
