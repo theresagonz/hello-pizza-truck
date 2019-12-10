@@ -19,11 +19,11 @@ function Team() {
     <div id = "team" className="container-fluid" style={{ backgroundColor: "#AFECA4" }}>
       <div className="container">
         <div className="flexbox">
-          <h1 className="text-center my-4">Meet Our Team </h1>
+          <h1 className="text-center my-4">Details</h1>
           <div className="row my-5">
-            {allTeamYaml.edges.map(({ node }) => {
+            {/* {allTeamYaml.edges.map(({ node }) => {
               return <TeamItem title={node.name} src={node.img} />
-            })}
+            })} */}
           </div>
         </div>
       </div>

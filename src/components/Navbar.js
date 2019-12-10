@@ -31,7 +31,6 @@ function Navbar() {
         </div>
       </div>
       <nav className="navbar navbar-dark">
-        <h4 style={textStyle}>KRISP</h4>
         <button
           className="navbar-toggler"
           type="button"

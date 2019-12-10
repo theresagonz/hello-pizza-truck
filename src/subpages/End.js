@@ -10,7 +10,7 @@ export default function End() {
       <div className="container">
         <div className="flexbox">
           <Fade left>
-            <h1 className="text-center my-5">Stay in touch</h1>
+            <h1 className="text-center my-5">Let's Talk!</h1>
             <div className="row my-4">
               <div className="col-lg-6 mb-4">
                 <input
