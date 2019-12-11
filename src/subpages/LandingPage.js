@@ -1,9 +1,20 @@
 import React from "react"
 import Navbar from "../components/Navbar"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import isElementInViewport from '../libraries/isElementInViewport'
-import truckCutout from '../images/truck-cutout-sm.png'
-import truck from '../images/1808-08c9-85d9-8cd3 (1).png'
+import ImageGallery from "react-image-gallery"
+
+import truckExteriorRear from "../images/gallery/truck-exterior-rear.png"
+import truckExteriorRearThumb from "../images/gallery/truck-exterior-rear-thumb.png"
+import truckExteriorFront from "../images/gallery/truck-exterior-front.png"
+import truckExteriorFrontThumb from "../images/gallery/truck-exterior-front-thumb.png"
+import truckExteriorClose from "../images/gallery/truck-exterior-close.jpg"
+import truckExteriorCloseThumb from "../images/gallery/truck-exterior-close-thumb.png"
+import ovenFire from "../images/gallery/oven-fire.jpg"
+import ovenFireThumb from "../images/gallery/oven-fire-thumb.png"
+import ovenCookspace from "../images/gallery/oven-cookspace.jpg"
+import ovenCookspaceThumb from "../images/gallery/oven-cookspace-thumb.png"
+import ovenPizzas from "../images/gallery/oven-pizzas.png"
+import ovenPizzasThumb from "../images/gallery/oven-pizzas-thumb.png"
 
 function LandingPage() {
   const { pageDataYaml } = useStaticQuery(graphql`
@@ -17,72 +28,57 @@ function LandingPage() {
 
   const { welcomeText, landingText } = pageDataYaml
 
-
-  const features = [
-    'Custom built, unique concept pizza truck with a real wood fired oven and full commercial kitchen, featuring a large working space with lots of windows.',
-    'At the center of the working space is the oven, which evenly distributes heat and cooks food quickly at around 750 degrees F. With over 2,000 sq. inches of cooking space, it can handle up to three 13” pizzas or five 8” pizzas at a time.',
-    'The oven faces the serving window, allowing customers the experience of seeing the crackling fire and food cooking in real time.',
-  ]
-
   const pageStyle = {
-    // backgroundColor: '#FFF',
-    backgroundImage: "truck",
-    //   "url(https://images.pexels.com/photos/113338/pexels-photo-113338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
     color: "white",
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
-    backgroundBlendMode: "multiply",
+    backgroundColor: "#00000059",
   }
 
   const welcomeStyle = {
     letterSpacing: "0.25em",
   }
 
-  const basicInfoStyle = {
-    'margin-bottom': '20px',
+  // const welcomePicStyle = {
+  //   width: "80%",
+  //   height: "auto",
+  //   "z-index": "1",
+  //   "-webkit-box-shadow": "0px 0px 45px 0px rgba(0,0,0,0.33)",
+  //   "-moz-box-shadow": "0px 0px 45px 0px rgba(0,0,0,0.33)",
+  //   "box-shadow": "0px 0px 45px 0px rgba(0,0,0,0.33)",
+  // }
+
+  const pizzaRed = {
+    color: "#993333",
   }
 
-  const welcomePicStyle = {
-    width: '80%',
-    height: 'auto',
-    // margin: '40px auto',
-    // margin: '200px 0 0 0',
-    'z-index': '1',
-    '-webkit-box-shadow': '0px 0px 45px 0px rgba(0,0,0,0.33)',
-    '-moz-box-shadow': '0px 0px 45px 0px rgba(0,0,0,0.33)',
-    'box-shadow': '0px 0px 45px 0px rgba(0,0,0,0.33)',
+  const yellow = {
+    color: "#ff9933",
   }
 
-  const topTextStyle = {
-    // position: 'fixed',
-    // top: '40px',
-    // 'z-index': '-1',
-  }
+  const elementsToShow = document.querySelectorAll(".feature")
 
-  const elementsToShow = document.querySelectorAll('.feature');
+  const images = [
+    { original: truckExteriorRear, thumbnail: truckExteriorRearThumb },
+    { original: truckExteriorFront, thumbnail: truckExteriorFrontThumb },
+    { original: truckExteriorClose, thumbnail: truckExteriorCloseThumb },
+    { original: ovenFire, thumbnail: ovenFireThumb },
+    { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
+    { original: ovenPizzas, thumbnail: ovenPizzasThumb },
+  ]
 
   return (
-    <div id = "home" style={pageStyle} className = "container-fluid">
+    <div id="home" style={pageStyle} className="container-fluid">
       <div className="container">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="centerItems">
-          <div className="topText" style={topTextStyle}>
-            <div style={basicInfoStyle}>
-              <h3 style={welcomeStyle}>{welcomeText}</h3>
-              <h1>{landingText}</h1>
+          <div className="topText">
+            <div>
+              <h4 style={welcomeStyle} style={pizzaRed}>{welcomeText}</h4>
+              <h1>
+                <span>{landingText}</span>
+              </h1>
             </div>
-            <h4>Location:  Grand Junction, Colorado</h4>
-
           </div>
-          <img className="featuredPic" src={truck} style={welcomePicStyle} alt="Truck"/>
-            <div className="feature">Custom built, unique concept pizza truck with a real wood fired oven and full commercial kitchen, featuring a large working space with lots of windows.</div>
-            <br/>
-            <div className="feature">At the center of the working space is the oven, which evenly distributes heat and cooks food quickly at around 750 degrees F. With over 2,000 sq. inches of cooking space, it can handle up to three 13” pizzas or five 8” pizzas at a time.</div>
-            <br/>
-            <div className="feature">The oven faces the serving window, allowing customers the experience of seeing the crackling fire and food cooking in real time.</div>
-
+          <ImageGallery items={images} slideInterval={2500} slideDuration={750}></ImageGallery>
           {/* <button
             style={{
               width: "200px",

@@ -1,7 +1,7 @@
 import React from "react"
 import "../global.css"
 import LandingPage from "../subpages/LandingPage";
-import Services from "../subpages/Services";
+import Details from "../subpages/Details";
 import Team from "../subpages/Team";
 import End from "../subpages/End";
 import Footer from "../components/Footer";
@@ -10,7 +10,7 @@ function Index() {
   return (
     <div>
       <LandingPage/>
-      <Services/>
+      <Details/>
       <End/>
       {/* <Footer/> */}
     </div>
