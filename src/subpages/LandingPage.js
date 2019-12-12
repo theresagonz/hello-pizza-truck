@@ -54,8 +54,6 @@ function LandingPage() {
     color: "#ff9933",
   }
 
-  const elementsToShow = document.querySelectorAll(".feature")
-
   const images = [
     { original: truckExteriorRear, thumbnail: truckExteriorRearThumb },
     { original: truckExteriorFront, thumbnail: truckExteriorFrontThumb },
