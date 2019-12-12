@@ -9,6 +9,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif !important;
+  color: white;
 }
 
 section {
@@ -58,19 +59,48 @@ section {
  color: light-grey;
 }
 
+.red-bg {
+  background-color: #993333;
+}
+
+.red-text {
+  color: #993333;
+}
+
+.orange-bg {
+  background-color: #ef734cfa;
+}
+
+.gold-bg {
+  background-color: #eca053;
+}
+
+.grey-bg {
+  background-color: #5e5c65;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
 #home {
   padding-top: 30px;
 }
 
-.feature {
-  text-align: center;
-  font-size: 1.75em;
-  padding: 25px;
+.topText h1 {
+  margin-bottom: 25px;
+}
+
+.section {
+  padding: 45px 0 ;
+}
+
+.truckInfo {
   display: none;
 }
 
-.topText h1 {
-  margin-bottom: 25px;
+.truckInfo .show {
+  display: block;
 }
 
 textarea:focus{

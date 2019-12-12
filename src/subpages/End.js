@@ -4,8 +4,8 @@ import Fade from "react-reveal/Fade"
 export default function End() {
   return (
     <div
-      className="container-fluid"
-      style={{ backgroundColor: "#993333", color: "white", 'padding-bottom': '55px' }}
+      className="container-fluid red-bg"
+      style={{ paddingBottom: '55px' }}
     >
       <div className="container">
         <div className="flexbox">

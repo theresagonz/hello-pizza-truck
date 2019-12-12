@@ -28,10 +28,10 @@ function LandingPage() {
 
   const { welcomeText, landingText } = pageDataYaml
 
-  const pageStyle = {
-    color: "white",
-    backgroundColor: "#00000059",
-  }
+  // const pageStyle = {
+  //   color: "white",
+  //   backgroundColor: "#00000059",
+  // }
 
   const welcomeStyle = {
     letterSpacing: "0.25em",
@@ -64,13 +64,13 @@ function LandingPage() {
   ]
 
   return (
-    <div id="home" style={pageStyle} className="container-fluid">
+    <div id="home" className="container-fluid grey-bg">
       <div className="container">
         {/* <Navbar /> */}
         <div className="centerItems">
           <div className="topText">
             <div>
-              <h4 style={welcomeStyle} style={pizzaRed}>{welcomeText}</h4>
+              <h4 style={welcomeStyle} className="red-text">{welcomeText}</h4>
               <h1>
                 <span>{landingText}</span>
               </h1>
