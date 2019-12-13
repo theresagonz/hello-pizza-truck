@@ -17,6 +17,22 @@ section {
   width: 100%;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+#team a {
+  color: #672816;
+}
+
+#team a:hover {
+  color: #35150b;
+}
+
 .flexbox {
   height: 100%;
   display: flex;
@@ -59,12 +75,26 @@ section {
  color: light-grey;
 }
 
+.section h2 {
+  margin-bottom: 15px;
+}
+
+.warmGradient {
+  background: rgb(153,51,51);
+  background: linear-gradient(0deg, rgba(153,51,51,1) 10%, rgba(239,115,76,1) 40%, rgba(236,160,83,1) 81%);
+}
+
+.red-text {
+  color: #6b1c1c;
+}
+
 .red-bg {
   background-color: #993333;
 }
 
-.red-text {
-  color: #993333;
+.gold-orange-bg {
+  background: rgb(239,115,76);
+  background: linear-gradient(45deg, rgba(239,115,76,1) 0%, rgba(236,160,83,1) 50%);
 }
 
 .orange-bg {
@@ -96,10 +126,14 @@ section {
 }
 
 .truckInfo {
+  margin-bottom: 25px;
+}
+
+.toggleShow {
   display: none;
 }
 
-.truckInfo .show {
+.toggleShow .show {
   display: block;
 }
 
