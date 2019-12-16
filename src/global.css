@@ -9,12 +9,15 @@ html {
 
 body {
   font-family: "Poppins", sans-serif !important;
-  color: white;
 }
 
 section {
   height: 100vh;
   width: 100%;
+}
+
+.page {
+  color: #fff;
 }
 
 a, a:hover {
@@ -127,6 +130,11 @@ p {
 
 .truckInfo {
   margin-bottom: 25px;
+}
+
+/* space between description and details */
+div.sectionLabel:first-of-type {
+  margin-top: 40px;
 }
 
 .toggleShow {

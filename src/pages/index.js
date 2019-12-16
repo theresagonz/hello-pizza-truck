@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 function Index() {
   return (
-    <div>
+    <div className="page">
       <LandingPage/>
       <Details/>
       <Team/>
