@@ -3,18 +3,18 @@ import Navbar from "../components/Navbar"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import ImageGallery from "react-image-gallery"
 
-import truckExteriorRear from "../images/gallery/truck-exterior-rear.png"
-import truckExteriorRearThumb from "../images/gallery/truck-exterior-rear-thumb.png"
-import truckExteriorFront from "../images/gallery/truck-exterior-front.png"
-import truckExteriorFrontThumb from "../images/gallery/truck-exterior-front-thumb.png"
-import truckExteriorClose from "../images/gallery/truck-exterior-close.jpg"
-import truckExteriorCloseThumb from "../images/gallery/truck-exterior-close-thumb.png"
-import ovenFire from "../images/gallery/oven-fire.jpg"
-import ovenFireThumb from "../images/gallery/oven-fire-thumb.png"
-import ovenCookspace from "../images/gallery/oven-cookspace.jpg"
-import ovenCookspaceThumb from "../images/gallery/oven-cookspace-thumb.png"
-import ovenPizzas from "../images/gallery/oven-pizzas.png"
-import ovenPizzasThumb from "../images/gallery/oven-pizzas-thumb.png"
+import truckExteriorRear from "../images/gallery/main/truck-exterior-rear.png"
+import truckExteriorRearThumb from "../images/gallery/main/truck-exterior-rear-thumb.png"
+import truckExteriorFront from "../images/gallery/main/truck-exterior-front.png"
+import truckExteriorFrontThumb from "../images/gallery/main/truck-exterior-front-thumb.png"
+import truckExteriorClose from "../images/gallery/main/truck-exterior-close.jpg"
+import truckExteriorCloseThumb from "../images/gallery/main/truck-exterior-close-thumb.png"
+import ovenFire from "../images/gallery/kitchen/oven-fire.jpg"
+import ovenFireThumb from "../images/gallery/kitchen/oven-fire-thumb.png"
+import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
+import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
+import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
+import ovenPizzasThumb from "../images/gallery/kitchen/oven-pizzas-thumb.png"
 
 function LandingPage() {
   const { pageDataYaml } = useStaticQuery(graphql`
@@ -28,23 +28,9 @@ function LandingPage() {
 
   const { welcomeText, landingText } = pageDataYaml
 
-  // const pageStyle = {
-  //   color: "white",
-  //   backgroundColor: "#00000059",
-  // }
-
   const welcomeStyle = {
     letterSpacing: "0.25em",
   }
-
-  // const welcomePicStyle = {
-  //   width: "80%",
-  //   height: "auto",
-  //   "z-index": "1",
-  //   "-webkit-box-shadow": "0px 0px 45px 0px rgba(0,0,0,0.33)",
-  //   "-moz-box-shadow": "0px 0px 45px 0px rgba(0,0,0,0.33)",
-  //   "box-shadow": "0px 0px 45px 0px rgba(0,0,0,0.33)",
-  // }
 
   const pizzaRed = {
     color: "#993333",
@@ -54,6 +40,30 @@ function LandingPage() {
     color: "#ff9933",
   }
 
+  const video = (
+    <div
+      className="video"
+      style={{
+        position: "relative",
+        paddingBottom: "56.25%" /* 16:9 */,
+        paddingTop: 25,
+        height: 0,
+      }}
+    >
+      <iframe
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }}
+        src={`https://www.youtube.com/watch?v=aEi7s-bU6Ig`}
+        frameBorder="0"
+      />
+    </div>
+  )
+
   const images = [
     { original: truckExteriorRear, thumbnail: truckExteriorRearThumb },
     { original: truckExteriorFront, thumbnail: truckExteriorFrontThumb },
@@ -61,22 +71,23 @@ function LandingPage() {
     { original: ovenFire, thumbnail: ovenFireThumb },
     { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
     { original: ovenPizzas, thumbnail: ovenPizzasThumb },
+    // { original: video,  isVideo: true }
   ]
 
   return (
     <div id="home" className="container-fluid grey-bg">
-      <div className="container">
+      <div className="container topTextContainer floatingTextContainer">
         {/* <Navbar /> */}
-        <div className="centerItems">
-          <div className="topText">
-            <div>
-              <h4 style={welcomeStyle} className="red-text">{welcomeText}</h4>
-              <h1>
-                <span>{landingText}</span>
-              </h1>
-            </div>
+        <div className="topText textShadow">
+          <div>
+            <h4 style={welcomeStyle} className="red-text">
+              {welcomeText}
+            </h4>
+            <h1>
+              <span>{landingText}</span>
+            </h1>
           </div>
-          <ImageGallery items={images} slideInterval={2500} slideDuration={750}></ImageGallery>
+          {/* <ImageGallery items={images} slideInterval={2500} slideDuration={750}></ImageGallery> */}
           {/* <button
             style={{
               width: "200px",
@@ -94,6 +105,20 @@ function LandingPage() {
             Start a Project
           </button> */}
         </div>
+      </div>
+
+      {/* <div className="leftTextContainer floatingTextContainer">
+        <h4>Check It Out</h4>
+        <divd>&darr; Kitchen</divd>
+        <div>&darr; Utility Room</div>
+        <div>&darr; Electrical</div>
+        <div>&darr; Truck</div>
+        <div>&darr; Construction</div>
+      </div> */}
+      <div className="bottomTextContainer floatingTextContainer">
+        <h4 className="bottomText textShadow">
+          Custom-built pizza truck with a real wood fired oven, full commercial kitchen, and onboard bathroom, featuring a large working space with lots of windows
+        </h4>
       </div>
     </div>
   )

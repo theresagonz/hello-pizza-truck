@@ -1,6 +1,26 @@
 import React, { useState } from "react"
 import TeamItem from "../components/TeamItem"
 import { useStaticQuery, graphql } from "gatsby"
+import ImageGallery from "react-image-gallery"
+
+// kitchen gallery
+import truckWorkspace from "../images/gallery/kitchen/truck-workspace.jpg"
+import ovenWorkspace from "../images/gallery/kitchen/oven-workspace.jpg"
+import servingWindow from "../images/gallery/kitchen/truck-exterior-serving-window.jpg"
+import sink from "../images/gallery/kitchen/sink.jpg"
+import sinkWorkspace from "../images/gallery/kitchen/truck-sinks-workspace.jpg"
+import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
+import ovenPizzasThumb from "../images/gallery/kitchen/oven-pizzas-thumb.png"
+import ovenFire from "../images/gallery/kitchen/oven-fire.jpg"
+import ovenFireThumb from "../images/gallery/kitchen/oven-fire-thumb.png"
+import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
+import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
+
+// truck gallery
+import truckAtEvent from "../images/gallery/truck/truck-at-event.jpg"
+import truckExteriorServingWindow from "../images/gallery/kitchen/truck-exterior-serving-window.jpg"
+import truckMountains from "../images/gallery/truck/truck-mountains.jpg"
+import truckParked from "../images/gallery/truck/truck-parked.jpg"
 
 const Details = props => {
   const { allTeamYaml } = useStaticQuery(graphql`
@@ -25,7 +45,14 @@ const Details = props => {
 
   const baseInfos = [
     {
-      label: "Kitchen Info",
+      label: "Kitchen",
+      descriptions: [
+        "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. The heat gives thin crust Neopolitan-style pizzas a light, savory texture, a perfectly crispy outer crust, and caramelized cheese and toppings, usually in under 2 minutes.",
+        "Customers can see the food cooking and fire crackling from the outside serve window. The front serve window wall slides out to add working space.",
+        "Be your own commissary! The truck is licensed in Colorado as a full commercial kitchen.",
+        "There are plenty of cabinets and racks for storage above along with storage under the oven.",
+        "We've also used the oven to cook up meats, roasted veggies, crusty breads, and more. We're excited to help you discover just how amazing high heat cooking can be.",
+      ],
       infos: [
         { text: "Kitchen space measures 163 sq. ft (8’3”x 20’6”)" },
         { text: "Slide wall adds 32 sq. ft (10’x38”)" },
@@ -44,6 +71,10 @@ const Details = props => {
           ),
           subInfos: [
             { text: 'Cooking surface of 2,000 sq. in. (53" x 39")' },
+            {
+              text:
+                "Can cook up to three 13” pizzas (or five 8” pizzas) at once at around 750°F",
+            },
             { text: "Maximum temperature above 1000°F" },
             {
               text:
@@ -59,9 +90,22 @@ const Details = props => {
         { text: "Paper towel dispenser, automatic" },
         { text: "Lots of cabinets and racks for storage" },
       ],
+      images: [
+        { original: ovenPizzas, thumbnail: ovenPizzasThumb },
+        { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
+        { original: ovenFire, thumbnail: ovenFireThumb },
+        { original: ovenWorkspace, thumbnail: ovenWorkspace },
+        { original: sink, thumbnail: sink },
+        { original: sinkWorkspace, thumbnail: sinkWorkspace },
+        { original: truckWorkspace, thumbnail: truckWorkspace },
+        { original: servingWindow, thumbnail: servingWindow },
+      ],
     },
     {
-      label: "Utility Room Info",
+      label: "Bathroom + Utility Room",
+      descriptions: [
+        "A rear utility room contains a bathroom with toilet and hand wash sink, extra storage, and easy access to the power system.",
+      ],
       infos: [
         { text: "Utility room measures 24 sq. ft (8’3” x 3’)" },
         { text: "Toilet, Dometic model 320" },
@@ -72,7 +116,10 @@ const Details = props => {
       ],
     },
     {
-      label: "Truck Info",
+      label: "Truck",
+      descriptions: [
+        "Built on a U-Haul box truck, this has new tires as of 2018 and many miles left in it.",
+      ],
       infos: [
         { boldText: "Year", text: "2000" },
         { boldText: "Make", text: "GMC" },
@@ -82,20 +129,14 @@ const Details = props => {
         { boldText: "Length", text: "34' total (24' interior)" },
         { boldText: "Current DOT certification", text: "Intrastate CO" },
       ],
-    },
-    {
-      label: "Plumbing Info",
-      infos: [
-        { text: "Full plumbing with tanks located underneath truck" },
-        { text: "Fresh water tank, 55-gallon" },
-        { text: "Gray water tank, 35-gallon" },
-        { text: "Black water tank, 35-gallon" },
-        { text: "Hot water heater, Atwood 6-gallon propane" },
-        { text: "Water pump, Shurflo 110V electrical, 3 gpm" },
+      images: [
+        { original: truckAtEvent, thumbnail: truckAtEvent },
+        { original: truckParked, thumbnail: truckParked },
+        { original: truckMountains, thumbnail: truckMountains },
       ],
     },
     {
-      label: "Electrical Info",
+      label: "Electrical",
       infos: [
         { text: "Wired for 110V power" },
         { text: "Electrical panel, 100-amp" },
@@ -114,7 +155,18 @@ const Details = props => {
       ],
     },
     {
-      label: "Construction Info",
+      label: "Plumbing",
+      infos: [
+        { text: "Full plumbing with tanks located underneath truck" },
+        { text: "Fresh water tank, 55-gallon" },
+        { text: "Gray water tank, 35-gallon" },
+        { text: "Black water tank, 35-gallon" },
+        { text: "Hot water heater, Atwood 6-gallon propane" },
+        { text: "Water pump, Shurflo 110V electrical, 3 gpm" },
+      ],
+    },
+    {
+      label: "Construction",
       infos: [
         {
           text:
@@ -138,107 +190,133 @@ const Details = props => {
     marginBottom: "25px",
   }
 
-  const [showTruckInfo, toggleTruck] = useState(false)
-  const [showKitchenInfo, toggleKitchen] = useState(false)
-  const [showUtilityRoomInfo, toggleUtilityRoom] = useState(false)
-  const [showPlumbingInfo, togglePlumbing] = useState(false)
-  const [showElectricalInfo, toggleElectrical] = useState(false)
-  const [showConstructionInfo, toggleConstruction] = useState(false)
+  const [showTruck, toggleTruck] = useState(false)
+  const [showKitchen, toggleKitchen] = useState(false)
+  const [showUtilityRoom, toggleUtilityRoom] = useState(false)
+  const [showPlumbing, togglePlumbing] = useState(false)
+  const [showElectrical, toggleElectrical] = useState(false)
+  const [showConstruction, toggleConstruction] = useState(false)
 
   const toggleInfoMap = {
-    "Truck Info": {
-      shouldShow: showTruckInfo,
+    Truck: {
+      shouldShow: showTruck,
       toggleMethod: toggleTruck,
     },
-    "Kitchen Info": {
-      shouldShow: showKitchenInfo,
+    Kitchen: {
+      shouldShow: showKitchen,
       toggleMethod: toggleKitchen,
     },
-    "Utility Room Info": {
-      shouldShow: showUtilityRoomInfo,
+    "Bathroom/Utility Room": {
+      shouldShow: showUtilityRoom,
       toggleMethod: toggleUtilityRoom,
     },
-    "Plumbing Info": {
-      shouldShow: showPlumbingInfo,
+    Plumbing: {
+      shouldShow: showPlumbing,
       toggleMethod: togglePlumbing,
     },
-    "Electrical Info": {
-      shouldShow: showElectricalInfo,
+    Electrical: {
+      shouldShow: showElectrical,
       toggleMethod: toggleElectrical,
     },
-    "Construction Info": {
-      shouldShow: showConstructionInfo,
+    Construction: {
+      shouldShow: showConstruction,
       toggleMethod: toggleConstruction,
     },
   }
 
   return (
-    <div id="team" className="container-fluid orange-bg section">
+    <div id="team" className="container-fluid grey-bg section">
       <div className="container">
         <div className="flexbox">
-          <h1 className="text-center my-4">Details</h1>
           <div className="truckInfo">
-            {descriptions.map((description, i) => {
-              if (description.jsxWithLink) {
-                return description.jsxWithLink
-              }
-              return <p>{description.text}</p>
-            })}
-            {baseInfos.map((section, i) => {
+            {baseInfos.map(section => {
               const label = section.label
-              const shouldShow = toggleInfoMap[label].shouldShow
-              const toggleMethod = toggleInfoMap[label].toggleMethod
+              const featureText = !label ? { fontSize: "1.5em" } : null
+              const shouldShow =
+                toggleInfoMap[label] && toggleInfoMap[label].shouldShow
+              const toggleMethod =
+                toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
               return (
-                <div className="sectionLabel">
-                  <h2>
-                    {label}
-                    <span
-                      className="pointer"
-                      onClick={() => toggleMethod(!shouldShow)}
-                    >
-                      {shouldShow ? " -" : " +"}
-                    </span>
-                  </h2>
-                  <ul>
-                    {section.infos.map((info, j) => {
-                      const subInfos =
-                        info.subInfos && info.subInfos.length
-                          ? info.subInfos
-                          : null
-                      return subInfos ? (
-                        <div
-                          className={
-                            "toggleShow" + (!shouldShow ? " show" : null)
-                          }
-                        >
-                          <li key={i}>{info.text || info.jsxWithLink}</li>
-                          <ul>
-                            {subInfos.map((subInfo, j) => (
-                              <li>{subInfo.text}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ) : info.boldText ? (
-                        <li
-                          key={label + "-" + i}
-                          className={
-                            "toggleShow" + (!shouldShow ? " show" : null)
-                          }
-                        >
-                          <strong>{info.boldText}:</strong> {info.text}
-                        </li>
-                      ) : (
-                        <li
-                          key={label + "-" + i}
-                          className={
-                            "toggleShow" + (!shouldShow ? " show" : null)
-                          }
-                        >
-                          {info.text}
-                        </li>
-                      )
-                    })}
-                  </ul>
+                <div className="sectionLabelWrapper">
+                  {section.images && (
+                    <ImageGallery
+                      items={section.images}
+                      thumbnailPosition="right"
+                    />
+                  )}
+                  {section.label && <h1>{section.label}</h1>}
+                  {section.descriptions && (
+                    <div className="pMarginTop">
+                      {section.descriptions.map((description, i) => (
+                        <p style={featureText} key={i}>
+                          {description}
+                        </p>
+                      ))}
+                      <div className="detailsContainer">
+                        {section.infos && (
+                          <div>
+                            <h5 className="sectionLabel">
+                              <span
+                                className="pointer"
+                                onClick={() => toggleMethod(!shouldShow)}
+                              >
+                                {shouldShow ? "- Collapse" : "+ More info"}
+                              </span>
+                              {/* {shouldShow ? " Collapse" : " More info"} */}
+                            </h5>
+                            <ul>
+                              {section.infos &&
+                                section.infos.map((info, j) => {
+                                  const subInfos =
+                                    info.subInfos && info.subInfos.length
+                                      ? info.subInfos
+                                      : null
+                                  return subInfos ? (
+                                    <div
+                                      className={
+                                        "toggleShow" +
+                                        (!shouldShow ? " show" : null)
+                                      }
+                                      key={label + "-" + j}
+                                    >
+                                      <li>{info.text || info.jsxWithLink}</li>
+                                      <ul>
+                                        {subInfos.map((subInfo, k) => (
+                                          <li key={"subInfo-" + j + "-" + k}>
+                                            {subInfo.text}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ) : info.boldText ? (
+                                    <li
+                                      key={label + "-" + j}
+                                      className={
+                                        "toggleShow" +
+                                        (!shouldShow ? " show" : null)
+                                      }
+                                    >
+                                      <strong>{info.boldText}:</strong>{" "}
+                                      {info.text}
+                                    </li>
+                                  ) : (
+                                    <li
+                                      key={label + "-" + j}
+                                      className={
+                                        "toggleShow" +
+                                        (!shouldShow ? " show" : null)
+                                      }
+                                    >
+                                      {info.text}
+                                    </li>
+                                  )
+                                })}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )
             })}
