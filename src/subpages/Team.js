@@ -21,6 +21,53 @@ import truckAtEvent from "../images/gallery/truck/truck-at-event.jpg"
 import truckExteriorServingWindow from "../images/gallery/kitchen/truck-exterior-serving-window.jpg"
 import truckMountains from "../images/gallery/truck/truck-mountains.jpg"
 import truckParked from "../images/gallery/truck/truck-parked.jpg"
+import truckRearOpen from "../images/gallery/truck/truck-rear-open.jpg"
+import truckRearClosed from "../images/gallery/truck/truck-rear-closed.jpg"
+
+// bathroom gallery
+import bathroom from "../images/gallery/bathroom/truck-bathroom.jpg"
+import electricalPanel from "../images/gallery/bathroom/truck-electrical-panel.jpg"
+import electrical from "../images/gallery/bathroom/truck-electrical.jpg"
+
+// electrical gallery
+import wiring1 from "../images/gallery/electrical/truck-wiring.jpg"
+import wiring2 from "../images/gallery/electrical/truck-wiring2.jpg"
+import wiring3 from "../images/gallery/electrical/truck-wiring3.jpg"
+import wiring4 from "../images/gallery/electrical/truck-wiring4.jpg"
+import wiring5 from "../images/gallery/electrical/truck-wiring5.jpg"
+import wiring6 from "../images/gallery/electrical/truck-wiring6.jpg"
+
+// plumbing gallery
+import freshwater from "../images/gallery/plumbing/plumbing-freshwater.jpg"
+import greywater from "../images/gallery/plumbing/plumbing-greywater.jpg"
+import waterHeater from "../images/gallery/plumbing/water-heater.jpg"
+
+// construction gallery
+import veryBeginning from "../images/gallery/construction/very-beginning.jpg"
+import veryBeginning2 from "../images/gallery/construction/very-beginning2.jpg"
+import beginnings from "../images/gallery/construction/beginnings.jpg"
+import window from "../images/gallery/construction/window.jpg"
+import bathroomBeginnings from "../images/gallery/construction/bathroom-beginnings.jpg"
+import bathroomBeginnings2 from "../images/gallery/construction/bathroom-beginnings3.jpg"
+import bathroomBeginnings3 from "../images/gallery/construction/bathroom-beginnings3.jpg"
+import bathroom2 from "../images/gallery/construction/bathroom2.jpg"
+import ceiling from "../images/gallery/construction/ceiling.jpg"
+import ceiling2 from "../images/gallery/construction/ceiling2.jpg"
+import ceiling3 from "../images/gallery/construction/ceiling3.jpg"
+import rearDoor from "../images/gallery/construction/rear-door.jpg"
+import dadPipe from "../images/gallery/construction/dad-pipe.jpg"
+import wallBeginnings from "../images/gallery/construction/wall-beginnings.jpg"
+import window2 from "../images/gallery/construction/window2.jpg"
+import kitchenBeginnings from "../images/gallery/construction/kitchen-beginnings.jpg"
+import kitchenBeginnings2 from "../images/gallery/construction/kitchen-beginnings2-sm.jpg"
+import kitchenBeginnings3 from "../images/gallery/construction/kitchen-beginnings3.jpg"
+import slideWall from "../images/gallery/construction/slide-wall.jpg"
+import slideWall2 from "../images/gallery/construction/slide-wall2.jpg"
+import slideWall3 from "../images/gallery/construction/slide-wall3.jpg"
+import exteriorUtilities from "../images/gallery/construction/exterior-utilities.jpg"
+import exteriorUtilities2 from "../images/gallery/construction/exterior-utilities2.jpg"
+import driveReady from "../images/gallery/construction/truck-drive-ready.jpg"
+import truckSetup from "../images/gallery/construction/truck-setup.jpg"
 
 const Details = props => {
   const { allTeamYaml } = useStaticQuery(graphql`
@@ -48,9 +95,9 @@ const Details = props => {
       label: "Kitchen",
       descriptions: [
         "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. The heat gives thin crust Neopolitan-style pizzas a light, savory texture, a perfectly crispy outer crust, and caramelized cheese and toppings, usually in under 2 minutes.",
-        "Customers can see the food cooking and fire crackling from the outside serve window. The front serve window wall slides out to add working space.",
-        "Be your own commissary! The truck is licensed in Colorado as a full commercial kitchen.",
-        "There are plenty of cabinets and racks for storage above along with storage under the oven.",
+        "Customers can see the food cooking and fire crackling from the outside serve window.",
+        "Be your own commissary! The truck is licensed in Mesa County, Colorado as a full commercial kitchen.",
+        "The front serve window wall slides out to add working space. There are plenty of storage space in cabinets, racks, and under the oven.",
         "We've also used the oven to cook up meats, roasted veggies, crusty breads, and more. We're excited to help you discover just how amazing high heat cooking can be.",
       ],
       infos: [
@@ -114,6 +161,11 @@ const Details = props => {
         { text: "Electrical panel" },
         { text: "Extra storage" },
       ],
+      images: [
+        { original: bathroom, thumbnail: bathroom },
+        { original: electrical, thumbnail: electrical },
+        { original: electricalPanel, thumbnail: electricalPanel },
+      ],
     },
     {
       label: "Truck",
@@ -133,10 +185,15 @@ const Details = props => {
         { original: truckAtEvent, thumbnail: truckAtEvent },
         { original: truckParked, thumbnail: truckParked },
         { original: truckMountains, thumbnail: truckMountains },
+        { original: truckRearOpen, thumbnail: truckRearOpen },
+        { original: truckRearClosed, thumbnail: truckRearClosed },
       ],
     },
     {
       label: "Electrical",
+      descriptions: [
+        "Fully powered by 110 volts through an inverter system, the kitchen switches seamlessly between either solar, generator or shore power. Depending on the time of year, the bank of four 24-volt batteries can power the kitchen fully for up to 10 hours.",
+      ],
       infos: [
         { text: "Wired for 110V power" },
         { text: "Electrical panel, 100-amp" },
@@ -153,9 +210,22 @@ const Details = props => {
             "25’ and 50’ 6 gauge shore power electrical cord with 50-amp plug",
         },
       ],
+      images: [
+        { original: wiring1, thumbnail: wiring1 },
+        { original: wiring2, thumbnail: wiring2 },
+        { original: wiring3, thumbnail: wiring3 },
+        { original: wiring4, thumbnail: wiring4 },
+        { original: wiring5, thumbnail: wiring5 },
+        { original: wiring6, thumbnail: wiring6 },
+        { original: electricalPanel, thumbnail: electricalPanel },
+        { original: electrical, thumbnail: electrical },
+      ],
     },
     {
       label: "Plumbing",
+      descriptions: [
+        "Fresh water is supplied to the three sinks and toilet from either the 55-gallon tank or a shore hook-up for a continuous supply. Hot water is supplied by a propane hot water heater.",
+      ],
       infos: [
         { text: "Full plumbing with tanks located underneath truck" },
         { text: "Fresh water tank, 55-gallon" },
@@ -164,9 +234,17 @@ const Details = props => {
         { text: "Hot water heater, Atwood 6-gallon propane" },
         { text: "Water pump, Shurflo 110V electrical, 3 gpm" },
       ],
+      images: [
+        { original: freshwater, thumbnail: freshwater },
+        { original: greywater, thumbnail: greywater },
+        { original: waterHeater, thumbnail: waterHeater },
+      ],
     },
     {
       label: "Construction",
+      descriptions: [
+        "In the spring of 2015, I began building a new mobile kitchen. I purchased a used 26-foot U-Haul box truck and stripped it to the frame and with a blank canvas built a full commercial kitchen complete with a new and larger wood fired oven. ",
+      ],
       infos: [
         {
           text:
@@ -182,6 +260,34 @@ const Details = props => {
         { text: "Ramp and stairs for easy entry" },
         { text: "Rechargeable vacuum, Electrolux Ergorapido" },
         { text: "Propane tank, 20-lb" },
+      ],
+      images: [
+        { original: veryBeginning, thumbnail: veryBeginning },
+        { original: veryBeginning2, thumbnail: veryBeginning2 },
+        { original: beginnings, thumbnail: beginnings },
+        { original: bathroom2, thumbnail: bathroom2 },
+        { original: bathroomBeginnings, thumbnail: bathroomBeginnings },
+        { original: bathroomBeginnings2, thumbnail: bathroomBeginnings2 },
+        { original: bathroomBeginnings3, thumbnail: bathroomBeginnings3 },
+        { original: ceiling, thumbnail: ceiling },
+        { original: ceiling2, thumbnail: ceiling2 },
+        { original: rearDoor, thumbnail: rearDoor },
+        { original: ceiling3, thumbnail: ceiling3 },
+        { original: window, thumbnail: window },
+        { original: bathroom2, thumbnail: bathroom2 },
+        { original: dadPipe, thumbnail: dadPipe },
+        { original: wallBeginnings, thumbnail: wallBeginnings },
+        { original: window2, thumbnail: window2 },
+        { original: slideWall, thumbnail: slideWall },
+        { original: slideWall2, thumbnail: slideWall2 },
+        { original: slideWall3, thumbnail: slideWall3 },
+        { original: kitchenBeginnings, thumbnail: kitchenBeginnings },
+        { original: kitchenBeginnings2, thumbnail: kitchenBeginnings2 },
+        { original: kitchenBeginnings3, thumbnail: kitchenBeginnings3 },
+        { original: exteriorUtilities, thumbnail: exteriorUtilities },
+        { original: exteriorUtilities2, thumbnail: exteriorUtilities2 },
+        { original: driveReady, thumbnail: driveReady },
+        { original: truckSetup, thumbnail: truckSetup },
       ],
     },
   ]
@@ -238,12 +344,14 @@ const Details = props => {
                 toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
               return (
                 <div className="sectionLabelWrapper">
-                  {section.images && (
-                    <ImageGallery
-                      items={section.images}
-                      thumbnailPosition="right"
-                    />
-                  )}
+                  <div className="gallery">
+                    {section.images && (
+                      <ImageGallery
+                        items={section.images}
+                        thumbnailPosition="right"
+                      />
+                    )}
+                  </div>
                   {section.label && <h1>{section.label}</h1>}
                   {section.descriptions && (
                     <div className="pMarginTop">
