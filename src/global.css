@@ -105,6 +105,10 @@ p {
   margin-bottom: 15px;
 }
 
+.center {
+  text-align: center;
+}
+
 .topTextContainer {
   width: auto;
   height: auto;
@@ -154,6 +158,29 @@ p {
   color: #a5282e;
 }
 
+.dark-red {
+  color: #54141d;
+}
+
+.option {
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+}
+
+.not-selected {
+  background-color: #969696;
+}
+
+.selected {
+  background-color: #eca053;
+}
+
+.price-summary {
+  display: flex;
+  justify-content: space-between;
+}
+
 .red-bg {
   background-color: #993333;
 }
@@ -177,6 +204,10 @@ p {
 
 .grey-bg {
   background-color: #3e454be6;
+}
+
+.lt-grey-bg {
+  background-color: grey;
 }
 
 .pointer {
