@@ -26,7 +26,7 @@ function Details() {
 
   const resetSelectionToIndex = (index, items) => {
     for (let i = index; i < items.length; i++) {
-      items[i].toggleMethod(false)
+      items[i].toggleAdd(false)
     }
   }
 
@@ -37,10 +37,16 @@ function Details() {
     padding: "20px 12px",
   }
 
-  const [isTruckAdded, toggleTruck] = useState(true)
-  const [isEquipmentAdded, toggleEquipment] = useState(false)
-  const [isTrailerAdded, toggleTrailer] = useState(false)
-  const [isBusinessAdded, toggleBusiness] = useState(false)
+  const [isTruckAdded, toggleTruckAdd] = useState(true)
+  const [isEquipmentAdded, toggleEquipmentAdd] = useState(false)
+  const [isTrailerAdded, toggleTrailerAdd] = useState(false)
+  const [isBusinessAdded, toggleBusinessAdd] = useState(false)
+
+  const [isTruckExpanded, toggleTruckExpand] = useState(false)
+  const [isEquipmentExpanded, toggleEquipmentExpand] = useState(false)
+  const [isTrailerExpanded, toggleTrailerExpand] = useState(false)
+  const [isBusinessExpanded, toggleBusinessExpand] = useState(false)
+
   const [isDirty, setDirty] = useState(false)
   const [level, setLevel] = useState(0)
 
@@ -50,31 +56,43 @@ function Details() {
       summary: "Truck, oven, and everything shown above",
       price: 80000,
       isRequired: true,
-      showBoolean: isTruckAdded,
-      toggleMethod: toggleTruck,
+      isAdded: isTruckAdded,
+      toggleAdd: toggleTruckAdd,
+      isExpanded: isTruckExpanded,
+      toggleExpand: toggleTruckExpand,
+      reference: "truck",
     },
     {
       headline: "Kitchen support equipment",
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
       price: 7000,
-      showBoolean: isEquipmentAdded,
-      toggleMethod: toggleEquipment,
+      isAdded: isEquipmentAdded,
+      toggleAdd: toggleEquipmentAdd,
+      isExpanded: isEquipmentExpanded,
+      toggleExpand: toggleEquipmentExpand,
+      reference: "kitchen",
     },
     {
       headline: "Second unit trailer",
       summary: "Mobile mini-kitchen that makes any setup more flexible",
       price: 6000,
-      showBoolean: isTrailerAdded,
-      toggleMethod: toggleTrailer,
+      isAdded: isTrailerAdded,
+      toggleAdd: toggleTrailerAdd,
+      isExpanded: isTrailerExpanded,
+      toggleExpand: toggleTrailerExpand,
+      reference: "trailer",
     },
     {
       headline: "Business turnkey",
       summary:
         "Training to make our delicious pizza plus marketing and logo supplies",
       price: 4000,
-      showBoolean: isBusinessAdded,
-      toggleMethod: toggleBusiness,
+      isAdded: isBusinessAdded,
+      toggleAdd: toggleBusinessAdd,
+      isExpanded: isBusinessExpanded,
+      toggleExpand: toggleBusinessExpand,
+      reference: "business",
     },
   ]
 
@@ -89,10 +107,12 @@ function Details() {
         {pricingInfo.map((pkg, i) => {
           const isRequired = pkg.isRequired ? " required" : ""
           const isSelected = level >= i ? " selected" : " not-selected"
+          const isExpanded = pkg.isExpanded ? "" : ' hidden'
           return (
             <div
               key={i}
               className={"option-container" + isSelected + isRequired}
+              onClick={() => pkg.toggleExpand(!pkg.isExpanded)}
             >
               <div className={"option"}>
                 <h2 className="">
@@ -124,13 +144,17 @@ function Details() {
                   <p className="">{pkg.summary}</p>
                   <h4>{formatPrice(pkg.price)}</h4>
                 </div>
+                <div className={isExpanded}>
+                  
+                </div>
               </div>
             </div>
           )
         })}
         <br />
         <h2 className="center red-text">
-          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b> {formatPrice(totalPrices[level])}
+          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b>{" "}
+          {formatPrice(totalPrices[level])}
         </h2>
       </div>
     </div>

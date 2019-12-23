@@ -162,6 +162,10 @@ p {
   color: #54141d;
 }
 
+.hidden {
+  display: none;
+}
+
 .option {
   padding: 20px;
   margin: 15px 0;
