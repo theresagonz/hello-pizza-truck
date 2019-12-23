@@ -336,18 +336,10 @@ const Details = props => {
         <div className="flexbox">
           <div className="truckInfo">
             {baseInfos.map(section => {
-              const label = section.label
-              const featureText = !label ? { fontSize: "1.5em" } : null
-              const shouldShow =
-                toggleInfoMap[label] && toggleInfoMap[label].shouldShow
-              const toggleMethod =
-                toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
               return (
                 <InfoItem
                   section={section}
-                  featureText={featureText}
-                  shouldShow={shouldShow}
-                  toggleMethod={toggleMethod}
+                  toggleInfoMap={toggleInfoMap}
                 />
               )
             })}

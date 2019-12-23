@@ -1,7 +1,11 @@
 import React from "react"
 import ImageGallery from "react-image-gallery"
 
-function InfoItem({section, featureText, shouldShow, toggleMethod}) {
+function InfoItem({ section, toggleInfoMap }) {
+  const label = section.label
+  const featureText = !label ? { fontSize: "1.5em" } : null
+  const shouldShow = toggleInfoMap[label] && toggleInfoMap[label].shouldShow
+  const toggleMethod = toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
   return (
     <div className="sectionLabelWrapper">
       <div className="gallery">
