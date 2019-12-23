@@ -1,14 +1,25 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins|Roboto|Roboto+Slab|Inria+Serif|Montserrat|IBM+Plex+Sans|Muli|Nunito+Sans:400,600,800&display=swap");
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 html {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif !important;
 }
 
 body {
-  font-family: "Poppins", sans-serif !important;
+  font-family: "Nunito Sans", sans-serif !important;
+  font-family: "Muli", sans-serif !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif !important;
+  font-weight: 900;
 }
 
 section {
@@ -20,7 +31,12 @@ section {
   color: #fff;
 }
 
-a, a:hover {
+.container {
+  max-width: 800px;
+}
+
+a,
+a:hover {
   text-decoration: none;
 }
 
@@ -28,30 +44,39 @@ p {
   font-size: 1.2rem;
 }
 
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 30px;
+  min-height: 100vh;
+  background-image: url("./images/gallery/main/truck-exterior-rear.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#team {
+  padding-top: 70px;
+}
+
 #team a {
-  color: #672816;
+  color: #54141d;
+  font-weight: 600;
 }
 
 #team a:hover {
-  color: #35150b;
+  color: #400f16;
 }
 
 .flexbox {
   height: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column
-}
-
-.centerItems{
-  height: 100%;
-  display: flex;
-  justify-content: center;
   flex-direction: column;
-  padding-bottom: 55px;
 }
 
-.inputBox{
+.inputBox {
   width: 100%;
   background-color: #ab666a;
   border: none;
@@ -61,34 +86,160 @@ p {
   color: white;
 }
 
-/* .image-gallery-slides {
-  max-height: calc(100vh - 250px);
-} */
-
 ::placeholder {
-  color: #E5D0C8;
+  color: #e5d0c8;
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: light-grey;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: light-grey;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
- color: light-grey;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: light-grey;
 }
 
 .section h2 {
   margin-bottom: 15px;
 }
 
+.center {
+  text-align: center;
+}
+
+.topTextContainer {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  background: rgba(166, 193, 234, 0.72);
+}
+
+.floatingTextContainer {
+  width: auto;
+  border-radius: 10px;
+  -webkit-box-shadow: -20px 22px 44px -18px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -20px 22px 44px -18px rgba(0, 0, 0, 0.75);
+  box-shadow: -2px 22px 44px -18px rgba(0, 0, 0, 0.75);
+}
+
+.bottomTextContainer {
+  margin-left: 30%;
+  background: rgba(181, 170, 160, 0.8);
+  border-radius: 15px;
+}
+
+.leftTextContainer {
+  background: rgba(77, 87, 97, 0.8);
+  width: 200px;
+  margin-left: 10%;
+  -webkit-box-shadow: 3px 3px 54px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 54px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 54px 7px rgba(0, 0, 0, 0.75);
+}
+
+.bottomText {
+  line-height: 1.5em;
+  padding: 25px 30px;
+}
+
 .warmGradient {
-  background: rgb(153,51,51);
-  background: linear-gradient(0deg, rgba(153,51,51,1) 10%, rgba(239,115,76,1) 40%, rgba(236,160,83,1) 81%);
+  background: rgb(153, 51, 51);
+  background: linear-gradient(
+    0deg,
+    rgba(153, 51, 51, 1) 10%,
+    rgba(239, 115, 76, 1) 40%,
+    rgba(236, 160, 83, 1) 81%
+  );
 }
 
 .red-text {
-  color: #6b1c1c;
+  color: #a5282e;
+}
+
+.dark-red {
+  color: #54141d;
+}
+
+.option {
+  padding: 20px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.option-container {
+  border-radius: 15px;
+}
+
+.option-container .show-button {
+  display: inline;
+}
+
+.option-container.selected + .option-container.not-selected .hello {
+  display: inline;
+}
+
+
+.not-selected {
+  background-color: #969696;
+  cursor: pointer;
+}
+
+.not-selected:hover .add-button {
+  background-color: #eca053;
+}
+
+.not-selected:hover {
+  background-color: #a9a6a6;
+}
+
+.not-selected:hover .add-remove-button {
+  background-color: #969696;
+}
+
+.not-selected .add-button {
+  background-color: #eabd8e;
+}
+
+.selected {
+  background-color: #e09648;
+}
+
+.selected:hover {
+  background-color: #dc9b56;
+}
+
+.add-remove-button {
+  border-radius: 50%;
+  text-align: center;
+  padding: 0 0.8rem 0.1rem;
+  width: 50px;
+  height: 50px;
+  margin: 0 0.5rem;
+  border: 1px solid white;
+}
+
+.required {
+  cursor: default;
+}
+
+.required:hover {
+  background-color: #e09648;
+}
+
+.add-remove-button.remove {
+  border: none;
+}
+
+.add-remove-button.add:hover {
+  background-color: #eca053;
+}
+
+.price-summary {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
 }
 
 .red-bg {
@@ -96,8 +247,12 @@ p {
 }
 
 .gold-orange-bg {
-  background: rgb(239,115,76);
-  background: linear-gradient(45deg, rgba(239,115,76,1) 0%, rgba(236,160,83,1) 50%);
+  background: rgb(239, 115, 76);
+  background: linear-gradient(
+    0deg,
+    rgba(239, 115, 76, 1) 0%,
+    rgba(236, 160, 83, 1) 70%
+  );
 }
 
 .orange-bg {
@@ -109,32 +264,56 @@ p {
 }
 
 .grey-bg {
-  background-color: #5e5c65;
+  background-color: #3e454be6;
+}
+
+.lt-grey-bg {
+  background-color: grey;
 }
 
 .pointer {
   cursor: pointer;
 }
 
-#home {
-  padding-top: 30px;
-}
-
-.topText h1 {
-  margin-bottom: 25px;
+.textShadow {
+  text-shadow: -1px 1px grey;
 }
 
 .section {
-  padding: 45px 0 ;
+  padding: 45px 0;
+}
+
+.detailsSection {
+  max-width: 800px;
 }
 
 .truckInfo {
   margin-bottom: 25px;
 }
 
-/* space between description and details */
-div.sectionLabel:first-of-type {
-  margin-top: 40px;
+.sectionLabelWrapper {
+  margin: 0 0 150px;
+}
+
+.sectionLabelWrapper h1 {
+  margin: 35px 0 20px;
+}
+
+.sectionLabelWrapper p,
+.sectionLabelWrapper li {
+  color: #c3c3c3;
+}
+
+.sectionLabel {
+  margin-left: 25px;
+}
+
+.sectionLabel span {
+  margin-right: 12px;
+}
+
+.right {
+  display: none;
 }
 
 .toggleShow {
@@ -145,15 +324,15 @@ div.sectionLabel:first-of-type {
   display: block;
 }
 
-textarea:focus{
-  animation: none !important
+textarea:focus {
+  animation: none !important;
 }
 
-footer{
+footer {
   background-color: black;
-  color: #B9A4DE;
+  color: #b9a4de;
 }
 
 footer a {
-  color: white
+  color: white;
 }

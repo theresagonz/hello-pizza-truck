@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import ServiceItem from "../components/ServiceItem"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -16,35 +16,122 @@ function Details() {
     }
   `)
 
-  const features = [
-    "Custom-built, unique concept pizza truck with a real wood fired oven and full commercial kitchen, featuring a large working space with lots of windows.",
-    "At the center of the kitchen area is the oven, which evenly distributes heat and cooks food quickly at around 750°F. With over 2,000 sq. in. of cooking space, the oven can handle up to three 13” pizzas or five 8” pizzas at a time.",
-    "The oven faces the serving window, allowing customers the experience of seeing the crackling fire and food cooking in real time.",
-    "A rear utility room contains a bathroom with toilet and hand wash sink, extra storage, and easy access to the power system.",
-    "The oven's high heat gives thin crust Neopolitan-style pizzas a light, savory texture, a perfectly crispy outer crust, and caramelized cheese and toppings, usually under 2 minutes cooking time per pizza.",
-    "We've also used the oven to cook up meats, roasted veggies, crusty breads, and more. We're excited to help you discover just how amazing high heat cooking can be.",
-  ]
+  const formatPrice = num => {
+    const numArray = num && num.toString().split("")
+    if (numArray) {
+      numArray.splice(-3, 0, ",")
+      return "$" + numArray.join("")
+    }
+  }
+
+  const resetSelectionToIndex = (index, items) => {
+    for (let i = index; i < items.length; i++) {
+      items[i].toggleMethod(false)
+    }
+  }
+
+  const totalPrices = [80000, 87000, 93000, 97000]
 
   const featureStyle = {
     fontSize: "1.5em",
     padding: "20px 12px",
   }
 
+  const [isTruckAdded, toggleTruck] = useState(true)
+  const [isEquipmentAdded, toggleEquipment] = useState(false)
+  const [isTrailerAdded, toggleTrailer] = useState(false)
+  const [isBusinessAdded, toggleBusiness] = useState(false)
+  const [isDirty, setDirty] = useState(false)
+  const [level, setLevel] = useState(0)
+
+  const pricingInfo = [
+    {
+      headline: "Just the truck",
+      summary: "Truck, oven, and everything shown above",
+      price: 80000,
+      isRequired: true,
+      showBoolean: isTruckAdded,
+      toggleMethod: toggleTruck,
+    },
+    {
+      headline: "Kitchen support equipment",
+      summary:
+        "Equipment and supplies for running a mobile wood fired pizza business",
+      price: 7000,
+      showBoolean: isEquipmentAdded,
+      toggleMethod: toggleEquipment,
+    },
+    {
+      headline: "Second unit trailer",
+      summary: "Mobile mini-kitchen that makes any setup more flexible",
+      price: 6000,
+      showBoolean: isTrailerAdded,
+      toggleMethod: toggleTrailer,
+    },
+    {
+      headline: "Business turnkey",
+      summary:
+        "Training to make our delicious pizza plus marketing and logo supplies",
+      price: 4000,
+      showBoolean: isBusinessAdded,
+      toggleMethod: toggleBusiness,
+    },
+  ]
+
   return (
-    <div id="details" className="container-fluid gold-bg section">
-      <div className="container">
-        <div className="flexbox">
-        <h1 className="text-center my-4">Available Now!</h1>
-          <div className="row">
-            {features.map((feature, i) => {
-              return (
-                <div className="feature" style={featureStyle} key={i}>
-                  {feature}
+    <div id="details" className="container-fluid lt-grey-bg section">
+      <div className="container detailsSection">
+        <h1 className="text-center my-4">Pricing</h1>
+        <p>
+          Several buying options are available for the truck and equipment for a
+          fully customizable setup.
+        </p>
+        {pricingInfo.map((pkg, i) => {
+          const isRequired = pkg.isRequired ? " required" : ""
+          const isSelected = level >= i ? " selected" : " not-selected"
+          return (
+            <div
+              key={i}
+              className={"option-container" + isSelected + isRequired}
+            >
+              <div className={"option"}>
+                <h2 className="">
+                  {pkg.headline}{" "}
+                  {pkg.isRequired ? (
+                    <span className="check-mark required">&#10003;</span>
+                  ) : i <= level ? (
+                    <span
+                      className={"check-mark add-remove-button remove"}
+                      onClick={() => {
+                        setLevel(i - 1)
+                      }}
+                    >
+                      &#10003;
+                    </span>
+                  ) : (
+                    <span
+                      className={"add-remove-button add"}
+                      onClick={() => {
+                        setDirty(true)
+                        setLevel(i)
+                      }}
+                    >
+                      +
+                    </span>
+                  )}
+                </h2>
+                <div className="price-summary">
+                  <p className="">{pkg.summary}</p>
+                  <h4>{formatPrice(pkg.price)}</h4>
                 </div>
-              )
-            })}
-          </div>
-        </div>
+              </div>
+            </div>
+          )
+        })}
+        <br />
+        <h2 className="center red-text">
+          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b> {formatPrice(totalPrices[level])}
+        </h2>
       </div>
     </div>
   )

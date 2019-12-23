@@ -10,8 +10,8 @@ function Index() {
   return (
     <div className="page">
       <LandingPage/>
-      <Details/>
       <Team/>
+      <Details/>
       <End/>
       {/* <Footer/> */}
     </div>
