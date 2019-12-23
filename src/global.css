@@ -165,20 +165,81 @@ p {
 .option {
   padding: 20px;
   margin: 15px 0;
+  cursor: pointer;
+}
+
+.option-container {
   border-radius: 15px;
 }
 
+.option-container .show-button {
+  display: inline;
+}
+
+.option-container.selected + .option-container.not-selected .hello {
+  display: inline;
+}
+
+
 .not-selected {
+  background-color: #969696;
+  cursor: pointer;
+}
+
+.not-selected:hover .add-button {
+  background-color: #eca053;
+}
+
+.not-selected:hover {
+  background-color: #a9a6a6;
+}
+
+.not-selected:hover .add-remove-button {
   background-color: #969696;
 }
 
+.not-selected .add-button {
+  background-color: #eabd8e;
+}
+
 .selected {
+  background-color: #e09648;
+}
+
+.selected:hover {
+  background-color: #dc9b56;
+}
+
+.add-remove-button {
+  border-radius: 50%;
+  text-align: center;
+  padding: 0 0.8rem 0.1rem;
+  width: 50px;
+  height: 50px;
+  margin: 0 0.5rem;
+  border: 1px solid white;
+}
+
+.required {
+  cursor: default;
+}
+
+.required:hover {
+  background-color: #e09648;
+}
+
+.add-remove-button.remove {
+  border: none;
+}
+
+.add-remove-button.add:hover {
   background-color: #eca053;
 }
 
 .price-summary {
   display: flex;
   justify-content: space-between;
+  border-radius: 15px;
 }
 
 .red-bg {

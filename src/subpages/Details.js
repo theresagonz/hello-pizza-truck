@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import ServiceItem from "../components/ServiceItem"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -16,12 +16,67 @@ function Details() {
     }
   `)
 
+  const formatPrice = num => {
+    const numArray = num && num.toString().split("")
+    if (numArray) {
+      numArray.splice(-3, 0, ",")
+      return "$" + numArray.join("")
+    }
+  }
+
+  const resetSelectionToIndex = (index, items) => {
+    for (let i = index; i < items.length; i++) {
+      items[i].toggleMethod(false)
+    }
+  }
+
+  const totalPrices = [80000, 87000, 93000, 97000]
+
   const featureStyle = {
     fontSize: "1.5em",
     padding: "20px 12px",
   }
 
-  let price = 80000
+  const [isTruckAdded, toggleTruck] = useState(true)
+  const [isEquipmentAdded, toggleEquipment] = useState(false)
+  const [isTrailerAdded, toggleTrailer] = useState(false)
+  const [isBusinessAdded, toggleBusiness] = useState(false)
+  const [isDirty, setDirty] = useState(false)
+  const [level, setLevel] = useState(0)
+
+  const pricingInfo = [
+    {
+      headline: "Just the truck",
+      summary: "Truck, oven, and everything shown above",
+      price: 80000,
+      isRequired: true,
+      showBoolean: isTruckAdded,
+      toggleMethod: toggleTruck,
+    },
+    {
+      headline: "Kitchen support equipment",
+      summary:
+        "Equipment and supplies for running a mobile wood fired pizza business",
+      price: 7000,
+      showBoolean: isEquipmentAdded,
+      toggleMethod: toggleEquipment,
+    },
+    {
+      headline: "Second unit trailer",
+      summary: "Mobile mini-kitchen that makes any setup more flexible",
+      price: 6000,
+      showBoolean: isTrailerAdded,
+      toggleMethod: toggleTrailer,
+    },
+    {
+      headline: "Business turnkey",
+      summary:
+        "Training to make our delicious pizza plus marketing and logo supplies",
+      price: 4000,
+      showBoolean: isBusinessAdded,
+      toggleMethod: toggleBusiness,
+    },
+  ]
 
   return (
     <div id="details" className="container-fluid lt-grey-bg section">
@@ -31,47 +86,52 @@ function Details() {
           Several buying options are available for the truck and equipment for a
           fully customizable setup.
         </p>
-        <h1 className="center">Base price: {price}</h1>
-        <br />
-        <div className="option selected">
-          <h2 className="">Just the Truck</h2>
-          <div className="price-summary">
-            <p className="">Truck, oven, and everything shown above</p>
-            <h4>$80,000</h4>
-          </div>
-        </div>
-        <div className="option not-selected">
-          <h2>Kitchen Support Equipment</h2>
-          <div className="price-summary">
-            <p>
-              Equipment and supplies for running a mobile wood fired pizza
-              business
-            </p>
-            <h4>$7,000</h4>
-          </div>
-        </div>
-        <div className="option not-selected">
-          <h2>Second Unit Trailer</h2>
-          <p>Mobile mini-kitchen that makes any setup more flexible</p>
-        </div>
-        <div className="option not-selected">
-          <h2>Business Turnkey</h2>
-          <p>
-            Training to make our delicious pizza plus marketing and logo
-            supplies
-          </p>
-        </div>
-        {/* {features.map((feature, i) => {
-              return (
-                <div
-                  className="feature"
-                  style={featureStyle}
-                  key={i}
-                >
-                  {feature}
+        {pricingInfo.map((pkg, i) => {
+          const isRequired = pkg.isRequired ? " required" : ""
+          const isSelected = level >= i ? " selected" : " not-selected"
+          return (
+            <div
+              key={i}
+              className={"option-container" + isSelected + isRequired}
+            >
+              <div className={"option"}>
+                <h2 className="">
+                  {pkg.headline}{" "}
+                  {pkg.isRequired ? (
+                    <span className="check-mark required">&#10003;</span>
+                  ) : i <= level ? (
+                    <span
+                      className={"check-mark add-remove-button remove"}
+                      onClick={() => {
+                        setLevel(i - 1)
+                      }}
+                    >
+                      &#10003;
+                    </span>
+                  ) : (
+                    <span
+                      className={"add-remove-button add"}
+                      onClick={() => {
+                        setDirty(true)
+                        setLevel(i)
+                      }}
+                    >
+                      +
+                    </span>
+                  )}
+                </h2>
+                <div className="price-summary">
+                  <p className="">{pkg.summary}</p>
+                  <h4>{formatPrice(pkg.price)}</h4>
                 </div>
-              )
-            })} */}
+              </div>
+            </div>
+          )
+        })}
+        <br />
+        <h2 className="center red-text">
+          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b> {formatPrice(totalPrices[level])}
+        </h2>
       </div>
     </div>
   )
