@@ -166,13 +166,10 @@ p {
   display: none;
 }
 
-.option {
-  padding: 20px;
+.option-container {
+  padding: 25px 30px 20px;
   margin: 15px 0;
   cursor: pointer;
-}
-
-.option-container {
   border-radius: 15px;
 }
 
@@ -211,7 +208,7 @@ p {
 }
 
 .selected:hover {
-  background-color: #dc9b56;
+  background-color: #e09e58;
 }
 
 .add-remove-button {

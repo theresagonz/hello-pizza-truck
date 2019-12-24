@@ -6,6 +6,7 @@ function InfoItem({ section, toggleInfoMap }) {
   const featureText = !label ? { fontSize: "1.5em" } : null
   const shouldShow = toggleInfoMap[label] && toggleInfoMap[label].shouldShow
   const toggleMethod = toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
+
   return (
     <div className="sectionLabelWrapper">
       <div className="gallery">
@@ -29,9 +30,8 @@ function InfoItem({ section, toggleInfoMap }) {
                     className="pointer"
                     onClick={() => toggleMethod(!shouldShow)}
                   >
-                    {shouldShow ? "- Collapse" : "+ More info"}
+                    {shouldShow ? "- Hide info" : "+ More info"}
                   </span>
-                  {/* {shouldShow ? " Collapse" : " More info"} */}
                 </h5>
                 <ul>
                   {section.infos &&
