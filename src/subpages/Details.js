@@ -1,6 +1,16 @@
 import React, { useState } from "react"
-import ServiceItem from "../components/ServiceItem"
+import PricingItem from "../components/PricingItem"
+import formatPrice from "../libraries/formatPrice"
 import { useStaticQuery, graphql } from "gatsby"
+
+// trailer gallery
+import trailer from "../images/gallery/trailer/trailer.jpg"
+import trailer2 from "../images/gallery/trailer/trailer2.jpg"
+
+// equipment gallery
+import pizzaWarmer from "../images/gallery/equipment/pizza-warmer.jpg"
+import truckPrepArea from "../images/gallery/kitchen/truck-prep-area.png"
+import prepTable from "../images/gallery/equipment/prep-table.jpg"
 
 function Details() {
   const { allServicesYaml } = useStaticQuery(graphql`
@@ -16,17 +26,9 @@ function Details() {
     }
   `)
 
-  const formatPrice = num => {
-    const numArray = num && num.toString().split("")
-    if (numArray) {
-      numArray.splice(-3, 0, ",")
-      return "$" + numArray.join("")
-    }
-  }
-
   const resetSelectionToIndex = (index, items) => {
     for (let i = index; i < items.length; i++) {
-      items[i].toggleMethod(false)
+      items[i].toggleAdd(false)
     }
   }
 
@@ -37,10 +39,16 @@ function Details() {
     padding: "20px 12px",
   }
 
-  const [isTruckAdded, toggleTruck] = useState(true)
-  const [isEquipmentAdded, toggleEquipment] = useState(false)
-  const [isTrailerAdded, toggleTrailer] = useState(false)
-  const [isBusinessAdded, toggleBusiness] = useState(false)
+  const [isTruckAdded, toggleTruckAdd] = useState(true)
+  const [isEquipmentAdded, toggleEquipmentAdd] = useState(false)
+  const [isTrailerAdded, toggleTrailerAdd] = useState(false)
+  const [isBusinessAdded, toggleBusinessAdd] = useState(false)
+
+  const [isTruckExpanded, toggleTruckExpand] = useState(false)
+  const [isEquipmentExpanded, toggleEquipmentExpand] = useState(false)
+  const [isTrailerExpanded, toggleTrailerExpand] = useState(false)
+  const [isBusinessExpanded, toggleBusinessExpand] = useState(false)
+
   const [isDirty, setDirty] = useState(false)
   const [level, setLevel] = useState(0)
 
@@ -50,87 +58,177 @@ function Details() {
       summary: "Truck, oven, and everything shown above",
       price: 80000,
       isRequired: true,
-      showBoolean: isTruckAdded,
-      toggleMethod: toggleTruck,
+      isAdded: isTruckAdded,
+      toggleAdd: toggleTruckAdd,
+      isExpanded: isTruckExpanded,
+      toggleExpand: toggleTruckExpand,
+      reference: "truck",
     },
     {
       headline: "Kitchen support equipment",
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
       price: 7000,
-      showBoolean: isEquipmentAdded,
-      toggleMethod: toggleEquipment,
+      isAdded: isEquipmentAdded,
+      toggleAdd: toggleEquipmentAdd,
+      isExpanded: isEquipmentExpanded,
+      toggleExpand: toggleEquipmentExpand,
+      reference: "kitchen",
+      expandableInfos: [
+        {
+          category: "Equipment",
+          infos: [
+            { text: "Spiral dough mixer, Häussler 25 quart" },
+            {
+              text:
+                "Refrigerator – full size stainless steel commercial two-door (Blue Air) with 15 pan dough rack on one side",
+            },
+            {
+              text:
+                "Refrigerated prep table (Turbo Air 48” ) with an assortment of half, third, sixth and ninth trays",
+            },
+            {
+              text:
+                "Heater/dough proofer with stainless top and shelf (half-size Win-Holt NHP-PD-ECO)",
+            },
+            {
+              text:
+                "Pizza warmer, Hatco FDWD-1X, on rolling cart with two shelves",
+            },
+            { text: "Half baker rack with stainless top" },
+          ],
+        },
+        {
+          category: "Accessories",
+          infos: [
+            { text: "6 sheet pans, full-size" },
+            { text: "30 sheet pans, half-size" },
+            { text: "12 custom Lloyd pizza pans, 13.5”" },
+            { text: "15 pizza pans, 12”" },
+            { text: "Pizza screens - 8”, 10”, 12” and 14” sizes" },
+            { text: "Wooden peels" },
+            { text: "Cutting boards" },
+            { text: "Pizza cutters" },
+            { text: "Large serving spatulas" },
+            { text: "And more!" },
+          ],
+        },
+      ],
+      images: [
+        { original: pizzaWarmer, thumbnail: pizzaWarmer },
+        { original: truckPrepArea, thumbnail: truckPrepArea },
+        { original: prepTable, thumbnail: prepTable },
+      ],
     },
     {
       headline: "Second unit trailer",
       summary: "Mobile mini-kitchen that makes any setup more flexible",
       price: 6000,
-      showBoolean: isTrailerAdded,
-      toggleMethod: toggleTrailer,
+      isAdded: isTrailerAdded,
+      toggleAdd: toggleTrailerAdd,
+      isExpanded: isTrailerExpanded,
+      toggleExpand: toggleTrailerExpand,
+      reference: "trailer",
+      descriptions: [
+        {
+          text:
+            "Starting with a Road Force tandem axle trailer, we installed a wood fired oven and venting system, lighting, refrigeration, a counter with storage cabinets, and a portable hand wash sink. When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving ovens in and out of trailer.",
+        },
+      ],
+      expandableInfos: [
+        {
+          category: null,
+          infos: [
+            {
+              jsxWithLink: (
+                <span>
+                  Wood fired oven,{" "}
+                  <a
+                    href="https://chicagobrickoven.com/products/cbo-750-mobile?variant=12221428367402"
+                    target="_blank"
+                  >
+                    Chicago Brick Oven CB-750
+                  </a>{" "}
+                  (currently mounted on the trailer but can also be portable on
+                  a cart)
+                </span>
+              ),
+            },
+            { text: "Refrigerator/freezer, Sears 13 cubic foot" },
+            { text: "Portable hand wash sink with heater, PolyJohn" },
+            { text: "Counter with storage cabinets" },
+            { text: "6 Camper jacks to make ramp door an extra workspace" },
+            {
+              text:
+                "Wired for 110V power to inside outlets and 12-volt system inside to run winch and lights",
+            },
+            { text: "Battery, 12V for backup power to power lights and winch" },
+          ],
+        },
+      ],
+      images: [
+        { original: trailer, thumbnail: trailer },
+        { original: trailer2, thumbnail: trailer2 },
+      ],
     },
     {
       headline: "Business turnkey",
-      summary:
-        "Training to make our delicious pizza plus marketing and logo supplies",
+      summary: "Training to make our pizza plus marketing and logo supplies",
       price: 4000,
-      showBoolean: isBusinessAdded,
-      toggleMethod: toggleBusiness,
+      isAdded: isBusinessAdded,
+      toggleAdd: toggleBusinessAdd,
+      isExpanded: isBusinessExpanded,
+      toggleExpand: toggleBusinessExpand,
+      reference: "business",
+      expandableInfos: [
+        {
+          category: null,
+          infos: [
+            { text: "CO state registered business name" },
+            {
+              text:
+                "Two weeks of training to learn about the wood fired oven and how to make our delicious pizza",
+            },
+            { text: "Complete customizable WordPress website" },
+            {
+              text:
+                "Custom EZ-Up canopy shelter, 10”x10” digitally printed with logo and 4 weight bags",
+            },
+            {
+              text:
+                "Picnic table, 6’ collapsible, with bench seats and umbrella",
+            },
+            { text: "Chimney sweep brushes, 6” and 8” on 4’ rod" },
+            { text: "Aprons with embroidered logo" },
+          ],
+        },
+      ],
+      images: [],
     },
   ]
-
   return (
     <div id="details" className="container-fluid lt-grey-bg section">
       <div className="container detailsSection">
         <h1 className="text-center my-4">Pricing</h1>
-        <p>
-          Several buying options are available for the truck and equipment for a
-          fully customizable setup.
-        </p>
-        {pricingInfo.map((pkg, i) => {
-          const isRequired = pkg.isRequired ? " required" : ""
-          const isSelected = level >= i ? " selected" : " not-selected"
-          return (
-            <div
-              key={i}
-              className={"option-container" + isSelected + isRequired}
-            >
-              <div className={"option"}>
-                <h2 className="">
-                  {pkg.headline}{" "}
-                  {pkg.isRequired ? (
-                    <span className="check-mark required">&#10003;</span>
-                  ) : i <= level ? (
-                    <span
-                      className={"check-mark add-remove-button remove"}
-                      onClick={() => {
-                        setLevel(i - 1)
-                      }}
-                    >
-                      &#10003;
-                    </span>
-                  ) : (
-                    <span
-                      className={"add-remove-button add"}
-                      onClick={() => {
-                        setDirty(true)
-                        setLevel(i)
-                      }}
-                    >
-                      +
-                    </span>
-                  )}
-                </h2>
-                <div className="price-summary">
-                  <p className="">{pkg.summary}</p>
-                  <h4>{formatPrice(pkg.price)}</h4>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+        <h4 className="center">Create your perfect setup...</h4>
+
+        {pricingInfo.map((pkg, i) => (
+          <PricingItem
+            key={i}
+            pkg={pkg}
+            level={level}
+            setLevel={setLevel}
+            isDirty={isDirty}
+            setDirty={setDirty}
+            isExpanded={pkg.isExpanded}
+            toggleExpand={pkg.toggleExpand}
+            i={i}
+          />
+        ))}
         <br />
         <h2 className="center red-text">
-          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b> {formatPrice(totalPrices[level])}
+          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b>{" "}
+          {formatPrice(totalPrices[level])}
         </h2>
       </div>
     </div>

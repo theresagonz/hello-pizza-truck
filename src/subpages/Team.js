@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import TeamItem from "../components/TeamItem"
 import { useStaticQuery, graphql } from "gatsby"
-import ImageGallery from "react-image-gallery"
+import InfoItem from "../components/InfoItem"
 
 // kitchen gallery
 import truckWorkspace from "../images/gallery/kitchen/truck-workspace.jpg"
 import ovenWorkspace from "../images/gallery/kitchen/oven-workspace.jpg"
 import servingWindow from "../images/gallery/kitchen/truck-exterior-serving-window.jpg"
+import truckPrepArea from "../images/gallery/kitchen/truck-prep-area.png"
 import sink from "../images/gallery/kitchen/sink.jpg"
 import sinkWorkspace from "../images/gallery/kitchen/truck-sinks-workspace.jpg"
 import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
@@ -17,11 +18,12 @@ import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
 import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
 
 // truck gallery
+import truckLayout from "../images/gallery/truck/truck-layout.jpg"
 import truckAtEvent from "../images/gallery/truck/truck-at-event.jpg"
-import truckExteriorServingWindow from "../images/gallery/kitchen/truck-exterior-serving-window.jpg"
 import truckMountains from "../images/gallery/truck/truck-mountains.jpg"
 import truckParked from "../images/gallery/truck/truck-parked.jpg"
 import truckRearOpen from "../images/gallery/truck/truck-rear-open.jpg"
+import truckRearOpen2 from "../images/gallery/truck/truck-rear-open2.jpg"
 import truckRearClosed from "../images/gallery/truck/truck-rear-closed.jpg"
 
 // bathroom gallery
@@ -145,6 +147,7 @@ const Details = props => {
         { original: sink, thumbnail: sink },
         { original: sinkWorkspace, thumbnail: sinkWorkspace },
         { original: truckWorkspace, thumbnail: truckWorkspace },
+        { original: truckPrepArea, thumbnail: truckPrepArea },
         { original: servingWindow, thumbnail: servingWindow },
       ],
     },
@@ -182,9 +185,11 @@ const Details = props => {
         { boldText: "Current DOT certification", text: "Intrastate CO" },
       ],
       images: [
+        { original: truckLayout, thumbnail: truckLayout },
         { original: truckAtEvent, thumbnail: truckAtEvent },
         { original: truckParked, thumbnail: truckParked },
         { original: truckMountains, thumbnail: truckMountains },
+        { original: truckRearOpen2, thumbnail: truckRearOpen2 },
         { original: truckRearOpen, thumbnail: truckRearOpen },
         { original: truckRearClosed, thumbnail: truckRearClosed },
       ],
@@ -335,97 +340,13 @@ const Details = props => {
       <div className="container">
         <div className="flexbox">
           <div className="truckInfo">
-            {baseInfos.map(section => {
-              const label = section.label
-              const featureText = !label ? { fontSize: "1.5em" } : null
-              const shouldShow =
-                toggleInfoMap[label] && toggleInfoMap[label].shouldShow
-              const toggleMethod =
-                toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
+            {baseInfos.map((section, i) => {
               return (
-                <div className="sectionLabelWrapper">
-                  <div className="gallery">
-                    {section.images && (
-                      <ImageGallery
-                        items={section.images}
-                        thumbnailPosition="right"
-                      />
-                    )}
-                  </div>
-                  {section.label && <h1>{section.label}</h1>}
-                  {section.descriptions && (
-                    <div className="pMarginTop">
-                      {section.descriptions.map((description, i) => (
-                        <p style={featureText} key={i}>
-                          {description}
-                        </p>
-                      ))}
-                      <div className="detailsContainer">
-                        {section.infos && (
-                          <div>
-                            <h5 className="sectionLabel">
-                              <span
-                                className="pointer"
-                                onClick={() => toggleMethod(!shouldShow)}
-                              >
-                                {shouldShow ? "- Collapse" : "+ More info"}
-                              </span>
-                              {/* {shouldShow ? " Collapse" : " More info"} */}
-                            </h5>
-                            <ul>
-                              {section.infos &&
-                                section.infos.map((info, j) => {
-                                  const subInfos =
-                                    info.subInfos && info.subInfos.length
-                                      ? info.subInfos
-                                      : null
-                                  return subInfos ? (
-                                    <div
-                                      className={
-                                        "toggleShow" +
-                                        (!shouldShow ? " show" : null)
-                                      }
-                                      key={label + "-" + j}
-                                    >
-                                      <li>{info.text || info.jsxWithLink}</li>
-                                      <ul>
-                                        {subInfos.map((subInfo, k) => (
-                                          <li key={"subInfo-" + j + "-" + k}>
-                                            {subInfo.text}
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    </div>
-                                  ) : info.boldText ? (
-                                    <li
-                                      key={label + "-" + j}
-                                      className={
-                                        "toggleShow" +
-                                        (!shouldShow ? " show" : null)
-                                      }
-                                    >
-                                      <strong>{info.boldText}:</strong>{" "}
-                                      {info.text}
-                                    </li>
-                                  ) : (
-                                    <li
-                                      key={label + "-" + j}
-                                      className={
-                                        "toggleShow" +
-                                        (!shouldShow ? " show" : null)
-                                      }
-                                    >
-                                      {info.text}
-                                    </li>
-                                  )
-                                })}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
+                <InfoItem
+                  key={"infoitem-" + i}
+                  section={section}
+                  toggleInfoMap={toggleInfoMap}
+                />
               )
             })}
           </div>

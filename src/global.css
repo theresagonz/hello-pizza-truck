@@ -61,12 +61,20 @@ p {
 }
 
 #team a {
-  color: #54141d;
+  color: #e89d4a;
   font-weight: 600;
 }
 
 #team a:hover {
-  color: #400f16;
+  color: #f9b469;
+}
+
+#details  a {
+  color: #676464;
+}
+
+#details  a:hover {
+  color: #7f7f7f;
 }
 
 .flexbox {
@@ -74,6 +82,16 @@ p {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.ma-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.ma-links img {
+  height: 100px;
 }
 
 .inputBox {
@@ -84,6 +102,14 @@ p {
   padding: 20px;
   text-decoration-color: white;
   color: white;
+}
+
+.margin-bottom {
+  margin-bottom: 25px;
+}
+
+.larger-font {
+  font-size: 1.5em;
 }
 
 ::placeholder {
@@ -162,13 +188,14 @@ p {
   color: #54141d;
 }
 
-.option {
-  padding: 20px;
-  margin: 15px 0;
-  cursor: pointer;
+.hidden {
+  display: none;
 }
 
 .option-container {
+  padding: 25px 30px 20px;
+  margin: 15px 0;
+  cursor: pointer;
   border-radius: 15px;
 }
 
@@ -179,7 +206,6 @@ p {
 .option-container.selected + .option-container.not-selected .hello {
   display: inline;
 }
-
 
 .not-selected {
   background-color: #969696;
@@ -207,7 +233,7 @@ p {
 }
 
 .selected:hover {
-  background-color: #dc9b56;
+  background-color: #e09e58;
 }
 
 .add-remove-button {
@@ -292,7 +318,7 @@ p {
 }
 
 .sectionLabelWrapper {
-  margin: 0 0 150px;
+  padding: 50px 0 100px;
 }
 
 .sectionLabelWrapper h1 {
@@ -322,6 +348,23 @@ p {
 
 .toggleShow .show {
   display: block;
+}
+
+#contact-info a {
+  color: #f9b469;
+}
+
+.email {
+  margin: 20px auto;
+}
+
+.contact-form.hide {
+  display: none;
+}
+
+.end-message {
+  margin: 50px 0 30px;
+  font-size: 1.75em;
 }
 
 textarea:focus {
