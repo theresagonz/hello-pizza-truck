@@ -340,9 +340,10 @@ const Details = props => {
       <div className="container">
         <div className="flexbox">
           <div className="truckInfo">
-            {baseInfos.map(section => {
+            {baseInfos.map((section, i) => {
               return (
                 <InfoItem
+                  key={"infoitem-" + i}
                   section={section}
                   toggleInfoMap={toggleInfoMap}
                 />

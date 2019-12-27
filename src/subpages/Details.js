@@ -140,8 +140,19 @@ function Details() {
           category: null,
           infos: [
             {
-              text:
-                "Wood fired oven, Chicago Brick Oven CBO-750 (currently mounted on the trailer but can also be portable on a cart)",
+              jsxWithLink: (
+                <span>
+                  Wood fired oven,{" "}
+                  <a
+                    href="https://chicagobrickoven.com/products/cbo-750-mobile?variant=12221428367402"
+                    target="_blank"
+                  >
+                    Chicago Brick Oven CB-750
+                  </a>{" "}
+                  (currently mounted on the trailer but can also be portable on
+                  a cart)
+                </span>
+              ),
             },
             { text: "Refrigerator/freezer, Sears 13 cubic foot" },
             { text: "Portable hand wash sink with heater, PolyJohn" },

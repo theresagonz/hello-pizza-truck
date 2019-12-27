@@ -47,16 +47,16 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
         <div className={isExpanded}>
           {pkg.descriptions &&
             pkg.descriptions.map((p, i) => {
-              return <p>{p.text}</p>
+              return <p key={"p-" + i}>{p.text}</p>
             })}
           {pkg.expandableInfos &&
             pkg.expandableInfos.map((list, i) => {
               return (
-                <div>
+                <div key={"info-" + i}>
                   <h4>{list.category}</h4>
                   <ul>
                     {list.infos.map((info, i) => (
-                      <li key={i}>{info.text}</li>
+                      <li key={i}>{info.text || info.jsxWithLink}</li>
                     ))}
                   </ul>
                 </div>
