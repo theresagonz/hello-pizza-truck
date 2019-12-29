@@ -81,7 +81,15 @@ function LandingPage() {
         <div className="topText textShadow">
           <div>
             <h4 style={welcomeStyle} className="red-text">
-              {welcomeText}
+              {welcomeText + " "}
+              <span className="landing-subhead">
+                <a
+                  href="https://www.google.com/maps/place/Grand+Junction,+CO/@39.0856078,-108.7102648,11z/data=!3m1!4b1!4m5!3m4!1s0x8746d6e322e77057:0xcc63f451cebf7c56!8m2!3d39.0638705!4d-108.5506486"
+                  target="_blank"
+                >
+                  Grand Junction, Colorado
+                </a>
+              </span>
             </h4>
             <h1>
               <span>{landingText}</span>
@@ -117,7 +125,9 @@ function LandingPage() {
       </div> */}
       <div className="bottomTextContainer floatingTextContainer">
         <h4 className="bottomText textShadow">
-          Custom-built pizza truck with a real wood fired oven, full commercial kitchen, and onboard bathroom, featuring a large working space with lots of windows
+          Custom-built pizza truck with a real wood fired oven, full commercial
+          kitchen, and onboard bathroom, featuring a large working space with
+          lots of windows
         </h4>
       </div>
     </div>
