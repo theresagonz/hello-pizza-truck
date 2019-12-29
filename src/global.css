@@ -94,6 +94,21 @@ p {
   height: 100px;
 }
 
+.landing-subhead {
+  font-size: 0.75em;
+  letter-spacing: 0.2em;
+  margin-left: 10px;
+  color: #ffc183;
+}
+
+.landing-subhead a {;
+  color: #ffc183;
+}
+
+.landing-subhead:hover {
+
+}
+
 .inputBox {
   width: 100%;
   background-color: #ab666a;
@@ -355,7 +370,8 @@ p {
 }
 
 .email {
-  margin: 20px auto;
+  margin: 20px auto 40px;
+  width: fit-content;
 }
 
 .contact-form.hide {

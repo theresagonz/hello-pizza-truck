@@ -210,7 +210,7 @@ function Details() {
     <div id="details" className="container-fluid lt-grey-bg section">
       <div className="container detailsSection">
         <h1 className="text-center my-4">Pricing</h1>
-        <h4 className="center">Create your perfect setup...</h4>
+        <h4 className="margin-bottom center">Create your perfect setup...</h4>
 
         {pricingInfo.map((pkg, i) => (
           <PricingItem

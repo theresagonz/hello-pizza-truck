@@ -76,7 +76,7 @@ export default function End() {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 mb-4">
                     <input
                       type="email"
                       className="inputBox"
