@@ -49,7 +49,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   padding: 40px 30px;
-  min-height: 100vh;
+  height: 100vh;
   background-image: url("./images/gallery/main/truck-exterior-rear.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -69,11 +69,11 @@ p {
   color: #f9b469;
 }
 
-#details  a {
+#details a {
   color: #676464;
 }
 
-#details  a:hover {
+#details a:hover {
   color: #7f7f7f;
 }
 
@@ -94,6 +94,17 @@ p {
   height: 100px;
 }
 
+#home img {
+  display: none;
+}
+
+.landing-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .landing-subhead {
   font-size: 0.75em;
   letter-spacing: 0.2em;
@@ -101,12 +112,11 @@ p {
   color: #ffc183;
 }
 
-.landing-subhead a {;
+.landing-subhead a {
   color: #ffc183;
 }
 
 .landing-subhead:hover {
-
 }
 
 .inputBox {
@@ -153,7 +163,7 @@ p {
 .topTextContainer {
   width: auto;
   height: auto;
-  padding: 15px;
+  /* padding: 15px; */
   background: rgba(166, 193, 234, 0.72);
 }
 
@@ -394,4 +404,92 @@ footer {
 
 footer a {
   color: white;
+}
+
+@media only screen and (max-width: 1006px) {
+  .bottomText {
+    font-weight: 400;
+    font-size: 1.4em;
+  }
+}
+
+/* for smaller screens */
+@media only screen and (max-width: 600px) {
+  #home {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;*/
+    padding: 15px;
+    height: auto;
+    background-image: none;
+    /* overflow: hidden; */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; */
+  }
+
+  #home img {
+    display: block;
+  }
+
+  .floatingTextContainer {
+    padding: 0;
+  }
+
+  .topTextContainer {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 15px 0;
+    text-shadow: none;
+  }
+
+  .topText {
+    text-shadow: none;
+  }
+
+  .bottomTextContainer {
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .landing-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .landing-subhead {
+    margin: 0.5em 0;
+  }
+
+  .main-head {
+    font-size: 1.4em;
+  }
+
+  .landing-img img {
+    width: 100%;
+    margin-top: 0.5em;
+  }
+
+  .bottomTextContainer {
+    margin: 1em 0;
+    color: #c3c3c3;
+  }
+  .bottomText {
+    font-size: 1.3em;
+    padding: 0;
+    text-shadow: none;
+    text-align: center;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
 }

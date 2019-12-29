@@ -80,22 +80,21 @@ function LandingPage() {
         {/* <Navbar /> */}
         <div className="topText textShadow">
           <div>
-            <h4 style={welcomeStyle} className="red-text">
-              {welcomeText + " "}
+            <h4 style={welcomeStyle} className="landing-head red-text">
+              <span>{welcomeText + " "}</span>
               <span className="landing-subhead">
                 <a
                   href="https://www.google.com/maps/place/Grand+Junction,+CO/@39.0856078,-108.7102648,11z/data=!3m1!4b1!4m5!3m4!1s0x8746d6e322e77057:0xcc63f451cebf7c56!8m2!3d39.0638705!4d-108.5506486"
                   target="_blank"
                 >
-                  Grand Junction, Colorado
+                  <p>Grand Junction, Colorado</p>
                 </a>
               </span>
             </h4>
-            <h1>
+            <h1 className="main-head">
               <span>{landingText}</span>
             </h1>
           </div>
-          {/* <ImageGallery items={images} slideInterval={2500} slideDuration={750}></ImageGallery> */}
           {/* <button
             style={{
               width: "200px",
@@ -119,16 +118,20 @@ function LandingPage() {
         <h4>Check It Out</h4>
         <divd>&darr; Kitchen</divd>
         <div>&darr; Utility Room</div>
-        <div>&darr; Electrical</div>
+        <div>&darr; Electrical</div>f
         <div>&darr; Truck</div>
         <div>&darr; Construction</div>
       </div> */}
+
+      <div className="landing-img">
+        <img src={truckExteriorRear} alt="truck" />
+      </div>
       <div className="bottomTextContainer floatingTextContainer">
-        <h4 className="bottomText textShadow">
+        <div className="bottomText textShadow">
           Custom-built pizza truck with a real wood fired oven, full commercial
           kitchen, and onboard bathroom, featuring a large working space with
           lots of windows
-        </h4>
+        </div>
       </div>
     </div>
   )
