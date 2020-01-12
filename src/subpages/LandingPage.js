@@ -76,22 +76,22 @@ function LandingPage() {
 
   return (
     <div id="home" className="container-fluid grey-bg">
-      <div className="container topTextContainer floatingTextContainer">
+      <div className="container top-text-container floating-text-container">
         {/* <Navbar /> */}
-        <div className="topText textShadow">
+        <div className="top-text">
           <div>
-            <h4 style={welcomeStyle} className="landing-head red-text">
+            <h4 style={welcomeStyle} className="landing-head red-text text-shadow">
               <span>{welcomeText + " "}</span>
               <span className="landing-subhead">
                 <a
                   href="https://www.google.com/maps/place/Grand+Junction,+CO/@39.0856078,-108.7102648,11z/data=!3m1!4b1!4m5!3m4!1s0x8746d6e322e77057:0xcc63f451cebf7c56!8m2!3d39.0638705!4d-108.5506486"
                   target="_blank"
                 >
-                  <p>Grand Junction, Colorado</p>
+                  <di>Grand Junction, Colorado</di>
                 </a>
               </span>
             </h4>
-            <h1 className="main-head">
+            <h1 className="main-head text-shadow">
               <span>{landingText}</span>
             </h1>
           </div>
@@ -114,7 +114,7 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* <div className="leftTextContainer floatingTextContainer">
+      {/* <div className="leftTextContainer floating-text-container">
         <h4>Check It Out</h4>
         <divd>&darr; Kitchen</divd>
         <div>&darr; Utility Room</div>
@@ -126,11 +126,10 @@ function LandingPage() {
       <div className="landing-img">
         <img src={truckExteriorRear} alt="truck" />
       </div>
-      <div className="bottomTextContainer floatingTextContainer">
+      <div className="bottomTextContainer floating-text-container">
         <div className="bottomText textShadow">
-          Custom-built pizza truck with a real wood fired oven, full commercial
-          kitchen, and onboard bathroom, featuring a large working space with
-          lots of windows
+          Custom-built pizza truck with a wood fired oven, full commercial
+          kitchen, spacious workspace, and onboard bathroom
         </div>
       </div>
     </div>

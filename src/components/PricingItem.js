@@ -13,12 +13,12 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
       onClick={() => pkg.toggleExpand(!pkg.isExpanded)}
     >
       <div className={"option"}>
-        <h2 className="">
-          {pkg.headline}{" "}
+        <div className="option-label">
+          <h2>{pkg.headline}</h2>
           {pkg.isRequired ? (
-            <span className="check-mark required">&#10003;</span>
+            <div className="check-mark required-checkbox">&#10003;</div>
           ) : i <= level ? (
-            <span
+            <div
               className={"check-mark add-remove-button remove"}
               onClick={e => {
                 e.stopPropagation()
@@ -26,9 +26,9 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
               }}
             >
               &#10003;
-            </span>
+            </div>
           ) : (
-            <span
+            <div
               className={"add-remove-button add"}
               onClick={e => {
                 e.stopPropagation()
@@ -37,14 +37,15 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
               }}
             >
               +
-            </span>
+            </div>
           )}
-        </h2>
+        </div>
         <div className="price-summary">
           <p className="">{pkg.summary}</p>
-          <h4>{formatPrice(pkg.price)}</h4>
         </div>
-        <div className={isExpanded}>
+        <h4 className="price">{formatPrice(pkg.price)}</h4>
+        <div className={"expanded-price-info" + isExpanded}>
+          <hr></hr>
           {pkg.descriptions &&
             pkg.descriptions.map((p, i) => {
               return <p key={"p-" + i}>{p.text}</p>
@@ -53,11 +54,36 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
             pkg.expandableInfos.map((list, i) => {
               return (
                 <div key={"info-" + i}>
-                  <h4>{list.category}</h4>
+                  <h4>{list.label}</h4>
+                  {list.description && (
+                    <p
+                      style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}
+                      key={i}
+                    >
+                      {list.description}
+                    </p>
+                  )}
                   <ul>
-                    {list.infos.map((info, i) => (
-                      <li key={i}>{info.text || info.jsxWithLink}</li>
-                    ))}
+                    {list.infos.map((info, i) => {
+                      const subInfos =
+                        info.subInfos && info.subInfos.length
+                          ? info.subInfos
+                          : null
+                      return subInfos ? (
+                        <div key={info.label + "-" + i}>
+                          <li>{info.text || info.jsxWithLink}</li>
+                          <ul>
+                            {subInfos.map((subInfo, k) => (
+                              <li key={"subInfo-" + i + "-" + k}>
+                                {subInfo.text}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : (
+                        <li key={i}>{info.text || info.jsxWithLink}</li>
+                      )
+                    })}
                   </ul>
                 </div>
               )

@@ -76,7 +76,7 @@ function Details() {
       reference: "kitchen",
       expandableInfos: [
         {
-          category: "Equipment",
+          label: "Equipment",
           infos: [
             { text: "Spiral dough mixer, Häussler 25 quart" },
             {
@@ -99,7 +99,7 @@ function Details() {
           ],
         },
         {
-          category: "Accessories",
+          label: "Accessories",
           infos: [
             { text: "6 sheet pans, full-size" },
             { text: "30 sheet pans, half-size" },
@@ -113,6 +113,20 @@ function Details() {
             { text: "And more!" },
           ],
         },
+        {
+          label: "Sales equipment",
+          description: "The following items are mounted to a portable cart:",
+          infos: [
+            {
+              text: "iPad Air (model A1566, 2nd generation) for a POS system of your choice",
+            },
+            { text: "ShopKeep counter iPad mount and Survivor iPad case" },
+            { text: "Credit card reader, Ingenico iCMP" },
+            { text: "Cash drawer, APG Vasario" },
+            { text: "Broadband router, Verizon 4G LTE" },
+            { text: "Receipt printer, Star TSP100" },
+          ],
+        },
       ],
       images: [
         { original: pizzaWarmer, thumbnail: pizzaWarmer },
@@ -122,7 +136,8 @@ function Details() {
     },
     {
       headline: "Second unit trailer",
-      summary: "Mobile mini-kitchen that makes any setup more flexible",
+      summary:
+        "Mobile mini-kitchen that makes any setup more flexible, including supplemental equipment",
       price: 6000,
       isAdded: isTrailerAdded,
       toggleAdd: toggleTrailerAdd,
@@ -132,12 +147,13 @@ function Details() {
       descriptions: [
         {
           text:
-            "Starting with a Road Force tandem axle trailer, we installed a wood fired oven and venting system, lighting, refrigeration, a counter with storage cabinets, and a portable hand wash sink. When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving ovens in and out of trailer.",
+            "Starting with a 6' x 12' Road Force tandem axle trailer, we installed a wood fired oven and venting system, lighting, refrigeration, a counter with storage cabinets, and a portable hand wash sink.",
         },
+        { text: "When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving the oven in and out of trailer."},
       ],
       expandableInfos: [
         {
-          category: null,
+          label: null,
           infos: [
             {
               jsxWithLink: (
@@ -162,7 +178,7 @@ function Details() {
               text:
                 "Wired for 110V power to inside outlets and 12-volt system inside to run winch and lights",
             },
-            { text: "Battery, 12V for backup power to power lights and winch" },
+            { text: "12V battery to power lights and winch" },
           ],
         },
       ],
@@ -172,7 +188,7 @@ function Details() {
       ],
     },
     {
-      headline: "Business turnkey",
+      headline: "Business and support extras",
       summary: "Training to make our pizza plus marketing and logo supplies",
       price: 4000,
       isAdded: isBusinessAdded,
@@ -192,13 +208,12 @@ function Details() {
             { text: "Complete customizable WordPress website" },
             {
               text:
-                "Custom EZ-Up canopy shelter, 10”x10” digitally printed with logo and 4 weight bags",
+                "Custom EZ-Up canopy shelter, 10” x 10” digitally printed with logo and 4 weight bags",
             },
             {
               text:
                 "Picnic table, 6’ collapsible, with bench seats and umbrella",
             },
-            { text: "Chimney sweep brushes, 6” and 8” on 4’ rod" },
             { text: "Aprons with embroidered logo" },
           ],
         },
@@ -208,9 +223,9 @@ function Details() {
   ]
   return (
     <div id="details" className="container-fluid lt-grey-bg section">
-      <div className="container detailsSection">
+      <div className="container details-section">
         <h1 className="text-center my-4">Pricing</h1>
-        <h4 className="margin-bottom center">Create your perfect setup...</h4>
+        <h4 className="margin-bottom center">Customize your perfect setup...</h4>
 
         {pricingInfo.map((pkg, i) => (
           <PricingItem
@@ -226,9 +241,9 @@ function Details() {
           />
         ))}
         <br />
-        <h2 className="center red-text">
-          <b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b>{" "}
-          {formatPrice(totalPrices[level])}
+        <h2 className="center">
+          <span><b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b>{" "}</span>
+          <span className="red-text">{formatPrice(totalPrices[level])}</span>
         </h2>
       </div>
     </div>

@@ -96,15 +96,13 @@ const Details = props => {
     {
       label: "Kitchen",
       descriptions: [
-        "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. The heat gives thin crust Neopolitan-style pizzas a light, savory texture, a perfectly crispy outer crust, and caramelized cheese and toppings, usually in under 2 minutes.",
-        "Customers can see the food cooking and fire crackling from the outside serve window.",
+        "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. Customers can see the food cooking and fire crackling from the outside serve window.",
+        "The front serve window wall slides out to add working space. There is plenty of storage space in cabinets, racks, and under the oven.",
         "Be your own commissary! The truck is licensed in Mesa County, Colorado as a full commercial kitchen.",
-        "The front serve window wall slides out to add working space. There are plenty of storage space in cabinets, racks, and under the oven.",
-        "We've also used the oven to cook up meats, roasted veggies, crusty breads, and more. We're excited to help you discover just how amazing high heat cooking can be.",
       ],
       infos: [
-        { text: "Kitchen space measures 163 sq. ft (8’3”x 20’6”)" },
-        { text: "Slide wall adds 32 sq. ft (10’x38”)" },
+        { text: "Kitchen space measures 163 sq. ft (8’3” x 20’6”)" },
+        { text: "Slide wall adds 32 sq. ft (10’ x 38”)" },
         {
           jsxWithLink: (
             <span>
@@ -124,20 +122,16 @@ const Details = props => {
               text:
                 "Can cook up to three 13” pizzas (or five 8” pizzas) at once at around 750°F",
             },
-            { text: "Maximum temperature above 1000°F" },
-            {
-              text:
-                "Use to prepare anything cooked on a grill or in a conventional oven",
-            },
             { text: "Signature FlameRoll® generates high, even temperatures" },
           ],
         },
+        { text: "Chimney sweep brushes, 8” on 4’ rod" },
         { text: 'Three-compartment sink, 15"' },
         { text: "Sliding serve window" },
-        { text: "Full-size 36” steel entry door and retractable screen door" },
+
         { text: "Hand wash sink, stainless steel with knee valves" },
-        { text: "Paper towel dispenser, automatic" },
-        { text: "Lots of cabinets and racks for storage" },
+        { text: "Automatic paper towel dispenser" },
+        { text: "Cabinets and racks for storage" },
       ],
       images: [
         { original: ovenPizzas, thumbnail: ovenPizzasThumb },
@@ -173,7 +167,7 @@ const Details = props => {
     {
       label: "Truck",
       descriptions: [
-        "Built on a U-Haul box truck, this has new tires as of 2018 and many miles left in it.",
+        "Built in 2015 on a 26-foot U-Haul box truck that we stripped to the frame and built up from there. The truck has new tires as of 2018 and many miles left in it.",
       ],
       infos: [
         { boldText: "Year", text: "2000" },
@@ -229,7 +223,7 @@ const Details = props => {
     {
       label: "Plumbing",
       descriptions: [
-        "Fresh water is supplied to the three sinks and toilet from either the 55-gallon tank or a shore hook-up for a continuous supply. Hot water is supplied by a propane hot water heater.",
+        "Fresh water is supplied to the two hand wash sinks, three-compartment sink, and toilet from either the 55-gallon tank or a shore hook-up for a continuous supply. Hot water is supplied by a propane hot water heater.",
       ],
       infos: [
         { text: "Full plumbing with tanks located underneath truck" },
@@ -262,8 +256,8 @@ const Details = props => {
         {
           text: "R-6 fiberglass insulation in walls and R-13 or 19 in ceiling ",
         },
+        { text: "Full-size 36” steel entry door and retractable screen door" },
         { text: "Ramp and stairs for easy entry" },
-        { text: "Rechargeable vacuum, Electrolux Ergorapido" },
         { text: "Propane tank, 20-lb" },
       ],
       images: [
