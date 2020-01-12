@@ -4,8 +4,8 @@ import ImageGallery from "react-image-gallery"
 function InfoItem({ section, toggleInfoMap }) {
   const label = section.label
   const featureText = !label ? { fontSize: "1.5em" } : null
-  const shouldShow = toggleInfoMap[label] && toggleInfoMap[label].shouldShow
-  const toggleMethod = toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
+  // const shouldShow = toggleInfoMap && toggleInfoMap[label] && toggleInfoMap[label].shouldShow
+  // const toggleMethod = toggleInfoMap && toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
 
   return (
     <div className="sectionLabelWrapper">
@@ -25,14 +25,15 @@ function InfoItem({ section, toggleInfoMap }) {
           <div className="detailsContainer">
             {section.infos && (
               <div>
-                <h5 className="sectionLabel">
+                <h5 className="white-text">Details</h5>
+                {/* <h5 className="sectionLabel">
                   <span
                     className="pointer"
                     onClick={() => toggleMethod(!shouldShow)}
                   >
                     {shouldShow ? "- Hide info" : "+ More info"}
                   </span>
-                </h5>
+                </h5> */}
                 <ul>
                   {section.infos &&
                     section.infos.map((info, j) => {
@@ -41,12 +42,7 @@ function InfoItem({ section, toggleInfoMap }) {
                           ? info.subInfos
                           : null
                       return subInfos ? (
-                        <div
-                          className={
-                            "toggleShow" + (!shouldShow ? " show" : null)
-                          }
-                          key={section.label + "-" + j}
-                        >
+                        <div key={section.label + "-" + j}>
                           <li>{info.text || info.jsxWithLink}</li>
                           <ul>
                             {subInfos.map((subInfo, k) => (
@@ -57,23 +53,11 @@ function InfoItem({ section, toggleInfoMap }) {
                           </ul>
                         </div>
                       ) : info.boldText ? (
-                        <li
-                          key={section.label + "-" + j}
-                          className={
-                            "toggleShow" + (!shouldShow ? " show" : null)
-                          }
-                        >
-                          <strong>{info.boldText}:</strong> {info.text}
+                        <li key={section.label + "-" + j}>
+                          <span className="white-text">{info.boldText}:</span> {info.text}
                         </li>
                       ) : (
-                        <li
-                          key={section.label + "-" + j}
-                          className={
-                            "toggleShow" + (!shouldShow ? " show" : null)
-                          }
-                        >
-                          {info.text}
-                        </li>
+                        <li key={section.label + "-" + j}>{info.text}</li>
                       )
                     })}
                 </ul>
