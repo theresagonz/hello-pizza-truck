@@ -43,12 +43,13 @@ export default function End() {
             <div>
               <h1 className="text-center my-5">Get in Touch!</h1>
               <div className="email margin-bottom larger-font">
-                <div>
-                  Call/text: <a href="tel:+19705891500">(970) 589-1500</a>
+                <div className="contact-info">
+                  <div>Call/text</div>
+                  <a href="tel:+19705891500">(970) 589-1500</a>
                 </div>
-                <div>
-                  E-mail:{" "}
-                  <a href="maiqlto:michael@michaelangeloswoodfiredpizza.com">
+                <div className="contact-info">
+                  <div>Email</div>
+                  <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
                     michael@michaelangeloswoodfiredpizza.com
                   </a>
                 </div>
@@ -67,11 +68,20 @@ export default function End() {
                 <div className="row">
                   <div className="col mb-4">
                     <input
-                      type="name"
+                      type="text"
                       className="inputBox"
-                      placeholder="Your Name"
+                      placeholder="Your name"
                       name="from_name"
-                      autoFocus
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col mb-4">
+                    <input
+                      type="text"
+                      className="inputBox"
+                      placeholder="Your location (city and state)"
+                      name="from_location"
                     />
                   </div>
                 </div>
@@ -80,15 +90,15 @@ export default function End() {
                     <input
                       type="email"
                       className="inputBox"
-                      placeholder="Your Email"
+                      placeholder="Your email"
                       name="from_email"
                     />
                   </div>
                   <div className="col-lg-6 mb-4">
                     <input
-                      type="phone"
+                      type="tel"
                       className="inputBox"
-                      placeholder="Your Phone Number"
+                      placeholder="Your phone number"
                       name="from_phone"
                     />
                   </div>

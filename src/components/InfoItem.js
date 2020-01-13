@@ -8,7 +8,7 @@ function InfoItem({ section, toggleInfoMap }) {
   // const toggleMethod = toggleInfoMap && toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
 
   return (
-    <div className="sectionLabelWrapper">
+    <div className="section-label-wrapper">
       <div className="gallery">
         {section.images && (
           <ImageGallery items={section.images} thumbnailPosition="right" />
@@ -22,18 +22,10 @@ function InfoItem({ section, toggleInfoMap }) {
               {description}
             </p>
           ))}
-          <div className="detailsContainer">
+          <div className="details-container">
             {section.infos && (
               <div>
                 <h5 className="white-text">Details</h5>
-                {/* <h5 className="sectionLabel">
-                  <span
-                    className="pointer"
-                    onClick={() => toggleMethod(!shouldShow)}
-                  >
-                    {shouldShow ? "- Hide info" : "+ More info"}
-                  </span>
-                </h5> */}
                 <ul>
                   {section.infos &&
                     section.infos.map((info, j) => {
