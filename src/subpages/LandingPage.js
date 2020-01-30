@@ -1,8 +1,6 @@
 import React from "react"
 import Navbar from "../components/Navbar"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import ImageGallery from "react-image-gallery"
-
 import truckExteriorRear from "../images/gallery/main/truck-exterior-rear.png"
 import truckExteriorRearThumb from "../images/gallery/main/truck-exterior-rear-thumb.png"
 import truckExteriorFront from "../images/gallery/main/truck-exterior-front.png"
@@ -87,7 +85,7 @@ function LandingPage() {
                   href="https://www.google.com/maps/place/Grand+Junction,+CO/@39.0856078,-108.7102648,11z/data=!3m1!4b1!4m5!3m4!1s0x8746d6e322e77057:0xcc63f451cebf7c56!8m2!3d39.0638705!4d-108.5506486"
                   target="_blank"
                 >
-                  <di>Grand Junction, Colorado</di>
+                  <div>Grand Junction, Colorado</div>
                 </a>
               </span>
             </h4>

@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins|Roboto|Roboto+Slab|Inria+Serif|Montserrat|IBM+Plex+Sans|Muli|Nunito+Sans:400,600,800&display=swap");
-@import "~react-image-gallery/styles/css/image-gallery.css";
 
 html {
   padding: 0;
@@ -326,8 +325,6 @@ p {
 
 .price-summary {
   display: flex;
-  /* flex-direction: column; */
-
   justify-content: space-between;
   align-items: center;
   border-radius: 15px;
@@ -440,6 +437,7 @@ hr {
 .contact-info {
   text-align: center;
   margin: 0 auto 15px;
+  color: #c3c3c3;
 }
 
 .end-message {
@@ -463,6 +461,31 @@ footer a {
 .bottomText {
   font-weight: 400;
   font-size: 1.4em;
+}
+
+.slick-dots {
+  position: static;
+}
+
+.slick-prev {
+  left: 10%;
+  padding: 10px;
+}
+
+.slick-next {
+  right: 10%;
+}
+
+.slider-image {
+  margin: 0 auto;
+  height: 60vh;
+  object-fit: contain;
+}
+
+.thumb-slider-image {
+  margin: 0 auto;
+  height: 10vh;
+  object-fit: contain;
 }
 
 /* for smaller screens */

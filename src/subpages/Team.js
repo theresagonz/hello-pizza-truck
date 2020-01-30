@@ -199,14 +199,19 @@ const Details = props => {
         { text: "Complete backup power system" },
         { text: "Commercial generator, Onan 7000-watt" },
         {
-          text:
-            "Battery bank with four 24-volt batteries and Magnum inverter off grid sinewave mobile 4000W, 24VDC, 120VAC, 60 HZ",
+          text: "Battery bank",
+          subInfos: [
+            { text: "Four 24-volt batteries" },
+            {
+              text: "Magnum inverter/charger, 4000W 24VDC Pure Sine",
+            },
+          ],
         },
         { text: "Two 120W solar panels, roof-mounted" },
         { text: "Shore power hook up to charge battery bank, 50-amp 110 volt" },
         {
           text:
-            "25’ and 50’ 6 gauge shore power electrical cord with 50-amp plug",
+            "25’ and 50’ six-gauge shore power electrical cord with 50-amp plug",
         },
       ],
       images: [

@@ -1,17 +1,15 @@
 import React from "react"
-import ImageGallery from "react-image-gallery"
+import Gallery from "./Gallery"
 
-function InfoItem({ section, toggleInfoMap }) {
+function InfoItem({ section }) {
   const label = section.label
   const featureText = !label ? { fontSize: "1.5em" } : null
-  // const shouldShow = toggleInfoMap && toggleInfoMap[label] && toggleInfoMap[label].shouldShow
-  // const toggleMethod = toggleInfoMap && toggleInfoMap[label] && toggleInfoMap[label].toggleMethod
 
   return (
     <div className="section-label-wrapper">
       <div className="gallery">
         {section.images && (
-          <ImageGallery items={section.images} thumbnailPosition="right" />
+          <Gallery images={section.images}/>
         )}
       </div>
       {section.label && <h1>{section.label}</h1>}
