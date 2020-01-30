@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import ImageGallery from "react-image-gallery"
+import Gallery from "./Gallery"
 import formatPrice from "../libraries/formatPrice"
 
 function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
@@ -89,7 +89,7 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
               )
             })}
           {pkg.images && pkg.images.length !== 0 && (
-            <ImageGallery items={pkg.images} thumbnailPosition="right" />
+            <Gallery images={pkg.images} thumbnailPosition="right" />
           )}
         </div>
       </div>
