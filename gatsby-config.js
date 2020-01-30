@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Krisp`,
-    description: `A Clean, Minimal and Responsive Site`,
-    author: `@mohanmonu777`,
+    title: `Hello Pizza Truck`,
+    description: `Selling a food truck with a wood fired oven in Grand Junction, Colorado`,
+    author: `theresamorelli`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
