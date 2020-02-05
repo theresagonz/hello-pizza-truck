@@ -34,7 +34,7 @@ export default function End() {
   return (
     <div
       id="contact-info"
-      className="container-fluid red-bg"
+      className="container-fluid"
       style={{ paddingBottom: "55px" }}
     >
       <div className="container">

@@ -335,22 +335,19 @@ const Details = props => {
   }
 
   return (
-    <div id="team" className="container-fluid grey-bg section">
-      <div className="container">
-        <div className="flexbox">
-          <div className="truckInfo">
-            {baseInfos.map((section, i) => {
-              return (
-                <InfoItem
-                  key={"infoitem-" + i}
-                  section={section}
-                  toggleInfoMap={toggleInfoMap}
-                />
-              )
-            })}
-          </div>
+    <div id="team" className="section">
+        <div className="truckInfo">
+          {baseInfos.map((section, i) => {
+            return (
+              <InfoItem
+                key={"infoitem-" + i}
+                section={section}
+                toggleInfoMap={toggleInfoMap}
+              />
+            )
+          })}
         </div>
-      </div>
+
     </div>
   )
 }

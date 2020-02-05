@@ -1,5 +1,6 @@
 import React from "react"
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from "react-anchor-link-smooth-scroll"
+import logo from "../images/food-truck-icon-lg.png"
 
 function Navbar() {
   const textStyle = {
@@ -7,31 +8,27 @@ function Navbar() {
     fontWeight: "600",
     letterSpacing: "0.1em",
   }
+
+  const navInfoLinks = [
+    { label: "Kitchen", href: "#kitchen" },
+    { label: "Bathroom", href: "#bathroom" },
+    { label: "Truck", href: "#truck" },
+    { label: "Electrical", href: "#electrical" },
+    { label: "Plumbing", href: "#plumbing" },
+    { label: "Construction", href: "#construction" },
+  ]
+
+  const navActionLinks = [
+    { label: "Pricing", href: "#pricing" },
+    { label: "Contact", href: "#contact-info" },
+  ]
+
   return (
-    <div className="pos-f-t">
-      <div className="collapse" id="navbarToggleExternalContent">
-        <div className="bg-light   p-4">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <AnchorLink class="nav-link" href="#">
-                Home <span class="sr-only">(current)</span>
-              </AnchorLink>
-            </li>
-            <li class="nav-item">
-              <AnchorLink class="nav-link" href="#services">
-                Services
-              </AnchorLink>
-            </li>
-            <li class="nav-item">
-              <AnchorLink class="nav-link" href="#team">
-                Team
-              </AnchorLink>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <nav className="navbar navbar-dark">
-        <button
+    <nav className="navbar navbar-expand navbar-light brick-wall shadow">
+      <AnchorLink class="navbar-brand" href="#home">
+        <img className="logo" src={logo} />
+      </AnchorLink>
+      {/* <button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -41,9 +38,43 @@ function Navbar() {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
+        </button> */}
+        {/* <button className="btn btn-link dropdown-toggle" data-toggle="dropdown">
+          Info
+        </button> */}
+
+        {/* <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button> */}
+      <div className="nav-right">
+        <div className="nav-info-links">
+          {navInfoLinks.map(link => (
+            <AnchorLink class="nav-link" href={link.href}>
+              {link.label}
+            </AnchorLink>
+          ))}
+        </div>
+        <div className="nav-action-links">
+          {navActionLinks.map(link => (
+            <AnchorLink class="nav-link" href={link.href}>
+              {link.label}
+            </AnchorLink>
+          ))}
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </nav>
-    </div>
+      </div>
+    </nav>
   )
 }
 

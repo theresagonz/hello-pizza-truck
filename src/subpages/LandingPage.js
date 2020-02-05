@@ -1,18 +1,20 @@
 import React from "react"
+import AnchorLink from "react-anchor-link-smooth-scroll"
+import Fade from 'react-reveal/Fade';
 import Navbar from "../components/Navbar"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import truckExteriorRear from "../images/gallery/main/truck-exterior-rear.png"
-import truckExteriorRearThumb from "../images/gallery/main/truck-exterior-rear-thumb.png"
-import truckExteriorFront from "../images/gallery/main/truck-exterior-front.png"
-import truckExteriorFrontThumb from "../images/gallery/main/truck-exterior-front-thumb.png"
-import truckExteriorClose from "../images/gallery/main/truck-exterior-close.jpg"
-import truckExteriorCloseThumb from "../images/gallery/main/truck-exterior-close-thumb.png"
-import ovenFire from "../images/gallery/kitchen/oven-fire.jpg"
-import ovenFireThumb from "../images/gallery/kitchen/oven-fire-thumb.png"
-import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
-import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
-import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
-import ovenPizzasThumb from "../images/gallery/kitchen/oven-pizzas-thumb.png"
+// import truckExteriorRearThumb from "../images/gallery/main/truck-exterior-rear-thumb.png"
+// import truckExteriorFront from "../images/gallery/main/truck-exterior-front.png"
+// import truckExteriorFrontThumb from "../images/gallery/main/truck-exterior-front-thumb.png"
+// import truckExteriorClose from "../images/gallery/main/truck-exterior-close.jpg"
+// import truckExteriorCloseThumb from "../images/gallery/main/truck-exterior-close-thumb.png"
+// import ovenFire from "../images/gallery/kitchen/oven-fire.jpg"
+// import ovenFireThumb from "../images/gallery/kitchen/oven-fire-thumb.png"
+// import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
+// import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
+// import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
+// import ovenPizzasThumb from "../images/gallery/kitchen/oven-pizzas-thumb.png"
 
 function LandingPage() {
   const { pageDataYaml } = useStaticQuery(graphql`
@@ -62,74 +64,97 @@ function LandingPage() {
     </div>
   )
 
-  const images = [
-    { original: truckExteriorRear, thumbnail: truckExteriorRearThumb },
-    { original: truckExteriorFront, thumbnail: truckExteriorFrontThumb },
-    { original: truckExteriorClose, thumbnail: truckExteriorCloseThumb },
-    { original: ovenFire, thumbnail: ovenFireThumb },
-    { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
-    { original: ovenPizzas, thumbnail: ovenPizzasThumb },
-    // { original: video,  isVideo: true }
-  ]
+  // const images = [
+  //   { original: truckExteriorRear, thumbnail: truckExteriorRearThumb },
+  //   { original: truckExteriorFront, thumbnail: truckExteriorFrontThumb },
+  //   { original: truckExteriorClose, thumbnail: truckExteriorCloseThumb },
+  //   { original: ovenFire, thumbnail: ovenFireThumb },
+  //   { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
+  //   { original: ovenPizzas, thumbnail: ovenPizzasThumb },
+  //   // { original: video,  isVideo: true }
+  // ]
 
   return (
-    <div id="home" className="container-fluid grey-bg">
-      <div className="container top-text-container floating-text-container">
-        {/* <Navbar /> */}
-        <div className="top-text">
-          <div>
-            <h4 style={welcomeStyle} className="landing-head red-text text-shadow">
-              <span>{welcomeText + " "}</span>
-              <span className="landing-subhead">
-                <a
-                  href="https://www.google.com/maps/place/Grand+Junction,+CO/@39.0856078,-108.7102648,11z/data=!3m1!4b1!4m5!3m4!1s0x8746d6e322e77057:0xcc63f451cebf7c56!8m2!3d39.0638705!4d-108.5506486"
-                  target="_blank"
-                >
-                  <div>Grand Junction, Colorado</div>
-                </a>
-              </span>
-            </h4>
-            <h1 className="main-head text-shadow">
-              <span>{landingText}</span>
-            </h1>
+    <div id="home" className="">
+      <div className="container">
+        <div className="top-content row">
+          <div className="left-container col-lg-4">
+            <div>
+              <div>
+                <div className="welcome-text">{welcomeText + " "}</div>
+                {/* </h4> */}
+                <h1 className="main-head text-shadow">
+                  <span>{landingText}</span>
+                </h1>
+              </div>
+              <div className="city">
+                <b>Grand Junction, Colorado</b>
+              </div>
+              <div className="welcome-text">
+                Custom-built pizza truck with a wood fired oven, full commercial
+                kitchen, spacious workspace, and onboard bathroom
+              </div>
+            </div>
+            <AnchorLink class="nav-link" href="#team">
+              Learn more...
+            </AnchorLink>
+            {/* <div className="learn-more-container">
+            <div className="section-link">Learn more</div>
+            <div className="subsection-link">
+              <a href="#kitchen">Kitchen</a>
+            </div>
+            <div className="subsection-link">
+              <a href="#bathroom">Bathroom + Utility Room</a>
+            </div>
+            <div className="subsection-link">
+              <a href="#truck">Truck</a>
+            </div>
+            <div className="subsection-link">
+              <a href="#electrical">Electrical</a>
+            </div>
+            <div className="subsection-link">
+              <a href="#plumbing">Plumbing</a>
+            </div>
+            <div className="subsection-link">
+              <a href="#construction">Construction</a>
+            </div>
+            <div className="section-link">
+              <a href="#details">Pricing</a>
+            </div>
+          </div> */}
+            {/* <button
+              style={{
+                width: "200px",
+                padding: "10px",
+                border: "none",
+                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                background: "#FFA800",
+                borderRadius: "30px",
+                textTransform: "uppercase",
+                color : "white",
+                fontWeight : "600",
+                marginTop : "20px"
+              }}
+            >
+              Start a Project
+            </button> */}
           </div>
-          {/* <button
-            style={{
-              width: "200px",
-              padding: "10px",
-              border: "none",
-              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-              background: "#FFA800",
-              borderRadius: "30px",
-              textTransform: "uppercase",
-              color : "white",
-              fontWeight : "600",
-              marginTop : "20px"
-            }}
-          >
-            Start a Project
-          </button> */}
+          <Fade>
+          <div className="right-container col-lg-8">
+            <img
+              class="intro-image a-shadow"
+              src={truckExteriorRear}
+              alt="truck"
+            />
+          </div>
+          </Fade>
         </div>
       </div>
-
-      {/* <div className="leftTextContainer floating-text-container">
-        <h4>Check It Out</h4>
-        <divd>&darr; Kitchen</divd>
-        <div>&darr; Utility Room</div>
-        <div>&darr; Electrical</div>f
-        <div>&darr; Truck</div>
-        <div>&darr; Construction</div>
-      </div> */}
-
-      <div className="landing-img">
-        <img src={truckExteriorRear} alt="truck" />
-      </div>
-      <div className="bottomTextContainer floating-text-container">
-        <div className="bottomText textShadow">
-          Custom-built pizza truck with a wood fired oven, full commercial
-          kitchen, spacious workspace, and onboard bathroom
+      <AnchorLink class="nav-link" href="#team">
+        <div className="down-arrow">
+          <i className="fa fa-chevron-down" />
         </div>
-      </div>
+      </AnchorLink>
     </div>
   )
 }

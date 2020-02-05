@@ -222,7 +222,7 @@ function Details() {
     },
   ]
   return (
-    <div id="details" className="container-fluid lt-grey-bg section">
+    <div id="details" className="container section">
       <div className="container details-section">
         <h1 className="text-center my-4">Pricing</h1>
         <h4 style={{textAlign: 'center', marginBottom: '25px' }}>Customize your perfect setup...</h4>
