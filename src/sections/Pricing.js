@@ -12,7 +12,7 @@ import pizzaWarmer from "../images/gallery/equipment/pizza-warmer.jpg"
 import truckPrepArea from "../images/gallery/kitchen/truck-prep-area.png"
 import prepTable from "../images/gallery/equipment/prep-table.jpg"
 
-function Details() {
+function Pricing() {
   const { allServicesYaml } = useStaticQuery(graphql`
     {
       allServicesYaml {
@@ -222,8 +222,8 @@ function Details() {
     },
   ]
   return (
-    <div id="details" className="container section">
-      <div className="container details-section">
+    <div id="pricing" className="container section">
+      <div className="container pricing-section">
         <h1 className="text-center my-4">Pricing</h1>
         <h4 style={{textAlign: 'center', marginBottom: '25px' }}>Customize your perfect setup...</h4>
 
@@ -250,4 +250,4 @@ function Details() {
   )
 }
 
-export default Details
+export default Pricing

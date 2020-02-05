@@ -4,7 +4,7 @@ import emailjs from "emailjs-com"
 import logo from "../images/logo-transp.png"
 import facebookLogo from "../images/facebook-logo.png"
 
-export default function End() {
+function Contact() {
   const [isFormSubmitted, markSubmitted] = useState(false)
   const [isError, markError] = useState(false)
   const showForm = isFormSubmitted ? " hide" : " show"
@@ -14,26 +14,26 @@ export default function End() {
     e.preventDefault()
     emailjs
       .sendForm(
-        "hellopizzatruck",
-        "pizza_truck_inquiry",
-        e.target,
-        "user_XTQ8oJHyAIsl27GDnArx1"
+      "hellopizzatruck",
+      "pizza_truck_inquiry",
+      e.target,
+      "user_XTQ8oJHyAIsl27GDnArx1"
       )
       .then(
-        result => {
-          console.log("result", result)
-          markSubmitted(true)
-        },
-        error => {
-          console.log("error", error)
-          markError(true)
-        }
+      result => {
+        console.log("result", result)
+        markSubmitted(true)
+      },
+      error => {
+        console.log("error", error)
+        markError(true)
+      }
       )
   }
 
   return (
     <div
-      id="contact-info"
+      id="contact"
       className="container-fluid"
       style={{ paddingBottom: "55px" }}
     >
@@ -43,11 +43,11 @@ export default function End() {
             <div>
               <h1 className="text-center my-5">Get in Touch!</h1>
               <div className="email margin-bottom larger-font">
-                <div className="contact-info">
+                <div className="contact">
                   <div>Call/text</div>
                   <a href="tel:+19705891500">(970) 589-1500</a>
                 </div>
-                <div className="contact-info">
+                <div className="contact">
                   <div>Email</div>
                   <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
                     michael@michaelangeloswoodfiredpizza.com
@@ -131,3 +131,5 @@ export default function End() {
     </div>
   )
 }
+
+export default Contact

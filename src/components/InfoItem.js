@@ -1,71 +1,23 @@
 import React from "react"
-import Gallery from "./Gallery"
-import Fade from 'react-reveal/Fade';
+import { SocialIcon } from "react-social-icons"
+import Fade from "react-reveal/Fade"
 
-function InfoItem({ section }) {
-  const label = section.label
-  const sectionId = label.split(" ")[0].toLowerCase()
-  const featureText = !label ? { fontSize: "1.5em" } : null
-
+function InfoItem({ src, title }) {
   return (
-    <div id={sectionId} className="section-wrapper container-fluid">
-      <Fade><h2 className="section-label">{label}</h2></Fade>
-      <div className="row">
-          <div className="gallery-wrapper col-sm-12 col-md-7 col-lg-8">
-            {section.images && <Gallery images={section.images} />}
-          </div>
-      
-      <div className="section-info col-sm-12 col-md-5 col-lg-4">
-        {/* {section.label && <h1>{section.label}</h1>} */}
-        {section.descriptions && (
-          <div className="pMarginTop">
-            {section.descriptions.map((description, i) => (
-            <Fade>
-              <p style={featureText} key={i}>
-                {description}
-              </p>
-            </Fade>
-            ))}
-            <div className="details-container">
-
-
-              {section.infos && (
-                <div className="section-infos">
-                  <ul>
-                    {section.infos &&
-                      section.infos.map((info, j) => {
-                        const subInfos =
-                          info.subInfos && info.subInfos.length
-                            ? info.subInfos
-                            : null
-                        return subInfos ? (
-                          <div key={section.label + "-" + j}>
-                            <li>{info.text || info.jsxWithLink}</li>
-                            <ul>
-                              {subInfos.map((subInfo, k) => (
-                                <li key={"subInfo-" + j + "-" + k}>
-                                  {subInfo.text}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : info.boldText ? (
-                          <li key={section.label + "-" + j}>
-                            <span>{info.boldText}:</span> {info.text}
-                          </li>
-                        ) : (
-                              <li key={section.label + "-" + j}>{info.text}</li>
-                            )
-                      })}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
+    <Fade bottom>
+      <div className="col-lg-4 my-4 col-sm-12">
+        <img src={src} className="img-fluid rounded-circle" width="200px" />
+        <h3 className="mt-5">{title}</h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
+          harum eum odit tempore quos dolor nesciunt rerum est totam alias,
+          suscipit,
+        </p>
+        <SocialIcon className="mr-4" url={"http://twitter.com/" + title} />
+        <SocialIcon className="mr-4" url={"http://github.com/" + title} />
+        <SocialIcon className="mr-4" url={"http://facebook.com/" + title} />
       </div>
-      </div>
-    </div>
+    </Fade>
   )
 }
 

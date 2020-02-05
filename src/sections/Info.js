@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import TeamItem from "../components/TeamItem"
-import { useStaticQuery, graphql } from "gatsby"
 import InfoItem from "../components/InfoItem"
+import { useStaticQuery, graphql } from "gatsby"
+import Section from "../components/Section"
 
 // kitchen gallery
 import truckWorkspace from "../images/gallery/kitchen/truck-workspace.jpg"
@@ -71,7 +71,7 @@ import exteriorUtilities2 from "../images/gallery/construction/exterior-utilitie
 import driveReady from "../images/gallery/construction/truck-drive-ready.jpg"
 import truckSetup from "../images/gallery/construction/truck-setup.jpg"
 
-const Details = props => {
+const Info = props => {
   const { allTeamYaml } = useStaticQuery(graphql`
     {
       allTeamYaml {
@@ -92,9 +92,10 @@ const Details = props => {
     },
   ]
 
-  const baseInfos = [
+  const sections = [
     {
       label: "Kitchen",
+      hasLongDescription: true,
       descriptions: [
         "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. Customers can see the food cooking and fire crackling from the outside serve window.",
         "The front serve window wall slides out to add working space. There is plenty of storage space in cabinets, racks, and under the oven.",
@@ -147,8 +148,10 @@ const Details = props => {
     },
     {
       label: "Bathroom + Utility Room",
+      hasLongDescription: true,
       descriptions: [
-        "A rear utility room contains a bathroom with toilet and hand wash sink, extra storage, and easy access to the power system.",
+        "Completely self contained operation. A rear utility room contains a bathroom with toilet and hand wash sink.",
+        "The room also contains easy access to the power system and extra storage.",
       ],
       infos: [
         { text: "Utility room measures 24 sq. ft (8’3” x 3’)" },
@@ -166,8 +169,10 @@ const Details = props => {
     },
     {
       label: "Truck",
+      hasLongDescription: true,
       descriptions: [
-        "Built in 2015 on a 26-foot U-Haul box truck that we stripped to the frame and built up from there. The truck has new tires as of 2018 and many miles left in it.",
+        "Built in 2015 on a 26-foot U-Haul box truck that we stripped to the frame and built up from there.",
+        "The truck has new tires as of 2018 and many miles left in it.",
       ],
       infos: [
         { boldText: "Year", text: "2000" },
@@ -190,8 +195,10 @@ const Details = props => {
     },
     {
       label: "Electrical",
+      hasLongDescription: true,
       descriptions: [
-        "Fully powered by 110 volts through an inverter system, the kitchen switches seamlessly between either solar, generator or shore power. Depending on the time of year, the bank of four 24-volt batteries can power the kitchen fully for up to 10 hours.",
+        "Fully powered by 110 volts through an inverter system, the kitchen switches seamlessly between either solar, generator or shore power.",
+        "Depending on the time of year, the bank of four 24-volt batteries can power the kitchen fully for up to 10 hours.",
       ],
       infos: [
         { text: "Wired for 110V power" },
@@ -227,8 +234,11 @@ const Details = props => {
     },
     {
       label: "Plumbing",
+      hasLongDescription: true,
       descriptions: [
-        "Fresh water is supplied to the two hand wash sinks, three-compartment sink, and toilet from either the 55-gallon tank or a shore hook-up for a continuous supply. Hot water is supplied by a propane hot water heater.",
+        "Fresh water is supplied to two hand wash sinks, a large kitchen three-compartment sink, and toilet.",
+        "Supply comes from either the 55-gallon tank or a shore hook-up for a continuous supply.",
+        "Hot water is supplied by a propane hot water heater.",
       ],
       infos: [
         { text: "Full plumbing with tanks located underneath truck" },
@@ -246,8 +256,10 @@ const Details = props => {
     },
     {
       label: "Construction",
+      hasLongDescription: true,
       descriptions: [
-        "In the spring of 2015, I began building a new mobile kitchen. I purchased a used 26-foot U-Haul box truck and stripped it to the frame and with a blank canvas built a full commercial kitchen complete with a new and larger wood fired oven. ",
+        "In the spring of 2015, I purchased a 26-foot U-Haul box truck, stripped it to the frame, and began following my longtime dream of building a new mobile kitchen.",
+        "Over the course of a year, using similar materials and design principles as used when building a house, I constructed a food truck complete with a brand new oven and full commercial kitchen.",
       ],
       infos: [
         {
@@ -335,14 +347,13 @@ const Details = props => {
   }
 
   return (
-    <div id="team" className="section">
+    <div id="info" className="section">
         <div className="truckInfo">
-          {baseInfos.map((section, i) => {
+          {sections.map((section, i) => {
             return (
-              <InfoItem
-                key={"infoitem-" + i}
+              <Section
+                key={"section" + i}
                 section={section}
-                toggleInfoMap={toggleInfoMap}
               />
             )
           })}
@@ -352,4 +363,4 @@ const Details = props => {
   )
 }
 
-export default Details
+export default Info
