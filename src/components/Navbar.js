@@ -19,16 +19,18 @@ function Navbar() {
   ]
 
   const navActionLinks = [
-    { label: "Pricing", href: "#pricing" },
+    { label: "Buy", href: "#pricing" },
     { label: "Contact", href: "#contact" },
   ]
 
   return (
     <nav className="navbar navbar-expand navbar-light brick-wall shadow">
-      <AnchorLink class="navbar-brand" href="#home">
-        <img className="logo" src={logo} />
-        <span style={{marginLeft: '12px'}}>Hello!</span>
-      </AnchorLink>
+      <div className="nav-left">
+        <AnchorLink class="navbar-brand " href="#home">
+          <img className="logo" src={logo} />
+        </AnchorLink>
+        <span style={{color: "#000"}}>HELLO!</span>
+      </div>
       {/* <button
           className="navbar-toggler"
           type="button"

@@ -46,8 +46,8 @@ function PricingItem({ pkg, i, level, setLevel, isDirty, setDirty }) {
         <h4 className="price">{formatPrice(pkg.price)}</h4>
         <div className={"expanded-price-info" + isExpanded}>
           <hr></hr>
-          {pkg.descriptions &&
-            pkg.descriptions.map((p, i) => {
+          {pkg.description &&
+            pkg.description.map((p, i) => {
               return <p key={"p-" + i}>{p.text}</p>
             })}
           {pkg.expandableInfos &&

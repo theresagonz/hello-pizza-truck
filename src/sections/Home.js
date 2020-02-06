@@ -78,7 +78,7 @@ function Home() {
     <div id="home" className="section">
       <div className="container">
         <div className="top-content row">
-          <div className="left-container col-lg-4">
+          <div className="left-container col-sm-12 col-md-5 col-lg-4">
             <div>
               <div>
                 <div className="welcome-text">{welcomeText + " "}</div>
@@ -87,20 +87,27 @@ function Home() {
                   <span>{landingText}</span>
                 </h1>
               </div>
+              <div className="small-image">
+                <img
+                  class="intro-image a-shadow"
+                  src={truckExteriorRear}
+                  alt="truck"
+                />
+              </div>
               <div className="city">
                 <b>Grand Junction, Colorado</b>
               </div>
               <div className="welcome-text">
                 Custom-built pizza truck with a wood fired oven, full commercial
-                kitchen, spacious workspace, and onboard bathroom
+                kitchen, spacious work area, and onboard bathroom
               </div>
             </div>
             <AnchorLink class="nav-link" href="#info">
-              Learn more...
+              LEARN MORE...
             </AnchorLink>
           </div>
           <Fade>
-          <div className="right-container col-lg-8">
+          <div className="large-image right-container col-sm-12 col-md-7 col-lg-8">
             <img
               class="intro-image a-shadow"
               src={truckExteriorRear}

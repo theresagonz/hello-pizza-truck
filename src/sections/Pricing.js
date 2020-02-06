@@ -144,7 +144,7 @@ function Pricing() {
       isExpanded: isTrailerExpanded,
       toggleExpand: toggleTrailerExpand,
       reference: "trailer",
-      descriptions: [
+      description: [
         {
           text:
             "Starting with a 6' x 12' Road Force tandem axle trailer, we installed a wood fired oven and venting system, lighting, refrigeration, a counter with storage cabinets, and a portable hand wash sink.",
