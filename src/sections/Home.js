@@ -89,7 +89,7 @@ function Home() {
               </div>
               <div className="small-image">
                 <img
-                  class="intro-image a-shadow"
+                  className="intro-image a-shadow"
                   src={truckExteriorRear}
                   alt="truck"
                 />
@@ -102,14 +102,14 @@ function Home() {
                 kitchen, spacious work area, and onboard bathroom
               </div>
             </div>
-            <AnchorLink class="nav-link" href="#info">
+            <AnchorLink className="nav-link" href="#info">
               LEARN MORE...
             </AnchorLink>
           </div>
           <Fade>
           <div className="large-image right-container col-sm-12 col-md-7 col-lg-8">
             <img
-              class="intro-image a-shadow"
+              className="intro-image a-shadow"
               src={truckExteriorRear}
               alt="truck"
             />
@@ -117,7 +117,7 @@ function Home() {
           </Fade>
         </div>
       </div>
-      <AnchorLink class="nav-link" href="#info">
+      <AnchorLink className="nav-link" href="#info">
         <div className="down-arrow">
           <i className="fa fa-chevron-down" />
         </div>

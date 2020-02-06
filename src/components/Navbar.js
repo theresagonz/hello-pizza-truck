@@ -26,10 +26,10 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand navbar-light brick-wall shadow">
       <div className="nav-left">
-        <AnchorLink class="navbar-brand " href="#home">
+        <AnchorLink className="navbar-brand " href="#home">
           <img className="logo" src={logo} />
         </AnchorLink>
-        <span style={{color: "#000"}}>HELLO!</span>
+        <span style={{color: "#000"}}>hello!</span>
       </div>
       {/* <button
           className="navbar-toggler"
@@ -52,21 +52,21 @@ function Navbar() {
     <button class="dropdown-item" type="button">Something else here</button> */}
       <div className="nav-right">
         <div className="nav-info-links">
-          {navInfoLinks.map(link => (
-            <AnchorLink class="nav-link" href={link.href}>
+          {navInfoLinks.map((link, i) => (
+            <AnchorLink key={`info-link-${i}`} className="nav-link" href={link.href}>
               {link.label}
             </AnchorLink>
           ))}
         </div>
         <div className="nav-action-links">
-          {navActionLinks.map(link => (
-            <AnchorLink class="nav-link" href={link.href}>
+          {navActionLinks.map((link, i) => (
+            <AnchorLink key={`action-link-${i}`} className="nav-link" href={link.href}>
               {link.label}
             </AnchorLink>
           ))}
         </div>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -74,7 +74,7 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav>
