@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import logo from "../images/food-truck-icon-lg.png"
 
@@ -23,59 +23,114 @@ function Navbar() {
     { label: "Contact", href: "#contact" },
   ]
 
+  const [prevScrollPos, updateScrollPos] = useState(window.pageYOffset)
+  const [navbarMaxHeight, setNavbarMaxHeight] = useState("72px")
+  const [navbarTop, setNavbarTop] = useState("0")
+
+  function checkForShowingNavbarOnScroll() {
+    const currScrollPos = window.pageYOffset
+    const isScrollingUp = prevScrollPos > currScrollPos
+    const isAtTop = currScrollPos === 0
+    const maxScroll = document.body.clientHeight - window.innerHeight
+    const isAtBottom = currScrollPos === maxScroll
+    updateScrollPos(currScrollPos)
+    return (isScrollingUp || isAtTop) && !isAtBottom
+  }
+
+  const showDropdown = () => {
+    setNavbarMaxHeight("450px")
+  }
+  const hideDropdown = () => {
+    setNavbarMaxHeight("72px")
+  }
+
+  const handleDropdownClick = () => {
+    if (navbarMaxHeight === "450px") hideDropdown()
+    if (navbarMaxHeight === "72px") showDropdown()
+  }
+
+  const showNavbar = () => {
+    setNavbarTop("0")
+  }
+
+  const hideNavbar = () => {
+    hideDropdown()
+    setNavbarTop("-72px")
+  }
+
+  const handleHomeClick = () => {
+    showNavbar()
+    hideDropdown()
+  }
+
+  const handleLinkClick = () => {
+    hideNavbar()
+  }
+
+  const handleScroll = () => {
+    let shouldShowNavbar = checkForShowingNavbarOnScroll()
+    let isNavbarVisible = navbarTop === "0" || navbarTop === "0px"
+    if (shouldShowNavbar && !isNavbarVisible) showNavbar()
+    if (!shouldShowNavbar && isNavbarVisible) hideNavbar()
+  }
+
+  useEffect(() => {
+    window.onscroll = handleScroll
+  })
+
   return (
-    <nav className="navbar navbar-expand navbar-light brick-wall shadow">
+    <nav
+      className="navbar navbar-expand-lg navbar-dark brick-wall shadow"
+      style={{ top: navbarTop, maxHeight: navbarMaxHeight }}
+    >
       <div className="nav-left">
-        <AnchorLink className="navbar-brand " href="#home">
+        <AnchorLink
+          className="navbar-brand "
+          href="#home"
+          onClick={handleHomeClick}
+        >
           <img className="logo" src={logo} />
         </AnchorLink>
-        <span style={{color: "#000"}}>hello!</span>
+        <span style={{ color: "#000" }}>hello!</span>
       </div>
-      {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button> */}
-        {/* <button className="btn btn-link dropdown-toggle" data-toggle="dropdown">
-          Info
-        </button> */}
-
-        {/* <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button">Action</button>
-    <button class="dropdown-item" type="button">Another action</button>
-    <button class="dropdown-item" type="button">Something else here</button> */}
-      <div className="nav-right">
-        <div className="nav-info-links">
+      <button
+        className="navbar-toggler"
+        type="button"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        onClick={handleDropdownClick}
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="nav-right navbar-collapse collapsible-navbar">
+        <ul className="nav-info-links nav-center navbar-nav">
           {navInfoLinks.map((link, i) => (
-            <AnchorLink key={`info-link-${i}`} className="nav-link" href={link.href}>
-              {link.label}
-            </AnchorLink>
+            <li className="nav-item">
+              <AnchorLink
+                key={`info-link-${i}`}
+                className="nav-link"
+                href={link.href}
+                onClick={handleLinkClick}
+              >
+                {link.label}
+              </AnchorLink>
+            </li>
           ))}
-        </div>
-        <div className="nav-action-links">
+        </ul>
+        <ul className="nav-action-links navbar-nav">
           {navActionLinks.map((link, i) => (
-            <AnchorLink key={`action-link-${i}`} className="nav-link" href={link.href}>
-              {link.label}
-            </AnchorLink>
+            <li className="nav-item">
+              <AnchorLink
+                key={`action-link-${i}`}
+                className="nav-link nav-item"
+                href={link.href}
+                onClick={handleLinkClick}
+              >
+                {link.label}
+              </AnchorLink>
+            </li>
           ))}
-        </div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        </ul>
       </div>
     </nav>
   )

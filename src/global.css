@@ -9,6 +9,10 @@
   --large-heading-size: 40px;
 }
 
+button:focus {
+  outline: none;
+}
+
 html {
   padding: 0;
   margin: 0;
@@ -63,8 +67,8 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 86px 60px 100px;
-  min-height: calc(100vh + 82px);
+  padding: 120px 60px 100px;
+  min-height: calc(100vh + 76px);
 }
 
 #info {
@@ -130,7 +134,7 @@ p {
 .brick-wall {
   background-color: var(--dark-neutral-color);
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png"), linear-gradient(var(--dark-neutral-color) 70%, #4A484B);
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png"), linear-gradient(#525252 80%, #39373a);
 }
 
 .navbar {
@@ -138,14 +142,11 @@ p {
   width: 100%;
   padding: 10px 35px;
   justify-content: space-between;
-  height: 72px;
+  max-height: 72px;
   top: 0;
-  transition: top 0.3s;
-  z-index: 100;
-}
-
-.navbar:hover {
-  top: 0;
+  transition: top 0.5s, max-height 0.5s;
+  overflow: hidden;
+  z-index: 10;
 }
 
 .nav-left {
@@ -159,29 +160,37 @@ p {
 
 .nav-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  margin-left: 50px;
   font-family: var(--accent-font);
-  /* width: 500px; */
+  color: #fff;
+  transition: 1s;
 }
 
-.nav-right a {
+.navbar-dark .navbar-nav.nav-info-links .nav-link {
+  color: lightgrey;
+}
+
+.navbar-dark .navbar-nav.nav-action-links .nav-link {
   color: #fff;
 }
 
 .nav-info-links {
   display: flex;
+  justify-content: space-evenly;
+  flex-grow: 5;
   font-size: 17px;
 }
 
 .nav-action-links {
   display: flex;
-  margin-left: 30px;
+  justify-content: space-evenly;
+  flex-grow: 2;
+  font-size: 18px;
 }
 
 .nav-action-links a {
-  /* font-size: 1em; */
   font-family: var(--accent-font);
-  color: #e4e4e4;
 }
 
 .margin-bottom {
@@ -660,6 +669,14 @@ footer a {
   }
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
+  .nav-action-links {
+    margin-right: -18px;
+  }
+}
 
+@media (max-width: 991px) {
+  .nav-right {
+    margin-left: 67px;
+  }
 }
