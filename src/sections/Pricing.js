@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import PricingItem from "../components/PricingItem"
+import Gallery from "../components/Gallery"
 import formatPrice from "../libraries/formatPrice"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -25,6 +26,8 @@ function Pricing() {
       }
     }
   `)
+
+  const [currentPricingDisplay, changePricingDisplay] = useState("kitchen")
 
   const resetSelectionToIndex = (index, items) => {
     for (let i = index; i < items.length; i++) {
@@ -118,7 +121,8 @@ function Pricing() {
           description: "The following items are mounted to a portable cart:",
           infos: [
             {
-              text: "iPad Air (model A1566, 2nd generation) for a POS system of your choice",
+              text:
+                "iPad Air (model A1566, 2nd generation) for a POS system of your choice",
             },
             { text: "ShopKeep counter iPad mount and Survivor iPad case" },
             { text: "Credit card reader, Ingenico iCMP" },
@@ -149,7 +153,10 @@ function Pricing() {
           text:
             "Starting with a 6' x 12' Road Force tandem axle trailer, we installed a wood fired oven and venting system, lighting, refrigeration, a counter with storage cabinets, and a portable hand wash sink.",
         },
-        { text: "When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving the oven in and out of trailer."},
+        {
+          text:
+            "When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving the oven in and out of trailer.",
+        },
       ],
       expandableInfos: [
         {
@@ -221,30 +228,96 @@ function Pricing() {
       images: [],
     },
   ]
+
+  const currentDisplay = pricingInfo.find(
+    item => item.reference === currentPricingDisplay
+  )
+
   return (
     <div id="pricing" className="container section">
       <div className="container pricing-section">
-        <h1 className="text-center my-4">Pricing</h1>
-        <h4 style={{textAlign: 'center', marginBottom: '25px' }}>Customize your perfect setup...</h4>
-
-        {pricingInfo.map((pkg, i) => (
-          <PricingItem
-            key={i}
-            pkg={pkg}
-            level={level}
-            setLevel={setLevel}
-            isDirty={isDirty}
-            setDirty={setDirty}
-            isExpanded={pkg.isExpanded}
-            toggleExpand={pkg.toggleExpand}
-            i={i}
-          />
-        ))}
-        <br />
-        <h2 className="center">
-          <span><b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b>{" "}</span>
-          <span className="red-text">{formatPrice(totalPrices[level])}</span>
+        <h1 className="text-center my-6">Pricing</h1>
+        <div style={{ textAlign: "center", marginBottom: "50px" }}>
+          Customize your setup!
+          <br></br>
+          Explore add-ons and pricing:
+        </div>
+        <h2 className="price-container">
+          <span className="price-label">
+            {!isDirty ? "BASE" : "YOUR"} PRICE:{" "}
+          </span>
+          <span className="price">{formatPrice(totalPrices[level])}</span>
         </h2>
+        <div className="pricing-items">
+          {pricingInfo.map((pkg, i) => (
+            <PricingItem
+              key={i}
+              pkg={pkg}
+              level={level}
+              setLevel={setLevel}
+              isDirty={isDirty}
+              setDirty={setDirty}
+              isExpanded={pkg.isExpanded}
+              toggleExpand={pkg.toggleExpand}
+              i={i}
+            />
+          ))}
+        </div>
+        <div className="pricing-details">
+            <h3>
+              {currentDisplay.headline}
+            </h3>
+          <div className="price-summary">
+            <div className="">{currentDisplay.summary}</div>
+          </div>
+          <div className="expanded-price-info">
+            {currentDisplay.description &&
+              currentDisplay.description.map((p, i) => {
+                return <p key={"p-" + i}>{p.text}</p>
+              })}
+            {currentDisplay.expandableInfos &&
+              currentDisplay.expandableInfos.map((list, i) => {
+                return (
+                  <div key={"info-" + i}>
+                    <h5>{list.label}</h5>
+                    {list.description && (
+                      <p
+                        style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}
+                        key={i}
+                      >
+                        {list.description}
+                      </p>
+                    )}
+                    <ul>
+                      {list.infos.map((info, i) => {
+                        const subInfos =
+                          info.subInfos && info.subInfos.length
+                            ? info.subInfos
+                            : null
+                        return subInfos ? (
+                          <div key={info.label + "-" + i}>
+                            <li>{info.text || info.jsxWithLink}</li>
+                            <ul>
+                              {subInfos.map((subInfo, k) => (
+                                <li key={"subInfo-" + i + "-" + k}>
+                                  {subInfo.text}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : (
+                          <li key={i}>{info.text || info.jsxWithLink}</li>
+                        )
+                      })}
+                    </ul>
+                  </div>
+                )
+              })}
+            {currentDisplay.images && currentDisplay.images.length !== 0 && (
+              <Gallery images={currentDisplay.images} thumbnailPosition="right" />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )
