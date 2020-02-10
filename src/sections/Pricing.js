@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PricingItem from "../components/PricingItem"
-import Gallery from "../components/Gallery"
+import PricingDetails from "../components/PricingDetails"
 import formatPrice from "../libraries/formatPrice"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -27,7 +27,7 @@ function Pricing() {
     }
   `)
 
-  const [currentPricingDisplay, changePricingDisplay] = useState("kitchen")
+  const [pricingItemDisplayed, changePricingItem] = useState("kitchen")
 
   const resetSelectionToIndex = (index, items) => {
     for (let i = index; i < items.length; i++) {
@@ -84,15 +84,15 @@ function Pricing() {
             { text: "Spiral dough mixer, Häussler 25 quart" },
             {
               text:
-                "Refrigerator – full size stainless steel commercial two-door (Blue Air) with 15 pan dough rack on one side",
+                "Refrigerator – Blue Air full size stainless steel commercial two-door with 15 pan dough rack on one side",
             },
             {
               text:
-                "Refrigerated prep table (Turbo Air 48” ) with an assortment of half, third, sixth and ninth trays",
+                "Refrigerated prep table, Turbo Air 48”, with an assortment of half, third, sixth and ninth trays",
             },
             {
               text:
-                "Heater/dough proofer with stainless top and shelf (half-size Win-Holt NHP-PD-ECO)",
+                "Heater/dough proofer with stainless top and shelf, half-size Win-Holt NHP-PD-ECO",
             },
             {
               text:
@@ -122,7 +122,7 @@ function Pricing() {
           infos: [
             {
               text:
-                "iPad Air (model A1566, 2nd generation) for a POS system of your choice",
+                "iPad Air, 2nd generation model A1566, for a POS system of your choice",
             },
             { text: "ShopKeep counter iPad mount and Survivor iPad case" },
             { text: "Credit card reader, Ingenico iCMP" },
@@ -229,8 +229,8 @@ function Pricing() {
     },
   ]
 
-  const currentDisplay = pricingInfo.find(
-    item => item.reference === currentPricingDisplay
+  const currentPricingItem = pricingInfo.find(
+    item => item.reference === pricingItemDisplayed
   )
 
   return (
@@ -263,61 +263,7 @@ function Pricing() {
             />
           ))}
         </div>
-        <div className="pricing-details">
-            <h3>
-              {currentDisplay.headline}
-            </h3>
-          <div className="price-summary">
-            <div className="">{currentDisplay.summary}</div>
-          </div>
-          <div className="expanded-price-info">
-            {currentDisplay.description &&
-              currentDisplay.description.map((p, i) => {
-                return <p key={"p-" + i}>{p.text}</p>
-              })}
-            {currentDisplay.expandableInfos &&
-              currentDisplay.expandableInfos.map((list, i) => {
-                return (
-                  <div key={"info-" + i}>
-                    <h5>{list.label}</h5>
-                    {list.description && (
-                      <p
-                        style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}
-                        key={i}
-                      >
-                        {list.description}
-                      </p>
-                    )}
-                    <ul>
-                      {list.infos.map((info, i) => {
-                        const subInfos =
-                          info.subInfos && info.subInfos.length
-                            ? info.subInfos
-                            : null
-                        return subInfos ? (
-                          <div key={info.label + "-" + i}>
-                            <li>{info.text || info.jsxWithLink}</li>
-                            <ul>
-                              {subInfos.map((subInfo, k) => (
-                                <li key={"subInfo-" + i + "-" + k}>
-                                  {subInfo.text}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ) : (
-                          <li key={i}>{info.text || info.jsxWithLink}</li>
-                        )
-                      })}
-                    </ul>
-                  </div>
-                )
-              })}
-            {currentDisplay.images && currentDisplay.images.length !== 0 && (
-              <Gallery images={currentDisplay.images} thumbnailPosition="right" />
-            )}
-          </div>
-        </div>
+        <PricingDetails item={currentPricingItem} />
       </div>
     </div>
   )
