@@ -41,13 +41,13 @@ function Pricing() {
 
   const pricingInfo = [
     {
-      headline: "Just the truck",
+      category: "Just the truck",
       summary: "Truck, oven, and everything shown above",
       price: 80000,
       reference: "truck",
     },
     {
-      headline: "Kitchen support equipment",
+      category: "Kitchen support equipment",
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
       price: 7000,
@@ -114,9 +114,9 @@ function Pricing() {
       ],
     },
     {
-      headline: "Second unit trailer",
+      category: "Second unit trailer",
       summary:
-        "Mobile mini-kitchen that makes any setup more flexible, including supplemental equipment",
+        "Make your setup more flexible with this mobile mini-kitchen in a trailer! Can operate independently or along with the truck.",
       price: 6000,
       reference: "trailer",
       description: [
@@ -166,7 +166,7 @@ function Pricing() {
       ],
     },
     {
-      headline: "Business and support extras",
+      category: "Business and support extras",
       summary: "Training to make our pizza plus marketing and logo supplies",
       price: 4000,
       reference: "business",
@@ -204,14 +204,20 @@ function Pricing() {
     <div id="pricing" className="container section">
       <div className="container pricing-section">
         <h1 className="section-heading my-6">Pricing</h1>
-        <div style={{ textAlign: "center", marginBottom: "var(--very-large-margin)" }}>
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: "var(--summary-git adfont-size)",
+            marginBottom: "var(--xl-margin)",
+          }}
+        >
           Customize your setup!
           <br></br>
           Explore add-ons and pricing...
         </div>
         <h2
           className="price-container"
-          style={{ textAlign: "center", margin: "var(--large-margin) 0" }}
+          style={{ textAlign: "center", margin: "var(--lg-margin) 0" }}
         >
           <span
             className="price-label"
@@ -221,22 +227,26 @@ function Pricing() {
           </span>
           <span className="price">{formatPrice(totalPrices[level])}</span>
         </h2>
-        <div className="pricing-items">
-          {pricingInfo.map((pkg, i) => (
-            <PricingItem
-              key={i}
-              pkg={pkg}
-              level={level}
-              setLevel={setLevel}
-              isDirty={isDirty}
-              setDirty={setDirty}
-              isExpanded={pkg.isExpanded}
-              toggleExpand={pkg.toggleExpand}
-              i={i}
-            />
-          ))}
+        <div>
+          <div className="pricing-items">
+            {pricingInfo.map((pkg, i) => (
+              <PricingItem
+                key={i}
+                pkg={pkg}
+                level={level}
+                setLevel={setLevel}
+                isDirty={isDirty}
+                setDirty={setDirty}
+                isExpanded={pkg.isExpanded}
+                toggleExpand={pkg.toggleExpand}
+                pricingItemDisplayed={pricingItemDisplayed}
+                changePricingItem={changePricingItem}
+                i={i}
+              />
+            ))}
+          </div>
+          <PricingDetails item={currentPricingItem} setLevel={setLevel} />
         </div>
-        <PricingDetails item={currentPricingItem} setLevel />
       </div>
     </div>
   )

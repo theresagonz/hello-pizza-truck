@@ -4,12 +4,24 @@
   --dark-neutral-color: #666264;
   --light-neutral-color: #8e8e8e;
   --accent-color: #8c4540;
+  --notepad-color: lightgoldenrodyellow;
   --main-font: "Muli", sans-serif;
   --accent-font: "Poppins", sans-serif;
   --details-font: "Roboto", serif;
+
   --large-heading-size: 40px;
-  --large-margin: 3.5rem;
-  --very-large-margin: 6rem;
+  --summary-font-size: 1.3rem;
+  --p-line-height: 2.1rem;
+  --ul-line-height: 1.5rem;
+  
+  --li-margin: 0.7rem;
+  --sm-margin: 1rem;
+  --smd-margin: 1.5rem;
+  --med-margin: 2rem;
+  --lg-margin: 3.5rem;
+  --xl-margin: 6rem;
+
+  --notepad-padding: 3rem 4rem;
 }
 
 button:focus {
@@ -59,10 +71,6 @@ section {
 a,
 a:hover {
   text-decoration: none;
-}
-
-p {
-  font-size: 1.2rem;
 }
 
 #home {
@@ -200,7 +208,7 @@ p {
   display: flex;
   justify-content: space-evenly;
   flex-grow: 2;
-  font-size: 18px;
+  font-weight: 600;
 }
 
 .nav-action-links a {
@@ -217,7 +225,7 @@ p {
 
 .section-heading {
   text-align: center;
-  margin-bottom: var(--large-margin);
+  margin-bottom: var(--lg-margin);
 }
 
 ::placeholder {
@@ -256,11 +264,6 @@ p {
   align-items: center;
 }
 
-.section-description {
-  font-weight: 400;
-  line-height: 31px;
-}
-
 .home-info-container {
   display: flex;
   flex-direction: column;
@@ -296,28 +299,28 @@ p {
 }
 
 .section-details {
-  background-color: lightgoldenrodyellow;
+  background-color: var(--notepad-color);
   color: #333;
   border-radius: 10px;
-  padding: 30px 20px;
+  padding: var(--notepad-padding);
   margin: 70px;
   line-height: 1.5rem;
   font-weight: 400;
 }
 
 .section-details-label {
-  font-size: 22px;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: var(--med-margin);
 }
 
 .section-details ul {
   margin-bottom: 0;
 }
 
-.section-details li {
+/* .section-details li {
   margin-bottom: 10px;
-}
+} */
 
 .section-link {
   font-size: 1.4em;
@@ -337,12 +340,16 @@ p {
   color: white;
 }
 
+.pricing-item-description li, .section-details li {
+  margin-bottom: var(--li-margin);
+}
+
 .pricing-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  margin: 5rem auto;
+  margin: 5rem -4px -4px;
 }
 
 .pricing-item {
@@ -350,14 +357,25 @@ p {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  height: 200px;
+  background-color: lightgray;
+  min-height: 200px;
+  border-radius: 10px 10px 0 0;
   width: calc(100% / 4);
   /* width: 100px; */
   padding: 10px;
+  margin: 4px;
+}
+
+.pricing-item.active {
+  background-color: var(--notepad-color);
+  height: 100px;
 }
 
 .pricing-details {
-  margin-top: 65px;
+  /* margin-top: 65px; */
+  background-color: var(--notepad-color);
+  padding: 4rem var(--notepad-padding);
+  border-radius: 0 0 10px 10px;
 }
 
 .option-container .show-button {
@@ -430,10 +448,6 @@ hr {
   margin: 28px 0 40px;
 }
 
-.option-container.required .expanded-price-info {
-  display: none;
-}
-
 .expanded-price-info p {
   margin-bottom: 15px;
 }
@@ -464,7 +478,7 @@ hr {
 }
 
 .section {
-  padding: 50px 60px 100px;
+  padding: 50px 0 100px;
 }
 
 .pricing-summary-info {
@@ -487,6 +501,7 @@ hr {
 
 .clickable:hover {
   color: green;
+  font-size: 1.05em;
 }
 
 .truckInfo {
@@ -601,7 +616,8 @@ footer a {
   }
 
   p {
-    font-size: 1.1em;
+    font-size: 1.4em;
+    margin: var(--med-margin) 0;
   }
 
   .info-section {
@@ -638,12 +654,14 @@ footer a {
 
   .section-details {
     margin: 30px 0 0 0;
+    padding: 3rem 4rem;
   }
 
   .section-info {
     margin-top: 50px;
     padding-left: -15px;
     padding-right: -15px;
+    font-size: 1.2rem;
   }
 
   .large-image {

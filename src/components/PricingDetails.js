@@ -2,14 +2,40 @@ import React from "react"
 import Gallery from "./Gallery"
 
 function PricingDetails(props) {
-  const { headline, summary, description, expandableInfos, images } = props.item
+  const { category, summary, description, expandableInfos, images } = props.item
   return (
-    <div className="pricing-details">
-      <h3>{headline}</h3>
-      <div className="price-summary">
-        <div className="">{summary}</div>
+    <div
+      className="pricing-details"
+      style={{ border: "0.5px solid #d3d3d3", borderTop: "0" }}
+    >
+      <h2
+        className="pricing-details-category"
+        style={{
+          textTransform: "uppercase",
+          marginBottom: "var(--sm-margin)",
+        }}
+      >
+        {category}
+      </h2>
+      <div
+        className="pricing-item-summary"
+        style={{
+          fontSize: "var(--summary-font-size)",
+          marginBottom: "var(--med-margin)",
+        }}
+      >
+        {summary}
       </div>
-      <div className="expanded-price-info">
+      {images && images.length !== 0 && (
+        <Gallery images={images} thumbnailPosition="right" />
+      )}
+      <div
+        className="pricing-item-description"
+        style={{
+          marginTop: "var(--med-margin)",
+          lineHeight: "var(--p-line-height)",
+        }}
+      >
         {description &&
           description.map((p, i) => {
             return <p key={"p-" + i}>{p.text}</p>
@@ -17,8 +43,12 @@ function PricingDetails(props) {
         {expandableInfos &&
           expandableInfos.map((list, i) => {
             return (
-              <div key={"info-" + i}>
-                <h5>{list.label}</h5>
+              <div
+                className="pri"
+                style={{ margin: "var(--med-margin) 0" }}
+                key={"info-" + i}
+              >
+                <h5 style={{ margin: "var(--sm-margin) 0" }}>{list.label}</h5>
                 {list.description && (
                   <p
                     style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}
@@ -27,7 +57,7 @@ function PricingDetails(props) {
                     {list.description}
                   </p>
                 )}
-                <ul>
+                <ul style={{ lineHeight: "var(--ul-line-height)" }}>
                   {list.infos.map((info, i) => {
                     const subInfos =
                       info.subInfos && info.subInfos.length
@@ -52,9 +82,6 @@ function PricingDetails(props) {
               </div>
             )
           })}
-        {images && images.length !== 0 && (
-          <Gallery images={images} thumbnailPosition="right" />
-        )}
       </div>
     </div>
   )

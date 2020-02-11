@@ -20,34 +20,39 @@ export default function AddPricingItemButton({
       className: "check fa fa-check-circle",
       style: { color: "green" },
       handleClick: null,
+      cursor: "default",
       msg: "Added!",
     },
     {
       type: "activePlus",
       className: "add fa fa-plus-circle clickable",
       handleClick: handleAddClick,
-      style: { cursor: "pointer", transition: "color 0.15s" },
+      style: { cursor: "pointer", transition: "color 0.25s, fontSize 0.25s" },
+      cursor: "pointer",
       msg: "Click to add",
     },
     {
       type: "disabledPlus",
       className: "add fa fa-plus-circle disabled",
       handleClick: null,
-      style: { opacity: "0.3" },
-      msg: "Must add all previous packages first",
+      style: { opacity: "0.4", cursor: "default" },
+      cursor: "default",
+      msg: "Please add previous packages first",
     },
   ]
 
   let whichButton = isAdded
-    ? "check" : (
-      !isClickable
-        ? "disabledPlus"
-        : "activePlus"
-    )
+    ? "check"
+    : !isClickable
+      ? "disabledPlus"
+      : "activePlus"
 
   const button = buttonsInfo.find(button => button.type === whichButton)
   return (
-    <div className="pricing-button" style={{ fontSize: "1.8em" }}>
+    <div
+      className="pricing-button"
+      style={{ fontSize: "1.8em", cursor: button.cursor }}
+    >
       <i
         className={button.className}
         style={button.style}
