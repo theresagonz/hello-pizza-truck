@@ -29,28 +29,12 @@ function Pricing() {
 
   const [pricingItemDisplayed, changePricingItem] = useState("kitchen")
 
-  const resetSelectionToIndex = (index, items) => {
-    for (let i = index; i < items.length; i++) {
-      items[i].toggleAdd(false)
-    }
-  }
-
   const totalPrices = [80000, 87000, 93000, 97000]
 
   const featureStyle = {
     fontSize: "1.5em",
     padding: "20px 12px",
   }
-
-  const [isTruckAdded, toggleTruckAdd] = useState(true)
-  const [isEquipmentAdded, toggleEquipmentAdd] = useState(false)
-  const [isTrailerAdded, toggleTrailerAdd] = useState(false)
-  const [isBusinessAdded, toggleBusinessAdd] = useState(false)
-
-  const [isTruckExpanded, toggleTruckExpand] = useState(false)
-  const [isEquipmentExpanded, toggleEquipmentExpand] = useState(false)
-  const [isTrailerExpanded, toggleTrailerExpand] = useState(false)
-  const [isBusinessExpanded, toggleBusinessExpand] = useState(false)
 
   const [isDirty, setDirty] = useState(false)
   const [level, setLevel] = useState(0)
@@ -60,11 +44,6 @@ function Pricing() {
       headline: "Just the truck",
       summary: "Truck, oven, and everything shown above",
       price: 80000,
-      isRequired: true,
-      isAdded: isTruckAdded,
-      toggleAdd: toggleTruckAdd,
-      isExpanded: isTruckExpanded,
-      toggleExpand: toggleTruckExpand,
       reference: "truck",
     },
     {
@@ -72,10 +51,6 @@ function Pricing() {
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
       price: 7000,
-      isAdded: isEquipmentAdded,
-      toggleAdd: toggleEquipmentAdd,
-      isExpanded: isEquipmentExpanded,
-      toggleExpand: toggleEquipmentExpand,
       reference: "kitchen",
       expandableInfos: [
         {
@@ -143,10 +118,6 @@ function Pricing() {
       summary:
         "Mobile mini-kitchen that makes any setup more flexible, including supplemental equipment",
       price: 6000,
-      isAdded: isTrailerAdded,
-      toggleAdd: toggleTrailerAdd,
-      isExpanded: isTrailerExpanded,
-      toggleExpand: toggleTrailerExpand,
       reference: "trailer",
       description: [
         {
@@ -198,10 +169,6 @@ function Pricing() {
       headline: "Business and support extras",
       summary: "Training to make our pizza plus marketing and logo supplies",
       price: 4000,
-      isAdded: isBusinessAdded,
-      toggleAdd: toggleBusinessAdd,
-      isExpanded: isBusinessExpanded,
-      toggleExpand: toggleBusinessExpand,
       reference: "business",
       expandableInfos: [
         {
@@ -236,14 +203,20 @@ function Pricing() {
   return (
     <div id="pricing" className="container section">
       <div className="container pricing-section">
-        <h1 className="text-center my-6">Pricing</h1>
-        <div style={{ textAlign: "center", marginBottom: "50px" }}>
+        <h1 className="section-heading my-6">Pricing</h1>
+        <div style={{ textAlign: "center", marginBottom: "var(--very-large-margin)" }}>
           Customize your setup!
           <br></br>
-          Explore add-ons and pricing:
+          Explore add-ons and pricing...
         </div>
-        <h2 className="price-container">
-          <span className="price-label">
+        <h2
+          className="price-container"
+          style={{ textAlign: "center", margin: "var(--large-margin) 0" }}
+        >
+          <span
+            className="price-label"
+            style={{ fontWeight: "400", fontSize: "28px" }}
+          >
             {!isDirty ? "BASE" : "YOUR"} PRICE:{" "}
           </span>
           <span className="price">{formatPrice(totalPrices[level])}</span>
@@ -263,7 +236,7 @@ function Pricing() {
             />
           ))}
         </div>
-        <PricingDetails item={currentPricingItem} />
+        <PricingDetails item={currentPricingItem} setLevel />
       </div>
     </div>
   )

@@ -3,10 +3,13 @@
 :root {
   --dark-neutral-color: #666264;
   --light-neutral-color: #8e8e8e;
+  --accent-color: #8c4540;
   --main-font: "Muli", sans-serif;
   --accent-font: "Poppins", sans-serif;
   --details-font: "Roboto", serif;
   --large-heading-size: 40px;
+  --large-margin: 3.5rem;
+  --very-large-margin: 6rem;
 }
 
 button:focus {
@@ -35,7 +38,7 @@ h6 {
 }
 
 a {
-  color: #8c4540;
+  color: var(--accent-color);
 }
 
 a:hover {
@@ -212,6 +215,11 @@ p {
   font-size: 1.5em;
 }
 
+.section-heading {
+  text-align: center;
+  margin-bottom: var(--large-margin);
+}
+
 ::placeholder {
   color: #e5d0c8;
   opacity: 1; /* Firefox */
@@ -241,12 +249,6 @@ p {
 
 .small-image {
   display: none;
-}
-
-.section-label {
-  text-align: center;
-  font-size: var(--large-heading-size);
-  margin-bottom: 30px;
 }
 
 .section-content {
@@ -293,10 +295,6 @@ p {
   display: none;
 }
 
-.logo {
-  width: 50px;
-}
-
 .section-details {
   background-color: lightgoldenrodyellow;
   color: #333;
@@ -339,26 +337,20 @@ p {
   color: white;
 }
 
-.option-container.not-selected {
-  width: 90%;
-}
-
-.option-container.selected {
-  width: 100%;
-  background-color: #8c4540;
-}
-
 .pricing-items {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  margin: 0 auto;
+  margin: 5rem auto;
 }
 
 .pricing-item {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 200px;
   width: calc(100% / 4);
   /* width: 100px; */
   padding: 10px;
@@ -368,64 +360,8 @@ p {
   margin-top: 65px;
 }
 
-.pricing-summary {
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .option-container .show-button {
   display: inline;
-}
-
-.option-container.selected + .option-container.not-selected .hello {
-  display: inline;
-}
-
-.option-container.selected a {
-  color: #717171;
-}
-
-.option-container.selected a:hover {
-  color: #7f7f7f;
-}
-
-.option-container.not-selected a {
-  color: #ffad35;
-}
-
-.option-container.not-selected a:hover {
-  color: #ffbc59;
-}
-
-.not-selected {
-  background-color: #969696;
-  cursor: pointer;
-}
-
-.not-selected:hover .add-button {
-  background-color: #eca053;
-}
-
-.not-selected:hover {
-  background-color: #a9a6a6;
-}
-
-.not-selected:hover .add-remove-button {
-  background-color: #969696;
-}
-
-.not-selected .add-button {
-  background-color: #eabd8e;
-}
-
-.selected {
-  background-color: #e09648;
-}
-
-.selected:hover {
-  background-color: #e09e58;
 }
 
 .option-label {
@@ -480,18 +416,6 @@ p {
   background-color: #eca053;
 }
 
-.price-container {
-  text-align: center;
-}
-
-.price-label {
-  font-weight: 400;
-}
-
-.price {
-  /* font-weight: 600;  */
-}
-
 .price-summary {
   display: flex;
   justify-content: space-between;
@@ -543,6 +467,13 @@ hr {
   padding: 50px 60px 100px;
 }
 
+.pricing-summary-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: inherit;
+}
+
 .pricing-section {
   max-width: 800px;
   padding-bottom: 50px;
@@ -552,6 +483,10 @@ hr {
 .pricing-section > h2 {
   margin: 30px 0 50px 0;
   /* color: #c3c3c3; */
+}
+
+.clickable:hover {
+  color: green;
 }
 
 .truckInfo {
