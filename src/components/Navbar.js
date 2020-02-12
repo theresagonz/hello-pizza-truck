@@ -3,6 +3,10 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 import logo from "../images/food-truck-icon-lg.png"
 
 function Navbar() {
+  // accounts for window and document not existing during the build
+  const isWindow = typeof window != "undefined"
+  const isDocument = typeof document != "undefined"
+
   const textStyle = {
     color: "#FFA800",
     fontWeight: "600",
@@ -23,15 +27,18 @@ function Navbar() {
     { label: "Contact", href: "#contact" },
   ]
 
-  const [prevScrollPos, updateScrollPos] = useState(window.pageYOffset)
+  const [prevScrollPos, updateScrollPos] = useState(
+    isWindow && window.pageYOffset
+  )
   const [navbarMaxHeight, setNavbarMaxHeight] = useState("68px")
   const [navbarTop, setNavbarTop] = useState("0")
 
   function checkForShowingNavbarOnScroll() {
-    const currScrollPos = window.pageYOffset
+    const currScrollPos = isWindow && window.pageYOffset
     const isScrollingUp = prevScrollPos > currScrollPos
     const isAtTop = currScrollPos === 0
-    const maxScroll = document.body.clientHeight - window.innerHeight
+    const maxScroll =
+      isWindow && isDocument && document.body.clientHeight - window.innerHeight
     const isAtBottom = currScrollPos === maxScroll
     updateScrollPos(currScrollPos)
     return (isScrollingUp || isAtTop) && !isAtBottom
@@ -75,7 +82,7 @@ function Navbar() {
   }
 
   useEffect(() => {
-    window.onscroll = handleScroll
+    if (isWindow) window.onscroll = handleScroll
   })
 
   return (
