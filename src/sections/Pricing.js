@@ -27,7 +27,7 @@ function Pricing() {
     }
   `)
 
-  const [pricingItemDisplayed, changePricingItem] = useState("kitchen")
+  const [pricingItemDisplayed, changePricingItem] = useState("truck")
 
   const totalPrices = [80000, 87000, 93000, 97000]
 
@@ -207,8 +207,8 @@ function Pricing() {
         <div
           style={{
             textAlign: "center",
-            fontSize: "var(--summary-git adfont-size)",
-            marginBottom: "var(--xl-margin)",
+            fontSize: "var(--summary-font-size)",
+            marginBottom: "var(--x-large)",
           }}
         >
           Customize your setup!
@@ -217,17 +217,19 @@ function Pricing() {
         </div>
         <h2
           className="price-container"
-          style={{ textAlign: "center", margin: "var(--lg-margin) 0" }}
+          style={{ textAlign: "center", margin: "var(--large) 0" }}
         >
           <span
             className="price-label"
-            style={{ fontWeight: "400", fontSize: "28px" }}
+            style={{ fontWeight: "400", fontSize: "var(--medium)" }}
           >
             {!isDirty ? "BASE" : "YOUR"} PRICE:{" "}
           </span>
-          <span className="price">{formatPrice(totalPrices[level])}</span>
+          <span className="price" style={{ fontSize: "2rem" }}>
+            {formatPrice(totalPrices[level])}
+          </span>
         </h2>
-        <div>
+        <div className="pricing-container">
           <div className="pricing-items">
             {pricingInfo.map((pkg, i) => (
               <PricingItem

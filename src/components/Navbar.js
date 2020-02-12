@@ -24,7 +24,7 @@ function Navbar() {
   ]
 
   const [prevScrollPos, updateScrollPos] = useState(window.pageYOffset)
-  const [navbarMaxHeight, setNavbarMaxHeight] = useState("72px")
+  const [navbarMaxHeight, setNavbarMaxHeight] = useState("68px")
   const [navbarTop, setNavbarTop] = useState("0")
 
   function checkForShowingNavbarOnScroll() {
@@ -41,12 +41,12 @@ function Navbar() {
     setNavbarMaxHeight("450px")
   }
   const hideDropdown = () => {
-    setNavbarMaxHeight("72px")
+    setNavbarMaxHeight("68px")
   }
 
   const handleDropdownClick = () => {
     if (navbarMaxHeight === "450px") hideDropdown()
-    if (navbarMaxHeight === "72px") showDropdown()
+    if (navbarMaxHeight === "68px") showDropdown()
   }
 
   const showNavbar = () => {
@@ -55,7 +55,7 @@ function Navbar() {
 
   const hideNavbar = () => {
     hideDropdown()
-    setNavbarTop("-72px")
+    setNavbarTop("-68px")
   }
 
   const handleHomeClick = () => {
@@ -89,7 +89,7 @@ function Navbar() {
           href="#home"
           onClick={handleHomeClick}
         >
-          <img className="logo" src={logo} />
+          <img className="logo" src={logo} style={{ width: "40px" }} />
         </AnchorLink>
         <span style={{ color: "#000" }}>hello!</span>
       </div>

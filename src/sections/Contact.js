@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Fade from "react-reveal/Fade"
 import emailjs from "emailjs-com"
-import logo from "../images/logo-transp.png"
+import michaelAngelosLogo from "../images/logo-transp.png"
 import facebookLogo from "../images/facebook-logo.png"
 
 function Contact() {
@@ -14,20 +14,20 @@ function Contact() {
     e.preventDefault()
     emailjs
       .sendForm(
-      "hellopizzatruck",
-      "pizza_truck_inquiry",
-      e.target,
-      "user_XTQ8oJHyAIsl27GDnArx1"
+        "hellopizzatruck",
+        "pizza_truck_inquiry",
+        e.target,
+        "user_XTQ8oJHyAIsl27GDnArx1"
       )
       .then(
-      result => {
-        console.log("result", result)
-        markSubmitted(true)
-      },
-      error => {
-        console.log("error", error)
-        markError(true)
-      }
+        result => {
+          console.log("result", result)
+          markSubmitted(true)
+        },
+        error => {
+          console.log("error", error)
+          markError(true)
+        }
       )
   }
 
@@ -35,21 +35,30 @@ function Contact() {
     <div
       id="contact"
       className="container-fluid"
-      style={{ paddingBottom: "55px" }}
+      style={{ paddingBottom: "8rem" }}
     >
       <div className="container">
         <div className="flexbox">
-          <Fade left>
+          <Fade>
             <div>
-              <h1 className="text-center my-5">Get in Touch!</h1>
-              <div className="email margin-bottom larger-font">
-                <div className="contact">
-                  <div>Call/text</div>
-                  <a href="tel:+19705891500">(970) 589-1500</a>
+              <h1 className="text-center my-5">Get more info</h1>
+              <div
+                className="contact-info"
+                style={{
+                  fontSize: "1.3rem",
+                  fontWeight: "400",
+                  fontFamily: "var(--accent-font)",
+                  margin: "var(--x-large) 0",
+                }}
+              >
+                <div className="contact-item">
+                  <a href="tel:+19705891500">
+                    <i className="fa fa-phone-alt"></i>(970) 589-1500
+                  </a>
                 </div>
-                <div className="contact">
-                  <div>Email</div>
+                <div className="contact-item">
                   <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
+                    <i className="fa fa-envelope"></i>
                     michael@michaelangeloswoodfiredpizza.com
                   </a>
                 </div>
@@ -66,7 +75,7 @@ function Contact() {
               )}
               <form className={"contact-form" + showForm} onSubmit={sendEmail}>
                 <div className="row">
-                  <div className="col mb-4">
+                  <div className="col-lg-6 mb-4">
                     <input
                       type="text"
                       className="inputBox"
@@ -74,9 +83,9 @@ function Contact() {
                       name="from_name"
                     />
                   </div>
-                </div>
-                <div className="row">
-                  <div className="col mb-4">
+                  {/* </div> */}
+                  {/* <div className="row"> */}
+                  <div className="col-lg-6 mb-4">
                     <input
                       type="text"
                       className="inputBox"
@@ -107,23 +116,27 @@ function Contact() {
                 <textarea
                   rows="2"
                   className="col inputBox mb-4"
-                  placeholder="Write a Message"
+                  placeholder="Write a message"
                   name="message"
                 />
                 {/* </div> */}
-                <button className=" col btn btn-light mb-4 py-3">Submit</button>
+                <div className="button-container" style={{ display: "flex" }}>
+                  <button className=" col btn btn-success mb-4 py-3">
+                    Send email
+                  </button>
+                </div>
               </form>
             </div>
           </Fade>
           <div className="ma-links">
             <a href="http://michaelangeloswoodfiredpizza.com" target="_blank">
-              <img src={logo} alt="Michael Angelo's pizza website" />
+              <img src={michaelAngelosLogo} alt="Michael Angelo's logo" />
             </a>
             <a
               href="https://www.facebook.com/MichaelAngelosWoodFiredPizza"
               target="_blank"
             >
-              <img src={facebookLogo} alt="facebook link" />
+              <img src={facebookLogo} alt="facebook logo" />
             </a>
           </div>
         </div>

@@ -23,31 +23,22 @@ function PricingItem({
     <div
       className={"pricing-item" + active}
       style={{
-        border: "0.5px solid #d3d3d3",
-        borderBottom: "0",
         fontFamily: "var(--accent-font)",
         cursor: "pointer",
       }}
       onClick={e => handleClick(e)}
     >
-      <div className="pricing-summary-info">
-        <div
-          className="pricing-item-category"
-          style={{ fontSize: "var(--summary-font-size)", fontWeight: "600" }}
-        >
-          {pkg.category}
-        </div>
-        <div>
-          <div className="price">{formatPrice(pkg.price)}</div>
-          <AddPricingItemButton
-            currLevel={level}
-            myLevel={i}
-            setLevel={setLevel}
-            isDirty={isDirty}
-            setDirty={setDirty}
-          />
-        </div>
+    <div className="pricing-item-info">
+      <div className="pricing-item-category">{pkg.category}</div>
+      <div className="price">{formatPrice(pkg.price)}</div>
       </div>
+      <AddPricingItemButton
+        currLevel={level}
+        myLevel={i}
+        setLevel={setLevel}
+        isDirty={isDirty}
+        setDirty={setDirty}
+      />
     </div>
   )
 }

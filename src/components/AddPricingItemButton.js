@@ -37,21 +37,21 @@ export default function AddPricingItemButton({
       handleClick: null,
       style: { opacity: "0.4", cursor: "default" },
       cursor: "default",
-      msg: "Please add previous packages first",
+      msg: "Please add previous options first",
     },
   ]
 
   let whichButton = isAdded
     ? "check"
     : !isClickable
-      ? "disabledPlus"
-      : "activePlus"
+    ? "disabledPlus"
+    : "activePlus"
 
   const button = buttonsInfo.find(button => button.type === whichButton)
   return (
     <div
       className="pricing-button"
-      style={{ fontSize: "1.8em", cursor: button.cursor }}
+      style={{ fontSize: "1.8em", cursor: button.cursor, marginLeft: "4%" }}
     >
       <i
         className={button.className}

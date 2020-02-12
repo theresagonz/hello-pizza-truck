@@ -4,15 +4,12 @@ import Gallery from "./Gallery"
 function PricingDetails(props) {
   const { category, summary, description, expandableInfos, images } = props.item
   return (
-    <div
-      className="pricing-details"
-      style={{ border: "0.5px solid #d3d3d3", borderTop: "0" }}
-    >
+    <div className="pricing-details">
       <h2
         className="pricing-details-category"
         style={{
           textTransform: "uppercase",
-          marginBottom: "var(--sm-margin)",
+          marginBottom: "var(--tiny)",
         }}
       >
         {category}
@@ -21,7 +18,7 @@ function PricingDetails(props) {
         className="pricing-item-summary"
         style={{
           fontSize: "var(--summary-font-size)",
-          marginBottom: "var(--med-margin)",
+          marginBottom: "var(--medium)",
         }}
       >
         {summary}
@@ -32,23 +29,31 @@ function PricingDetails(props) {
       <div
         className="pricing-item-description"
         style={{
-          marginTop: "var(--med-margin)",
+          marginTop: "var(--medium)",
           lineHeight: "var(--p-line-height)",
         }}
       >
         {description &&
           description.map((p, i) => {
-            return <p key={"p-" + i}>{p.text}</p>
+            return (
+              <p
+                className="pricing-item-intro"
+                style={{ fontWeight: "200", fontSize: "var(--small-med" }}
+                key={"p-" + i}
+              >
+                {p.text}
+              </p>
+            )
           })}
         {expandableInfos &&
           expandableInfos.map((list, i) => {
             return (
               <div
                 className="pri"
-                style={{ margin: "var(--med-margin) 0" }}
+                style={{ margin: "var(--medium) 0" }}
                 key={"info-" + i}
               >
-                <h5 style={{ margin: "var(--sm-margin) 0" }}>{list.label}</h5>
+                <h5 style={{ margin: "var(--tiny) 0" }}>{list.label}</h5>
                 {list.description && (
                   <p
                     style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}

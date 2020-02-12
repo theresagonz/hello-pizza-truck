@@ -1,6 +1,6 @@
 import React from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
-import Fade from 'react-reveal/Fade';
+import Fade from "react-reveal/Fade"
 import Navbar from "../components/Navbar"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import truckExteriorRear from "../images/gallery/main/truck-exterior-rear.png"
@@ -76,37 +76,50 @@ function Home() {
 
   return (
     <div id="home" className="section">
-      <div className="container">
-        <div className="top-content row">
-          <div className="left-container col-sm-12 col-md-5 col-lg-4">
+      <div className="top-content row">
+        <div className="left-container col-sm-12 col-md-5 col-lg-4">
+          <div>
             <div>
-              <div>
-                <div className="welcome-text">{welcomeText + " "}</div>
-                {/* </h4> */}
-                <h1 className="main-head text-shadow">
-                  <span>{landingText}</span>
-                </h1>
-              </div>
-              <div className="small-image">
-                <img
-                  className="intro-image a-shadow"
-                  src={truckExteriorRear}
-                  alt="truck"
-                />
-              </div>
-              <div className="city">
-                <b>Grand Junction, Colorado</b>
-              </div>
-              <div className="welcome-text">
-                Custom-built pizza truck with a wood fired oven, full commercial
-                kitchen, spacious work area, and onboard bathroom
-              </div>
+              <div className="welcome-text">{welcomeText + " "}</div>
+              {/* </h4> */}
+              <h1
+                className="main-head"
+                style={{ fontSize: "var(--large-heading-size)" }}
+              >
+                <span>{landingText}</span>
+              </h1>
             </div>
-            <AnchorLink className="nav-link" href="#info">
-              LEARN MORE...
-            </AnchorLink>
+            <div className="small-image">
+              <img
+                className="intro-image a-shadow"
+                src={truckExteriorRear}
+                alt="truck"
+              />
+            </div>
+            <div
+              className="city"
+              style={{
+                fontSize: "22px",
+                fontWeight: "200",
+                margin: "1.8em 0",
+              }}
+            >
+              <b>Grand Junction, Colorado</b>
+            </div>
+            <div className="welcome-text">
+              Custom-built pizza truck with a wood fired oven, full commercial
+              kitchen, spacious work area, and onboard bathroom
+            </div>
+            <div className="welcome-text">
+              Options to include prep, cooking, and vending equipment, a second
+              unit trailer, and business extras
+            </div>
           </div>
-          <Fade>
+          <AnchorLink className="nav-link" href="#info">
+            LEARN MORE...
+          </AnchorLink>
+        </div>
+        <Fade>
           <div className="large-image right-container col-sm-12 col-md-7 col-lg-8">
             <img
               className="intro-image a-shadow"
@@ -114,14 +127,13 @@ function Home() {
               alt="truck"
             />
           </div>
-          </Fade>
-        </div>
+        </Fade>
       </div>
-      <AnchorLink className="nav-link" href="#info">
-        <div className="down-arrow">
+      <div className="down-arrow subsection-nav-links">
+        <AnchorLink className="nav-link" href="#info">
           <i className="fa fa-chevron-down" />
-        </div>
-      </AnchorLink>
+        </AnchorLink>
+      </div>
     </div>
   )
 }
