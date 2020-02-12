@@ -96,6 +96,7 @@ const Info = props => {
     {
       label: "Kitchen",
       hasLongDescription: true,
+      nextSubsectionLink: "#bathroom",
       description: [
         "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. Customers can see the food cooking and fire crackling from the outside serve window.",
         "The front serve window wall slides out to add working space. There is plenty of storage space in cabinets, racks, and under the oven.",
@@ -148,6 +149,7 @@ const Info = props => {
     },
     {
       label: "Bathroom + Utility Room",
+      nextSubsectionLink: "#truck",
       description: [
         "A rear utility room contains a bathroom with toilet and hand wash sink for completely self-contained operation.",
         "The room also contains easy access to the power system and extra storage.",
@@ -168,9 +170,10 @@ const Info = props => {
     },
     {
       label: "Truck",
+      nextSubsectionLink: "#electrical",
       description: [
         "Built in 2015 on a 26-foot U-Haul box truck that we stripped to the frame and built up from there.",
-        "The truck has new tires as of 2018 and many miles left in it.",
+        "The truck has new tires as of 2018 and many miles to go.",
       ],
       infos: [
         { boldText: "Year", text: "2000" },
@@ -193,6 +196,7 @@ const Info = props => {
     },
     {
       label: "Electrical",
+      nextSubsectionLink: "#plumbing",
       description: [
         "Fully powered by 110 volts through an inverter system, the kitchen switches seamlessly between either solar, generator or shore power.",
         "Depending on the time of year, the bank of four 24-volt batteries can power the kitchen fully for up to 10 hours.",
@@ -231,6 +235,7 @@ const Info = props => {
     },
     {
       label: "Plumbing",
+      nextSubsectionLink: "#construction",
       description: [
         "Fresh water is supplied to two hand wash sinks, a large kitchen three-compartment sink, and toilet.",
         "Supply comes from either the 55-gallon tank or a shore hook-up for a continuous supply.",
@@ -252,6 +257,7 @@ const Info = props => {
     },
     {
       label: "Construction",
+      nextSubsectionLink: "#pricing",
       description: [
         "In the spring of 2015, I purchased a 26-foot U-Haul box truck, stripped it to the frame, and began following my longtime dream of building a new mobile kitchen.",
         "Over the course of a year, using similar materials and design principles as used when building a house, I constructed a food truck complete with a brand new oven and full commercial kitchen.",
