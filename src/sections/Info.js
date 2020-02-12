@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import TeamItem from "../components/TeamItem"
-import { useStaticQuery, graphql } from "gatsby"
 import InfoItem from "../components/InfoItem"
+import { useStaticQuery, graphql } from "gatsby"
+import Section from "../components/Section"
 
 // kitchen gallery
 import truckWorkspace from "../images/gallery/kitchen/truck-workspace.jpg"
@@ -71,7 +71,7 @@ import exteriorUtilities2 from "../images/gallery/construction/exterior-utilitie
 import driveReady from "../images/gallery/construction/truck-drive-ready.jpg"
 import truckSetup from "../images/gallery/construction/truck-setup.jpg"
 
-const Details = props => {
+const Info = props => {
   const { allTeamYaml } = useStaticQuery(graphql`
     {
       allTeamYaml {
@@ -85,17 +85,19 @@ const Details = props => {
     }
   `)
 
-  const descriptions = [
+  const description = [
     {
       text:
         "The wood fired oven provides a natural separation for the kitchen into areas for prep and building pizzas on event day. The front serve window wall slides out to add extra space for working and equipment. There are plenty of cabinets and racks for storage above along with storage under the oven.",
     },
   ]
 
-  const baseInfos = [
+  const sections = [
     {
       label: "Kitchen",
-      descriptions: [
+      hasLongDescription: true,
+      nextSubsectionLink: "#bathroom",
+      description: [
         "At the heart of the kitchen area lies the built-in wood fired oven, which provides a large surface for high heat cooking. Customers can see the food cooking and fire crackling from the outside serve window.",
         "The front serve window wall slides out to add working space. There is plenty of storage space in cabinets, racks, and under the oven.",
         "Be your own commissary! The truck is licensed in Mesa County, Colorado as a full commercial kitchen.",
@@ -147,8 +149,10 @@ const Details = props => {
     },
     {
       label: "Bathroom + Utility Room",
-      descriptions: [
-        "A rear utility room contains a bathroom with toilet and hand wash sink, extra storage, and easy access to the power system.",
+      nextSubsectionLink: "#truck",
+      description: [
+        "A rear utility room contains a bathroom with toilet and hand wash sink for completely self-contained operation.",
+        "The room also contains easy access to the power system and extra storage.",
       ],
       infos: [
         { text: "Utility room measures 24 sq. ft (8’3” x 3’)" },
@@ -166,8 +170,10 @@ const Details = props => {
     },
     {
       label: "Truck",
-      descriptions: [
-        "Built in 2015 on a 26-foot U-Haul box truck that we stripped to the frame and built up from there. The truck has new tires as of 2018 and many miles left in it.",
+      nextSubsectionLink: "#electrical",
+      description: [
+        "Built in 2015 on a 26-foot U-Haul box truck that we stripped to the frame and built up from there.",
+        "The truck has new tires as of 2018 and many miles to go.",
       ],
       infos: [
         { boldText: "Year", text: "2000" },
@@ -190,8 +196,10 @@ const Details = props => {
     },
     {
       label: "Electrical",
-      descriptions: [
-        "Fully powered by 110 volts through an inverter system, the kitchen switches seamlessly between either solar, generator or shore power. Depending on the time of year, the bank of four 24-volt batteries can power the kitchen fully for up to 10 hours.",
+      nextSubsectionLink: "#plumbing",
+      description: [
+        "Fully powered by 110 volts through an inverter system, the kitchen switches seamlessly between either solar, generator or shore power.",
+        "Depending on the time of year, the bank of four 24-volt batteries can power the kitchen fully for up to 10 hours.",
       ],
       infos: [
         { text: "Wired for 110V power" },
@@ -227,8 +235,11 @@ const Details = props => {
     },
     {
       label: "Plumbing",
-      descriptions: [
-        "Fresh water is supplied to the two hand wash sinks, three-compartment sink, and toilet from either the 55-gallon tank or a shore hook-up for a continuous supply. Hot water is supplied by a propane hot water heater.",
+      nextSubsectionLink: "#construction",
+      description: [
+        "Fresh water is supplied to two hand wash sinks, a large kitchen three-compartment sink, and toilet.",
+        "Supply comes from either the 55-gallon tank or a shore hook-up for a continuous supply.",
+        "Hot water is supplied by a propane hot water heater.",
       ],
       infos: [
         { text: "Full plumbing with tanks located underneath truck" },
@@ -246,17 +257,23 @@ const Details = props => {
     },
     {
       label: "Construction",
-      descriptions: [
-        "In the spring of 2015, I began building a new mobile kitchen. I purchased a used 26-foot U-Haul box truck and stripped it to the frame and with a blank canvas built a full commercial kitchen complete with a new and larger wood fired oven. ",
+      nextSubsectionLink: "#pricing",
+      description: [
+        "In the spring of 2015, I purchased a 26-foot U-Haul box truck, stripped it to the frame, and began following my longtime dream of building a new mobile kitchen.",
+        "Over the course of a year, using similar materials and design principles as used when building a house, I constructed a food truck complete with a brand new oven and full commercial kitchen.",
       ],
       infos: [
         {
           text:
-            "Stripped to the truck frame and built from the floor up starting with 3”x3” 3/6” tube steel floor joists at 18” on center",
+            "Built from the floor up starting with 3”x3” 3/6” tube steel floor joists at 18” on center",
         },
         {
-          text:
-            "Compartments on outside driver’s side include one each for Onan Commercial 7000w generator, four 24-volt batteries, and propane tank. All are set up with sliding trays for easy access",
+          text: "Three sliding trays on outer driver’s side for easy access to equipment",
+          subInfos: [
+            { text: "Onan Commercial 7000w generator" },
+            { text: "Four 24-volt batteries" },
+            { text: "Propane tank" },
+          ]
         },
         {
           text: "R-6 fiberglass insulation in walls and R-13 or 19 in ceiling ",
@@ -335,24 +352,20 @@ const Details = props => {
   }
 
   return (
-    <div id="team" className="container-fluid grey-bg section">
-      <div className="container">
-        <div className="flexbox">
-          <div className="truckInfo">
-            {baseInfos.map((section, i) => {
-              return (
-                <InfoItem
-                  key={"infoitem-" + i}
-                  section={section}
-                  toggleInfoMap={toggleInfoMap}
-                />
-              )
-            })}
-          </div>
-        </div>
+    <div id="info" className="section">
+      <div className="truckInfo">
+        {sections.map((section, i) => {
+          return (
+            <Section
+              key={"section" + i}
+              section={section}
+            />
+          )
+        })}
       </div>
+
     </div>
   )
 }
 
-export default Details
+export default Info

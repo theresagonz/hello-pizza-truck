@@ -1,18 +1,24 @@
 import React from "react"
 import "../global.css"
-import LandingPage from "../subpages/LandingPage";
-import Details from "../subpages/Details";
-import Team from "../subpages/Team";
-import End from "../subpages/End";
-import Footer from "../components/Footer";
+import Navbar from "../components/Navbar"
+import Home from "../sections/Home"
+import Info from "../sections/Info"
+import Pricing from "../sections/Pricing"
+import Contact from "../sections/Contact"
+import Footer from "../components/Footer"
+import $ from "jquery"
 
 function Index() {
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip()
+  });
   return (
     <div className="page">
-      <LandingPage/>
-      <Team/>
-      <Details/>
-      <End/>
+      <Navbar />
+      <Home />
+      <Info />
+      <Pricing />
+      <Contact />
       {/* <Footer/> */}
     </div>
   )

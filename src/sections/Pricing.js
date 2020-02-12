@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import PricingItem from "../components/PricingItem"
+import PricingDetails from "../components/PricingDetails"
 import formatPrice from "../libraries/formatPrice"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -12,7 +13,7 @@ import pizzaWarmer from "../images/gallery/equipment/pizza-warmer.jpg"
 import truckPrepArea from "../images/gallery/kitchen/truck-prep-area.png"
 import prepTable from "../images/gallery/equipment/prep-table.jpg"
 
-function Details() {
+function Pricing() {
   const { allServicesYaml } = useStaticQuery(graphql`
     {
       allServicesYaml {
@@ -26,11 +27,7 @@ function Details() {
     }
   `)
 
-  const resetSelectionToIndex = (index, items) => {
-    for (let i = index; i < items.length; i++) {
-      items[i].toggleAdd(false)
-    }
-  }
+  const [pricingItemDisplayed, changePricingItem] = useState("truck")
 
   const totalPrices = [80000, 87000, 93000, 97000]
 
@@ -39,40 +36,21 @@ function Details() {
     padding: "20px 12px",
   }
 
-  const [isTruckAdded, toggleTruckAdd] = useState(true)
-  const [isEquipmentAdded, toggleEquipmentAdd] = useState(false)
-  const [isTrailerAdded, toggleTrailerAdd] = useState(false)
-  const [isBusinessAdded, toggleBusinessAdd] = useState(false)
-
-  const [isTruckExpanded, toggleTruckExpand] = useState(false)
-  const [isEquipmentExpanded, toggleEquipmentExpand] = useState(false)
-  const [isTrailerExpanded, toggleTrailerExpand] = useState(false)
-  const [isBusinessExpanded, toggleBusinessExpand] = useState(false)
-
   const [isDirty, setDirty] = useState(false)
   const [level, setLevel] = useState(0)
 
   const pricingInfo = [
     {
-      headline: "Just the truck",
+      category: "Just the truck",
       summary: "Truck, oven, and everything shown above",
       price: 80000,
-      isRequired: true,
-      isAdded: isTruckAdded,
-      toggleAdd: toggleTruckAdd,
-      isExpanded: isTruckExpanded,
-      toggleExpand: toggleTruckExpand,
       reference: "truck",
     },
     {
-      headline: "Kitchen support equipment",
+      category: "Kitchen support equipment",
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
       price: 7000,
-      isAdded: isEquipmentAdded,
-      toggleAdd: toggleEquipmentAdd,
-      isExpanded: isEquipmentExpanded,
-      toggleExpand: toggleEquipmentExpand,
       reference: "kitchen",
       expandableInfos: [
         {
@@ -81,15 +59,15 @@ function Details() {
             { text: "Spiral dough mixer, Häussler 25 quart" },
             {
               text:
-                "Refrigerator – full size stainless steel commercial two-door (Blue Air) with 15 pan dough rack on one side",
+                "Refrigerator – Blue Air full size stainless steel commercial two-door with 15 pan dough rack on one side",
             },
             {
               text:
-                "Refrigerated prep table (Turbo Air 48” ) with an assortment of half, third, sixth and ninth trays",
+                "Refrigerated prep table, Turbo Air 48”, with an assortment of half, third, sixth and ninth trays",
             },
             {
               text:
-                "Heater/dough proofer with stainless top and shelf (half-size Win-Holt NHP-PD-ECO)",
+                "Heater/dough proofer with stainless top and shelf, half-size Win-Holt NHP-PD-ECO",
             },
             {
               text:
@@ -118,7 +96,8 @@ function Details() {
           description: "The following items are mounted to a portable cart:",
           infos: [
             {
-              text: "iPad Air (model A1566, 2nd generation) for a POS system of your choice",
+              text:
+                "iPad Air, 2nd generation model A1566, for a POS system of your choice",
             },
             { text: "ShopKeep counter iPad mount and Survivor iPad case" },
             { text: "Credit card reader, Ingenico iCMP" },
@@ -135,21 +114,20 @@ function Details() {
       ],
     },
     {
-      headline: "Second unit trailer",
+      category: "Second unit trailer",
       summary:
-        "Mobile mini-kitchen that makes any setup more flexible, including supplemental equipment",
+        "Make your setup more flexible with this mobile mini-kitchen in a trailer! Can operate independently or along with the truck.",
       price: 6000,
-      isAdded: isTrailerAdded,
-      toggleAdd: toggleTrailerAdd,
-      isExpanded: isTrailerExpanded,
-      toggleExpand: toggleTrailerExpand,
       reference: "trailer",
-      descriptions: [
+      description: [
         {
           text:
             "Starting with a 6' x 12' Road Force tandem axle trailer, we installed a wood fired oven and venting system, lighting, refrigeration, a counter with storage cabinets, and a portable hand wash sink.",
         },
-        { text: "When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving the oven in and out of trailer."},
+        {
+          text:
+            "When open, the ramp door can become a workspace with included camper jacks. Also included is a remote-controlled winch to assist with moving the oven in and out of trailer.",
+        },
       ],
       expandableInfos: [
         {
@@ -188,13 +166,9 @@ function Details() {
       ],
     },
     {
-      headline: "Business and support extras",
+      category: "Business and support extras",
       summary: "Training to make our pizza plus marketing and logo supplies",
       price: 4000,
-      isAdded: isBusinessAdded,
-      toggleAdd: toggleBusinessAdd,
-      isExpanded: isBusinessExpanded,
-      toggleExpand: toggleBusinessExpand,
       reference: "business",
       expandableInfos: [
         {
@@ -221,33 +195,63 @@ function Details() {
       images: [],
     },
   ]
-  return (
-    <div id="details" className="container-fluid lt-grey-bg section">
-      <div className="container details-section">
-        <h1 className="text-center my-4">Pricing</h1>
-        <h4 style={{textAlign: 'center', marginBottom: '25px' }}>Customize your perfect setup...</h4>
 
-        {pricingInfo.map((pkg, i) => (
-          <PricingItem
-            key={i}
-            pkg={pkg}
-            level={level}
-            setLevel={setLevel}
-            isDirty={isDirty}
-            setDirty={setDirty}
-            isExpanded={pkg.isExpanded}
-            toggleExpand={pkg.toggleExpand}
-            i={i}
-          />
-        ))}
-        <br />
-        <h2 className="center">
-          <span><b>{!isDirty ? "BASE" : "YOUR"} PRICE:</b>{" "}</span>
-          <span className="red-text">{formatPrice(totalPrices[level])}</span>
+  const currentPricingItem = pricingInfo.find(
+    item => item.reference === pricingItemDisplayed
+  )
+
+  return (
+    <div id="pricing" className="container section">
+      <div className="container pricing-section">
+        <h1 className="section-heading my-6">Pricing</h1>
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: "var(--summary-font-size)",
+            marginBottom: "var(--x-large)",
+          }}
+        >
+          Customize your setup!
+          <br></br>
+          Explore add-ons and pricing...
+        </div>
+        <h2
+          className="price-container"
+          style={{ textAlign: "center", margin: "var(--large) 0" }}
+        >
+          <span
+            className="price-label"
+            style={{ fontWeight: "400", fontSize: "var(--medium)" }}
+          >
+            {!isDirty ? "BASE" : "YOUR"} PRICE:{" "}
+          </span>
+          <span className="price" style={{ fontSize: "2rem" }}>
+            {formatPrice(totalPrices[level])}
+          </span>
         </h2>
+        <div className="pricing-container">
+          <div className="pricing-items">
+            {pricingInfo.map((pkg, i) => (
+              <PricingItem
+                key={i}
+                pkg={pkg}
+                level={level}
+                setLevel={setLevel}
+                isDirty={isDirty}
+                setDirty={setDirty}
+                isExpanded={pkg.isExpanded}
+                toggleExpand={pkg.toggleExpand}
+                pricingItemDisplayed={pricingItemDisplayed}
+                changePricingItem={changePricingItem}
+                i={i}
+              />
+            ))}
+          </div>
+          <PricingDetails item={currentPricingItem} setLevel={setLevel} />
+        </div>
       </div>
     </div>
   )
 }
 
-export default Details
+export default Pricing

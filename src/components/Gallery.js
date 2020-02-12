@@ -28,7 +28,7 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div>
+      <div className="gallery">
         <Slider {...this.settings}>
           {this.images.map((image, key) => (
             <div key={key}>

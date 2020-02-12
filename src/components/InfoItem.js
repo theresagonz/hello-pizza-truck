@@ -1,62 +1,23 @@
 import React from "react"
-import Gallery from "./Gallery"
+import { SocialIcon } from "react-social-icons"
+import Fade from "react-reveal/Fade"
 
-function InfoItem({ section }) {
-  const label = section.label
-  const featureText = !label ? { fontSize: "1.5em" } : null
-
+function InfoItem({ src, title }) {
   return (
-    <div className="section-label-wrapper">
-      <div className="gallery">
-        {section.images && (
-          <Gallery images={section.images}/>
-        )}
+    <Fade bottom>
+      <div className="col-lg-4 my-4 col-sm-12">
+        <img src={src} className="img-fluid rounded-circle" width="200px" />
+        <h3 className="mt-5">{title}</h3>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
+          harum eum odit tempore quos dolor nesciunt rerum est totam alias,
+          suscipit,
+        </p>
+        <SocialIcon className="mr-4" url={"http://twitter.com/" + title} />
+        <SocialIcon className="mr-4" url={"http://github.com/" + title} />
+        <SocialIcon className="mr-4" url={"http://facebook.com/" + title} />
       </div>
-      {section.label && <h1>{section.label}</h1>}
-      {section.descriptions && (
-        <div className="pMarginTop">
-          {section.descriptions.map((description, i) => (
-            <p style={featureText} key={i}>
-              {description}
-            </p>
-          ))}
-          <div className="details-container">
-            {section.infos && (
-              <div>
-                <h5 className="white-text">Details</h5>
-                <ul>
-                  {section.infos &&
-                    section.infos.map((info, j) => {
-                      const subInfos =
-                        info.subInfos && info.subInfos.length
-                          ? info.subInfos
-                          : null
-                      return subInfos ? (
-                        <div key={section.label + "-" + j}>
-                          <li>{info.text || info.jsxWithLink}</li>
-                          <ul>
-                            {subInfos.map((subInfo, k) => (
-                              <li key={"subInfo-" + j + "-" + k}>
-                                {subInfo.text}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ) : info.boldText ? (
-                        <li key={section.label + "-" + j}>
-                          <span className="white-text">{info.boldText}:</span> {info.text}
-                        </li>
-                      ) : (
-                        <li key={section.label + "-" + j}>{info.text}</li>
-                      )
-                    })}
-                </ul>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+    </Fade>
   )
 }
 
