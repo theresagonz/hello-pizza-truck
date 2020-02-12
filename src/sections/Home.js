@@ -100,7 +100,7 @@ function Home() {
               className="city"
               style={{
                 fontSize: "22px",
-                fontWeight: "200",
+                fontWeight: "300",
                 margin: "1.8em 0",
               }}
             >
