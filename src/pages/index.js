@@ -9,9 +9,11 @@ import Footer from "../components/Footer"
 import $ from "jquery"
 
 function Index() {
-  $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip()
-  });
+  if(typeof document !== "undefined") {
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip()
+    });
+  }
   return (
     <div className="page">
       <Navbar />
