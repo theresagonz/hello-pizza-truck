@@ -9,7 +9,7 @@ import Footer from "../components/Footer"
 import $ from "jquery"
 
 function Index() {
-  if(typeof document !== "undefined") {
+  if (typeof document !== "undefined") {
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip()
     });

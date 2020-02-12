@@ -45,7 +45,7 @@ function Contact() {
               <div
                 className="contact-info"
                 style={{
-                  fontSize: "1.3rem",
+                  fontSize: "var(--smaller)",
                   fontWeight: "400",
                   fontFamily: "var(--accent-font)",
                   margin: "var(--x-large) 0",
@@ -64,12 +64,12 @@ function Contact() {
                 </div>
               </div>
               {isFormSubmitted && (
-                <div className="end-message">
-                  Thanks for your message! Michael will contact you soon.
+                <div className="end-message success">
+                  Thanks for your message! We'll be in touch soon.
                 </div>
               )}
               {isError && (
-                <div className="end-message">
+                <div className="end-message error">
                   Sorry, there's been an error. Please try again later.
                 </div>
               )}

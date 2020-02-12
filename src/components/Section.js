@@ -27,7 +27,7 @@ function Section({ section }) {
           {section.description && (
             <div
               className="section-description"
-              style={{ lineHeight: "var(--p-line-height)", fontSize: "1.3rem" }}
+              style={{ lineHeight: "var(--p-line-height)", fontSize: "var(--small-med)" }}
             >
               {section.description.map((description, i) => (
                 <Fade>
