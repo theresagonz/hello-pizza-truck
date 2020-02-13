@@ -202,7 +202,7 @@ function Pricing() {
 
   return (
     <div id="pricing" className="container section">
-      <div className="container pricing-section">
+      <div className="container pricing-section remove-bootstrap-container-padding">
         <h1 className="section-heading my-6">Pricing</h1>
         <div
           style={{

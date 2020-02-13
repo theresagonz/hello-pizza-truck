@@ -84,8 +84,13 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 120px 60px 100px;
-  min-height: calc(100vh + 76px);
+  /* padding: 120px 60px 100px; */
+  min-height: calc(100vh);
+  /* min-height: 100vh; */
+  /* background-image: url("./images/gallery/main/truck-exterior-rear.png");
+  background-size: cover;
+  background-repeat: no-repeat; */
+  /* background-position: center center; */
 }
 
 #info {
@@ -127,7 +132,7 @@ i {
 }
 
 .intro-image {
-  max-width: 700px;
+  max-width: 85%; /* fixes gallery overflow problem */
   min-width: 300px;
   width: 100%;
   border-radius: 10px;
@@ -137,6 +142,10 @@ i {
   -webkit-box-shadow: -20px 22px 44px -18px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -20px 22px 44px -18px rgba(0, 0, 0, 0.75);
   box-shadow: -2px 22px 44px -18px rgba(0, 0, 0, 0.75);
+}
+
+.welcome-top {
+  display: none;
 }
 
 .welcome-text {
@@ -152,10 +161,7 @@ i {
   justify-content: center;
   align-items: flex-end;
 }
-/* 
-.down-arrow {
-  font-size: 2em;
-} */
+
 .up-arrow {
   margin-left: 50px;
 }
@@ -181,7 +187,7 @@ i {
 .nav-left {
   display: flex;
   align-items: center;
-  font-size: 1.4em;
+  font-size: 1.3em;
   color: #000;
   font-family: var(--accent-font);
   font-weight: 600;
@@ -249,19 +255,20 @@ i {
 }
 
 .top-content {
+  width: 100%;
   align-items: center;
+}
+
+.left-container {
+  margin-top: var(--large);
 }
 
 .left-container .nav-link {
   font-family: var(--accent-font);
   font-size: 1.3em;
   padding: 0;
-  margin-top: 40px;
+  margin-top: var(--large);
   font-weight: 600;
-}
-
-.small-image {
-  display: none;
 }
 
 .section-content {
@@ -492,6 +499,7 @@ hr {
 
 .section {
   padding: 50px 0 100px;
+  width: 100%;
 }
 
 /* .pricing-summary-info {
@@ -633,6 +641,11 @@ footer a {
     font-size: 1.2rem;
   }
 
+  .section {
+    padding-left: var(--small);
+    padding-right: var(--small);
+  }
+
   .landing-head {
     flex-direction: column;
     align-items: flex-start;
@@ -655,12 +668,16 @@ footer a {
   }
 
   #home {
-    padding: 120px var(--medium) var(--large);
+    margin-top: 120px;
+  }
+
+  .top-content {
+    flex-direction: column-reverse;
   }
 
   .section {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: var(--large);
+    padding-right: var(--large);
   }
 
   .section-details {
@@ -670,18 +687,14 @@ footer a {
 
   .section-info {
     margin-top: 50px;
-    /* padding-left: -15px;
-    padding-right: -15px; */
     font-size: 1.2rem;
   }
 
-  .large-image {
-    display: none;
-  }
-
-  .small-image {
-    display: block;
-    margin: 30px 0 50px;
+  .remove-bootstrap-container-padding {
+    padding-left: 0;
+    padding-right: 0;
+    /* margin-left: 0;
+    margin-right: 0; */
   }
 
   .pricing-item {
@@ -745,6 +758,23 @@ footer a {
 
 /* specific large screen styling */
 @media (min-width: 768px) {
+  #home {
+    padding-top: 8rem;
+  }
+  /* padding: 120px 60px 100px; */
+
+  .section {
+    padding: var(--large);
+  }
+
+  .welcome-top {
+    display: block;
+  }
+
+  .welcome-left {
+    display: none;
+  }
+
   .pricing-items {
     flex-direction: row;
   }
@@ -787,5 +817,43 @@ footer a {
 @media (max-width: 991px) {
   .nav-right {
     margin: 1em 0 1em 57px;
+  }
+}
+
+@media (min-width: 1215px) {
+  :root {
+    font-size: 18px;
+  }
+
+  .section {
+    padding-left: var(--x-large);
+    padding-right: var(--x-large);
+  }
+
+  .welcome-top {
+    display: none;
+  }
+
+  .welcome-left {
+    display: block;
+  }
+
+  #home {
+    padding-top: var(--large);
+  }
+}
+@media (min-width: 1400px) {
+  :root {
+    font-size: 20px;
+  }
+}
+
+/* phone size screens */
+@media (max-width: 479px) {
+  /* padding-left: 0.5rem;
+  padding-right: 0.5rem; */
+  .section {
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
   }
 }

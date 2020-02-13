@@ -12,7 +12,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossOrigin="anonymous"></link>
-        <link href="https://fonts.googleapis.com/css?family=Muli:300,400|Poppins:300,400,600&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css?family=Muli:300,400|Poppins:400,600&display=swap" rel="stylesheet"></link>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

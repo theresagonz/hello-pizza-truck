@@ -21,13 +21,16 @@ function Section({ section }) {
           </div>
         </Fade>
         <div
-          className={`section-info col-sm-12 col-md-${columnRelWidth} col-lg-${columnRelWidth}`}
+          className={`section-info remove-bootstrap-container-padding col-sm-12 col-md-${columnRelWidth} col-lg-${columnRelWidth}`}
         >
           {/* {section.label && <h1>{section.label}</h1>} */}
           {section.description && (
             <div
               className="section-description"
-              style={{ lineHeight: "var(--p-line-height)", fontSize: "var(--small-med)" }}
+              style={{
+                lineHeight: "var(--p-line-height)",
+                fontSize: "var(--small-med)",
+              }}
             >
               {section.description.map((description, i) => (
                 <Fade>
@@ -44,7 +47,7 @@ function Section({ section }) {
             <div className="section-details shadow">
               <h4
                 className="section-details-label"
-                style={{ textAlign: 'center' }}
+                style={{ textAlign: "center" }}
               >
                 Details
               </h4>
