@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import Fade from "react-reveal/Fade"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import logo from "../images/food-truck-icon-lg.png"
 

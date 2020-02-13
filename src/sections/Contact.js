@@ -34,7 +34,7 @@ function Contact() {
   return (
     <div
       id="contact"
-      className="container-fluid"
+      className="section container-fluid"
       style={{ paddingBottom: "8rem" }}
     >
       <div className="container">
@@ -75,7 +75,7 @@ function Contact() {
               )}
               <form className={"contact-form" + showForm} onSubmit={sendEmail}>
                 <div className="row">
-                  <div className="col-lg-6 mb-4">
+                  <div className="col-sm-12 col-md-6 mb-4">
                     <input
                       type="text"
                       className="inputBox"
@@ -85,7 +85,7 @@ function Contact() {
                   </div>
                   {/* </div> */}
                   {/* <div className="row"> */}
-                  <div className="col-lg-6 mb-4">
+                  <div className="col-sm-12 col-md-6 mb-4">
                     <input
                       type="text"
                       className="inputBox"
@@ -95,7 +95,7 @@ function Contact() {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-lg-6 mb-4">
+                  <div className="col-sm-12 col-md-6 mb-4">
                     <input
                       type="email"
                       className="inputBox"
@@ -103,7 +103,7 @@ function Contact() {
                       name="from_email"
                     />
                   </div>
-                  <div className="col-lg-6 mb-4">
+                  <div className="col-sm-12 col-md-6 mb-4">
                     <input
                       type="tel"
                       className="inputBox"

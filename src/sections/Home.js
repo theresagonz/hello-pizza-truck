@@ -28,16 +28,9 @@ function Home() {
 
   const { welcomeText, landingText } = pageDataYaml
 
-  const welcomeStyle = {
-    letterSpacing: "0.25em",
-  }
-
-  const pizzaRed = {
-    color: "#993333",
-  }
-
-  const yellow = {
-    color: "#ff9933",
+  const style = {
+    backgroundImage: "truckExteriorRear",
+    backgroundRepeat: "no-repeat",
   }
 
   const video = (
@@ -75,11 +68,21 @@ function Home() {
   // ]
 
   return (
-    <div id="home" className="section">
-      <div className="top-content row">
-        <div className="left-container col-sm-12 col-md-5 col-lg-4">
+    <div id="home" className="section" style={style}>
+      <div className="top-content row remove-bootstrap-container-padding">
+        <div className="welcome-top col-12" style={{textAlign: "center"}}>
+          <div className="welcome-text">{welcomeText + " "}</div>
+          {/* </h4> */}
+          <h1
+            className="main-head"
+            style={{ fontSize: "var(--large-heading-size)" }}
+          >
+            <span>{landingText}</span>
+          </h1>
+        </div>
+        <div className="left-container remove-bootstrap-container-padding col-sm-12 col-md-5 col-lg-4">
           <div>
-            <div>
+            <div className="welcome-left">
               <div className="welcome-text">{welcomeText + " "}</div>
               {/* </h4> */}
               <h1
@@ -89,19 +92,12 @@ function Home() {
                 <span>{landingText}</span>
               </h1>
             </div>
-            <div className="small-image">
-              <img
-                className="intro-image a-shadow"
-                src={truckExteriorRear}
-                alt="truck"
-              />
-            </div>
             <div
               className="city"
               style={{
                 fontSize: "22px",
                 fontWeight: "300",
-                margin: "1.8em 0",
+                margin: "var(--large) 0",
               }}
             >
               <b>Grand Junction, Colorado</b>
@@ -120,7 +116,10 @@ function Home() {
           </AnchorLink>
         </div>
         <Fade>
-          <div className="large-image right-container col-sm-12 col-md-7 col-lg-8">
+          <div
+            className="large-image right-container col-sm-12 col-md-7 col-lg-8"
+            style={{ textAlign: "center" }}
+          >
             <img
               className="intro-image a-shadow"
               src={truckExteriorRear}
@@ -133,7 +132,7 @@ function Home() {
         <AnchorLink className="nav-link" href="#info">
           <i className="fa fa-chevron-down" />
         </AnchorLink>
-      </div>
+      </div> 
     </div>
   )
 }
