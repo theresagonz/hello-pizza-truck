@@ -39,6 +39,11 @@ function Pricing() {
   const [isDirty, setDirty] = useState(false)
   const [level, setLevel] = useState(0)
 
+  const handleResetClick = () => {
+    setLevel(0)
+    setDirty(false)
+  }
+
   const pricingInfo = [
     {
       category: "Just the truck",
@@ -229,6 +234,7 @@ function Pricing() {
             {formatPrice(totalPrices[level])}
           </span>
         </h2>
+        
         <div className="pricing-container">
           <div className="pricing-items">
             {pricingInfo.map((pkg, i) => (
@@ -243,6 +249,7 @@ function Pricing() {
                 toggleExpand={pkg.toggleExpand}
                 pricingItemDisplayed={pricingItemDisplayed}
                 changePricingItem={changePricingItem}
+                handleResetClick={handleResetClick}
                 i={i}
               />
             ))}
