@@ -44,10 +44,14 @@ function Pricing() {
     setDirty(false)
   }
 
+  const setDirtyTrue = () => {
+    setDirty(true)
+  }
+
   const pricingInfo = [
     {
       category: "Just the truck",
-      summary: "Truck, oven, and everything shown above",
+      summary: "Truck and oven as described above",
       price: 80000,
       reference: "truck",
     },
@@ -230,7 +234,7 @@ function Pricing() {
           >
             {!isDirty ? "BASE" : "YOUR"} PRICE:{" "}
           </span>
-          <span className="price" style={{ fontSize: "2rem" }}>
+          <span className="price" style={{ fontSize: "2rem", marginLeft: "7px" }}>
             {formatPrice(totalPrices[level])}
           </span>
         </h2>
@@ -244,7 +248,7 @@ function Pricing() {
                 level={level}
                 setLevel={setLevel}
                 isDirty={isDirty}
-                setDirty={setDirty}
+                setDirtyTrue={setDirtyTrue}
                 isExpanded={pkg.isExpanded}
                 toggleExpand={pkg.toggleExpand}
                 pricingItemDisplayed={pricingItemDisplayed}

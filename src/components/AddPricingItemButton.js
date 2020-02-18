@@ -6,10 +6,10 @@ export default function AddPricingItemButton({
   currLevel,
   setLevel,
   isDirty,
-  setDirty,
+  setDirtyTrue,
 }) {
   const handleAddClick = () => {
-    if (!isDirty) setDirty(true)
+    if (!isDirty) setDirtyTrue()
     setLevel(currLevel + 1)
   }
   const isAdded = myLevel <= currLevel
