@@ -30,15 +30,11 @@ button:focus {
 }
 
 html {
+  font-family: var(--main-font);
+  font-weight: 300;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-}
-
-body {
-  background-color: #fff;
-  font-family: var(--main-font);
-  font-weight: 300;
 }
 
 h1,
@@ -65,9 +61,9 @@ section {
 }
 
 .page {
+  font-family: "Muli";
+  font-weight: 300;
   color: #3b3b3b;
-  /* padding: 40px; */
-  /* margin: 30px; */
 }
 
 a,
@@ -84,7 +80,6 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  /* padding: 120px 60px 100px; */
   min-height: calc(100vh);
   /* min-height: 100vh; */
   /* background-image: url("./images/gallery/main/truck-exterior-rear.png");
@@ -260,7 +255,7 @@ i {
 }
 
 .left-container {
-  margin-top: var(--large);
+  /* margin-top: var(--large); */
 }
 
 .left-container .nav-link {
@@ -302,6 +297,11 @@ i {
 
 .hidden {
   display: none;
+}
+
+.section-info,
+.left-container {
+  max-width: 85%;
 }
 
 .section-description p {
@@ -499,15 +499,8 @@ hr {
 
 .section {
   padding: 50px 0 100px;
-  width: 100%;
+  /* width: 100%; */
 }
-
-/* .pricing-summary-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: inherit;
-} */
 
 .pricing-section {
   max-width: 800px;
@@ -530,16 +523,12 @@ hr {
 }
 
 .section-wrapper {
-  padding: 25px 0 210px;
+  padding: 25px 0 150px;
 }
 
 div.section-wrapper:last-of-type {
-  padding-bottom: 150px;
+  padding-bottom: 0;
 }
-
-/* .section-wrapper h1 {
-  margin: 35px 0 20px;
-} */
 
 .right {
   display: none;
@@ -619,16 +608,8 @@ footer a {
 }
 
 /* for smaller screens */
+
 @media (max-width: 600px) {
-  /* #home {
-    padding: 15px;
-    height: auto;
-  }
-
-  #home img {
-    display: block;
-  } */
-
   h1 {
     font-size: 1.8rem;
   }
@@ -644,6 +625,13 @@ footer a {
   .section {
     padding-left: var(--small);
     padding-right: var(--small);
+  }
+
+  .section-details {
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 15px;
+    max-width: 80%;
   }
 
   .landing-head {
@@ -668,21 +656,11 @@ footer a {
   }
 
   #home {
-    margin-top: 120px;
+    margin-top: 70px;
   }
 
   .top-content {
-    flex-direction: column-reverse;
-  }
-
-  .section {
-    padding-left: var(--large);
-    padding-right: var(--large);
-  }
-
-  .section-details {
-    margin: 30px 0 0 0;
-    padding: var(--notepad-padding);
+    flex-direction: column;
   }
 
   .section-info {
@@ -690,11 +668,13 @@ footer a {
     font-size: 1.2rem;
   }
 
+  .section-details {
+    margin-top: 30px;
+  }
+
   .remove-bootstrap-container-padding {
     padding-left: 0;
     padding-right: 0;
-    /* margin-left: 0;
-    margin-right: 0; */
   }
 
   .pricing-item {
@@ -704,11 +684,6 @@ footer a {
     margin-bottom: 2%;
     height: 6rem;
     border-radius: 5px;
-
-    /* -webkit-box-shadow: -20px 22px 44px -18px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -20px 22px 44px -18px rgba(0, 0, 0, 0.75);
-    box-shadow: -2px 22px 44px -18px rgba(0, 0, 0, 0.75); */
-
     background: rgb(184, 184, 184);
     background: linear-gradient(
       0deg,
@@ -761,18 +736,16 @@ footer a {
   #home {
     padding-top: 8rem;
   }
-  /* padding: 120px 60px 100px; */
 
   .section {
-    padding: var(--large);
+    margin-left: var(--large);
+    margin-right: var(--large);
   }
 
-  .welcome-top {
-    display: block;
-  }
-
-  .welcome-left {
-    display: none;
+  .section.container,
+  .section.container-fluid {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .pricing-items {
@@ -787,12 +760,7 @@ footer a {
     min-height: 200px;
     width: calc(100% / 4);
     padding: 20px 10px 10px;
-    /* margin: 7px 7px 0; */
   }
-
-  /* .price-and-button {
-    flex-direction: column;
-  } */
 
   .pricing-item-category {
     font-weight: 600;
@@ -805,6 +773,16 @@ footer a {
 
   .price {
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 850px) {
+  .welcome-top {
+    display: block;
+  }
+
+  .welcome-left {
+    display: none;
   }
 }
 
@@ -850,10 +828,15 @@ footer a {
 
 /* phone size screens */
 @media (max-width: 479px) {
-  /* padding-left: 0.5rem;
-  padding-right: 0.5rem; */
-  .section {
-    /* margin-left: 1rem;
-    margin-right: 1rem; */
+  page {
+    width: 100%;
+  }
+
+  .section-info,
+  .left-container,
+  .pricing-container {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
