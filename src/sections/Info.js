@@ -5,7 +5,7 @@ import Section from "../components/Section"
 
 // kitchen gallery
 import kitchenWorkspace from "../images/gallery/kitchen/kitchen-workspace-sm.jpg"
-import ovenWorkspace from "../images/gallery/kitchen/oven-workspace-sm.jpg"
+import ovenFridge from "../images/gallery/kitchen/oven-fridge-sm.jpg"
 import servingWindow from "../images/gallery/kitchen/exterior-serving-window-sm.jpg"
 import truckPrepArea from "../images/gallery/kitchen/prep-area-sm.jpg"
 import prepTable from "../images/gallery/kitchen/prep-table-sm.jpg"
@@ -143,7 +143,7 @@ const Info = props => {
         { original: ovenFire },
         { original: ovenStaff },
         { original: servingWorkspace },
-        { original: ovenWorkspace },
+        { original: ovenFridge },
         { original: sink },
         { original: sinkWorkspace },
         { original: kitchenWorkspace },
