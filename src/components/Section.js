@@ -7,21 +7,22 @@ function Section({ section }) {
   const label = section.label
   const sectionId = label.split(" ")[0].toLowerCase()
   const featureText = !label ? { fontSize: "1.5em" } : null
-  const columnRelWidth = section.hasLongDescription ? "5" : "4"
+  const columnWidth = section.hasLongDescription ? "70%" : "40%"
 
   return (
     <div id={sectionId} className="section-wrapper container-fluid">
       <Fade>
         <h2 className="section-heading">{label}</h2>
       </Fade>
-      <div className="row section-content">
-        <Fade>
-          <div className="gallery-wrapper col-sm-12 col-md-6 col-lg-7">
-            {section.images && <Gallery images={section.images} />}
-          </div>
-        </Fade>
+      <Fade>
+        <div className="gallery-wrapper">
+          {section.images && <Gallery images={section.images} />}
+        </div>
+      </Fade>
+      <div className="section-content">
         <div
-          className={`section-info remove-bootstrap-container-padding col-sm-12 col-md-${columnRelWidth} col-lg-${columnRelWidth}`}
+          className="section-info remove-bootstrap-container-padding"
+          style={{ width: columnWidth }}
         >
           {/* {section.label && <h1>{section.label}</h1>} */}
           {section.description && (
@@ -29,7 +30,7 @@ function Section({ section }) {
               className="section-description"
               style={{
                 lineHeight: "var(--p-line-height)",
-                fontSize: "var(--small-med)",
+                fontSize: "var(--med-font)",
               }}
             >
               {section.description.map((description, i) => (
@@ -71,7 +72,16 @@ function Section({ section }) {
                       </div>
                     ) : info.boldText ? (
                       <li key={section.label + "-" + j}>
-                        <span>{info.boldText}:</span> {info.text}
+                        <span
+                          style={{
+                            fontFamily: "var(--accent-font)",
+                            fontWeight: "600",
+                            marginRight: "7px",
+                          }}
+                        >
+                          {info.boldText}:
+                        </span>
+                        {info.text}
                       </li>
                     ) : (
                       <li key={section.label + "-" + j}>{info.text}</li>

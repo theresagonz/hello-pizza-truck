@@ -4,14 +4,24 @@ import PricingDetails from "../components/PricingDetails"
 import formatPrice from "../libraries/formatPrice"
 import { useStaticQuery, graphql } from "gatsby"
 
+// truck gallery
+import truck from "../images/truck-exterior-rear-sm.jpg"
+
 // trailer gallery
+import truckTrailer from "../images/gallery/trailer/truck-trailer-sm.jpg"
+import truckTrailer2 from "../images/gallery/trailer/truck-trailer-2-sm.jpg"
 import trailer from "../images/gallery/trailer/trailer.jpg"
 import trailer2 from "../images/gallery/trailer/trailer2.jpg"
+import trailerSetup from "../images/gallery/trailer/trailer-setup-sm.jpg"
 
 // equipment gallery
+import kitchenEqpmt from "../images/gallery/equipment/kitchen-eqpmt-sm.jpg"
 import pizzaWarmer from "../images/gallery/equipment/pizza-warmer.jpg"
-import truckPrepArea from "../images/gallery/kitchen/truck-prep-area.png"
+import prepArea from "../images/gallery/kitchen/prep-area-sm.jpg"
 import prepTable from "../images/gallery/equipment/prep-table.jpg"
+
+// business gallery
+import webMenu from "../images/gallery/business/web-menu.jpg"
 
 function Pricing() {
   const { allServicesYaml } = useStaticQuery(graphql`
@@ -27,29 +37,28 @@ function Pricing() {
     }
   `)
 
-  const [pricingItemDisplayed, changePricingItem] = useState("truck")
-
-  const totalPrices = [80000, 87000, 93000, 97000]
-
-  const featureStyle = {
-    fontSize: "1.5em",
-    padding: "20px 12px",
-  }
-
+  const [whichPricingItem, changePricingItem] = useState("truck")
   const [isDirty, setDirty] = useState(false)
   const [level, setLevel] = useState(0)
 
+  const handleChangePricingItem = item => changePricingItem(item)
   const handleResetClick = () => {
     setLevel(0)
     setDirty(false)
   }
+  const setDirtyTrue = () => {
+    setDirty(true)
+  }
 
+  const totalPrices = [80000, 87000, 93000, 97000]
   const pricingInfo = [
     {
       category: "Just the truck",
-      summary: "Truck, oven, and everything shown above",
+      summary: "Truck and oven as described above",
       price: 80000,
       reference: "truck",
+      images: [{ original: truck }],
+      hideThumbs: true,
     },
     {
       category: "Kitchen support equipment",
@@ -113,9 +122,10 @@ function Pricing() {
         },
       ],
       images: [
-        { original: pizzaWarmer, thumbnail: pizzaWarmer },
-        { original: truckPrepArea, thumbnail: truckPrepArea },
-        { original: prepTable, thumbnail: prepTable },
+        { original: kitchenEqpmt },
+        { original: pizzaWarmer },
+        { original: prepArea },
+        { original: prepTable },
       ],
     },
     {
@@ -166,8 +176,10 @@ function Pricing() {
         },
       ],
       images: [
-        { original: trailer, thumbnail: trailer },
-        { original: trailer2, thumbnail: trailer2 },
+        { original: truckTrailer },
+        { original: truckTrailer2 },
+        { original: trailer },
+        { original: trailer2 },
       ],
     },
     {
@@ -197,12 +209,12 @@ function Pricing() {
           ],
         },
       ],
-      images: [],
+      images: [{ original: trailerSetup }, { original: webMenu }],
     },
   ]
 
   const currentPricingItem = pricingInfo.find(
-    item => item.reference === pricingItemDisplayed
+    item => item.reference === whichPricingItem
   )
 
   return (
@@ -230,11 +242,14 @@ function Pricing() {
           >
             {!isDirty ? "BASE" : "YOUR"} PRICE:{" "}
           </span>
-          <span className="price" style={{ fontSize: "2rem" }}>
+          <span
+            className="price"
+            style={{ fontSize: "2rem", marginLeft: "7px" }}
+          >
             {formatPrice(totalPrices[level])}
           </span>
         </h2>
-        
+
         <div className="pricing-container">
           <div className="pricing-items">
             {pricingInfo.map((pkg, i) => (
@@ -244,11 +259,11 @@ function Pricing() {
                 level={level}
                 setLevel={setLevel}
                 isDirty={isDirty}
-                setDirty={setDirty}
+                setDirtyTrue={setDirtyTrue}
                 isExpanded={pkg.isExpanded}
                 toggleExpand={pkg.toggleExpand}
-                pricingItemDisplayed={pricingItemDisplayed}
-                changePricingItem={changePricingItem}
+                whichPricingItem={whichPricingItem}
+                handleChangePricingItem={handleChangePricingItem}
                 handleResetClick={handleResetClick}
                 i={i}
               />

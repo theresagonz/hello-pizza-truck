@@ -23,8 +23,8 @@ function PricingDetails(props) {
       >
         {summary}
       </div>
-      {images && images.length !== 0 && (
-        <Gallery images={images} thumbnailPosition="right" />
+      {images && images.length > 0 && (
+        <Gallery images={images} shouldShowDots={true} />
       )}
       <div
         className="pricing-item-description"

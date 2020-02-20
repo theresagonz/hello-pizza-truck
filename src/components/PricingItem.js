@@ -8,17 +8,15 @@ function PricingItem({
   level,
   setLevel,
   isDirty,
-  setDirty,
-  pricingItemDisplayed,
-  changePricingItem,
+  whichPricingItem,
+  handleChangePricingItem,
   handleResetClick,
+  setDirtyTrue,
 }) {
-  const handleClick = e => {
-    e.stopPropagation()
-    changePricingItem(pkg.reference)
+  const handleClick = () => {
+    handleChangePricingItem(pkg.reference)
   }
-
-  const active = pricingItemDisplayed === pkg.reference ? " active" : ""
+  const active = whichPricingItem === pkg.reference ? " active" : ""
 
   return (
     <div
@@ -27,20 +25,21 @@ function PricingItem({
         fontFamily: "var(--accent-font)",
         cursor: "pointer",
       }}
-      onClick={e => handleClick(e)}
+      onClick={handleClick}
     >
       <div className="pricing-item-info">
         <div className="pricing-item-category">{pkg.category}</div>
         <div className="price">{formatPrice(pkg.price)}</div>
       </div>
       <div
+        className="reset-btn-container"
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-evenly",
         }}
       >
-        {i === 0 && (
+        {i === 0 && isDirty ? (
           <button
             className="btn btn-dark"
             onClick={handleResetClick}
@@ -48,14 +47,15 @@ function PricingItem({
           >
             Reset
           </button>
+        ) : (
+          <AddPricingItemButton
+            currLevel={level}
+            myLevel={i}
+            setLevel={setLevel}
+            isDirty={isDirty}
+            setDirtyTrue={setDirtyTrue}
+          />
         )}
-        <AddPricingItemButton
-          currLevel={level}
-          myLevel={i}
-          setLevel={setLevel}
-          isDirty={isDirty}
-          setDirty={setDirty}
-        />
       </div>
     </div>
   )
