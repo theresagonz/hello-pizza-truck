@@ -3,17 +3,6 @@ import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import truckExteriorRear from "../images/truck-exterior-rear-sm.jpg"
-// import truckExteriorRearThumb from "../images/gallery/main/truck-exterior-rear-thumb.png"
-// import truckExteriorFront from "../images/gallery/main/truck-exterior-front.png"
-// import truckExteriorFrontThumb from "../images/gallery/main/truck-exterior-front-thumb.png"
-// import truckExteriorClose from "../images/gallery/main/truck-exterior-close.jpg"
-// import truckExteriorCloseThumb from "../images/gallery/main/truck-exterior-close-thumb.png"
-// import ovenFire from "../images/gallery/kitchen/oven-fire.jpg"
-// import ovenFireThumb from "../images/gallery/kitchen/oven-fire-thumb.png"
-// import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
-// import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
-// import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
-// import ovenPizzasThumb from "../images/gallery/kitchen/oven-pizzas-thumb.png"
 
 function Home() {
   const { pageDataYaml } = useStaticQuery(graphql`
@@ -56,22 +45,11 @@ function Home() {
     </div>
   )
 
-  // const images = [
-  //   { original: truckExteriorRear, thumbnail: truckExteriorRearThumb },
-  //   { original: truckExteriorFront, thumbnail: truckExteriorFrontThumb },
-  //   { original: truckExteriorClose, thumbnail: truckExteriorCloseThumb },
-  //   { original: ovenFire, thumbnail: ovenFireThumb },
-  //   { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
-  //   { original: ovenPizzas, thumbnail: ovenPizzasThumb },
-  //   // { original: video,  isVideo: true }
-  // ]
-
   return (
     <div id="home" className="section" style={style}>
       <div className="top-content row remove-bootstrap-container-padding">
-        <div className="welcome-top col-12" style={{textAlign: "center"}}>
+        <div className="welcome-top col-12" style={{ textAlign: "center" }}>
           <div className="welcome-text">{welcomeText + " "}</div>
-          {/* </h4> */}
           <h1
             className="main-head"
             style={{ fontSize: "var(--large-heading-size)" }}
@@ -83,7 +61,6 @@ function Home() {
           <div>
             <div className="welcome-left">
               <div className="welcome-text">{welcomeText + " "}</div>
-              {/* </h4> */}
               <h1
                 className="main-head"
                 style={{ fontSize: "var(--large-heading-size)" }}
@@ -131,7 +108,7 @@ function Home() {
         <AnchorLink className="nav-link" href="#info">
           <i className="fa fa-chevron-down" />
         </AnchorLink>
-      </div> 
+      </div>
     </div>
   )
 }
