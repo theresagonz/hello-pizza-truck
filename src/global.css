@@ -11,7 +11,7 @@
 
   --large-heading-size: 2.5rem;
   --summary-font-size: 1.3rem;
-  --p-line-height: 2.1rem;
+  --p-line-height: 2.5rem;
   --ul-line-height: 1.5rem;
 
   --li-margin: 0.7rem;
@@ -22,7 +22,10 @@
   --large: 3.5rem;
   --x-large: 6rem;
 
-  --notepad-padding: 2rem 3rem;
+  --med-font: 1.3rem;
+
+  --notepad-padding: 2.5rem 3rem 2.5rem 2rem;
+  --large-notepad-padding: 4rem 2.8rem 2rem;
 }
 
 button:focus {
@@ -84,8 +87,8 @@ i {
   /* min-height: 100vh; */
   /* background-image: url("./images/gallery/main/truck-exterior-rear.png");
   background-size: cover;
-  background-repeat: no-repeat; */
-  /* background-position: center center; */
+  background-repeat: no-repeat;
+  background-position: center center; */
 }
 
 #info {
@@ -106,7 +109,7 @@ i {
 }
 
 .ma-links img {
-  height: 100px;
+  height: 50px;
 }
 
 .landing-head {
@@ -144,7 +147,7 @@ i {
 }
 
 .welcome-text {
-  font-size: var(--small-med);
+  font-size: var(--med-font);
   margin-bottom: var(--tiny);
   line-height: var(--p-line-height);
 }
@@ -267,8 +270,38 @@ i {
 }
 
 .section-content {
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin-top: 4rem;
+}
+
+.gallery-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.thumb-carousel {
+  margin-left: 7%;
+  margin-right: 7%;
+  /* max-width: 90%; */
+}
+
+.thumb-carousel .slider-image {
+  cursor: pointer;
+}
+
+.slick-next,
+.slick-prev {
+  background: var(--light-neutral-color) !important;
+  border-radius: 50%;
+  padding-top: 1px !important;
 }
 
 .home-info-container {
@@ -299,9 +332,11 @@ i {
   display: none;
 }
 
-.section-info,
-.left-container {
-  max-width: 85%;
+.left-container,
+.pricing-container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-description p {
@@ -313,7 +348,7 @@ i {
   color: #333;
   border-radius: 10px;
   padding: var(--notepad-padding);
-  margin: 70px;
+  margin-left: 6rem;
   line-height: 1.5rem;
   font-weight: 400;
 }
@@ -327,10 +362,6 @@ i {
 .section-details ul {
   margin-bottom: 0;
 }
-
-/* .section-details li {
-  margin-bottom: 10px;
-} */
 
 .section-link {
   font-size: 1.4em;
@@ -393,7 +424,7 @@ i {
 
 .pricing-details {
   background-color: var(--notepad-color);
-  padding: 4rem var(--notepad-padding);
+  padding: var(--large-notepad-padding);
   position: relative;
   box-shadow: -0.1rem 0.8rem 0.8rem rgba(0, 0, 0, 0.15);
 }
@@ -499,11 +530,12 @@ hr {
 
 .section {
   padding: 50px 0 100px;
-  /* width: 100%; */
+  margin-left: var(--large);
+  margin-right: var(--large);
 }
 
 .pricing-section {
-  max-width: 800px;
+  /* max-width: 100%; */
   padding-bottom: 50px;
 }
 
@@ -597,8 +629,7 @@ footer a {
   margin: 0 auto;
   max-height: 68vh;
   object-fit: contain;
-  /* width: 100%; */
-  max-width: 75%;
+  max-width: 90%;
 }
 
 .thumb-slider-image {
@@ -622,9 +653,19 @@ footer a {
     font-size: 1.2rem;
   }
 
+  .section-wrapper {
+    padding-bottom: 125px;
+  }
+
   .section {
-    padding-left: var(--small);
-    padding-right: var(--small);
+    margin-left: var(--small);
+    margin-right: var(--small);
+  }
+
+  .section#contact {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section-details {
@@ -646,6 +687,15 @@ footer a {
   .truckInfo {
     margin: 0 15px 25px;
   }
+
+  .thumb-carousel {
+    display: none !important;
+  }
+
+  .main-carousel {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
 /* Flexbox MEDIUM breakpoint */
@@ -663,13 +713,17 @@ footer a {
     flex-direction: column;
   }
 
+  .section-content {
+    flex-direction: column;
+  }
+
   .section-info {
-    margin-top: 50px;
     font-size: 1.2rem;
+    width: 100% !important;
   }
 
   .section-details {
-    margin-top: 30px;
+    margin: 30px auto 0 auto;
   }
 
   .remove-bootstrap-container-padding {
@@ -677,6 +731,12 @@ footer a {
     padding-right: 0;
   }
 
+  .section#pricing,
+  .section#contact {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+  }
   .pricing-item {
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -695,15 +755,15 @@ footer a {
 
   .pricing-item.active {
     width: 102%;
-    font-size: 1.1em;
+    font-size: 1.15em;
     background: rgb(242, 242, 207);
     background: linear-gradient(
       0deg,
       rgba(242, 242, 207, 1) 0%,
       rgba(255, 255, 222, 1) 100%
     );
-    padding-left: 6%;
-    padding-right: 6%;
+    padding-left: 4.5%;
+    padding-right: 4.5%;
   }
 
   .pricing-item-category {
@@ -774,6 +834,10 @@ footer a {
   .price {
     margin-bottom: 10px;
   }
+
+  .reset-btn-container {
+    height: 51px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -790,6 +854,10 @@ footer a {
   .nav-action-links {
     margin-right: -18px;
   }
+
+  .section-wrapper {
+    padding-bottom: 200px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -798,9 +866,10 @@ footer a {
   }
 }
 
+/* very large screens */
 @media (min-width: 1215px) {
   :root {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .section {
@@ -817,7 +886,7 @@ footer a {
   }
 
   #home {
-    padding-top: var(--large);
+    padding-top: var(--x-large);
   }
 }
 @media (min-width: 1400px) {
