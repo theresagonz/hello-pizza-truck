@@ -54,7 +54,7 @@ function Contact() {
                   <i className="fa fa-phone-alt"></i>(970) 589-1500
                 </a>
               </div>
-                <div className="contact-item email">
+                <div className="contact-item">
                   <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
                     <i className="fa fa-envelope"></i>
                     michael@<br className="small-screen-email-break"></br>michaelangeloswoodfiredpizza.com

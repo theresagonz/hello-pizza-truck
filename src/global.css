@@ -571,12 +571,6 @@ div.section-wrapper:last-of-type {
   display: none;
 }
 
-.email {
-  margin: 20px auto 40px;
-  width: fit-content;
-  font-size: var(--smaller);
-}
-
 .small-screen-email-break {        
   display: none;
 }
