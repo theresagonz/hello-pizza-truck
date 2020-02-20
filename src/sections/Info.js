@@ -4,30 +4,33 @@ import { useStaticQuery, graphql } from "gatsby"
 import Section from "../components/Section"
 
 // kitchen gallery
-import truckWorkspace from "../images/gallery/kitchen/truck-workspace.jpg"
-import ovenWorkspace from "../images/gallery/kitchen/oven-workspace.jpg"
-import servingWindow from "../images/gallery/kitchen/truck-exterior-serving-window.jpg"
-import truckPrepArea from "../images/gallery/kitchen/truck-prep-area.png"
-import sink from "../images/gallery/kitchen/sink.jpg"
-import sinkWorkspace from "../images/gallery/kitchen/truck-sinks-workspace.jpg"
+import kitchenWorkspace from "../images/gallery/kitchen/kitchen-workspace-sm.jpg"
+import ovenWorkspace from "../images/gallery/kitchen/oven-workspace-sm.jpg"
+import servingWindow from "../images/gallery/kitchen/exterior-serving-window-sm.jpg"
+import truckPrepArea from "../images/gallery/kitchen/prep-area-sm.jpg"
+import prepTable from "../images/gallery/kitchen/prep-table-sm.jpg"
+import ovenStaff from "../images/gallery/kitchen/oven-staff-sm.jpg"
+import servingWorkspace from "../images/gallery/kitchen/serving-workspace-sm.jpg"
+import sink from "../images/gallery/kitchen/sink-sm.jpg"
+import sinkWorkspace from "../images/gallery/kitchen/sink-workspace-sm.jpg"
 import ovenPizzas from "../images/gallery/kitchen/oven-pizzas.png"
-import ovenPizzasThumb from "../images/gallery/kitchen/oven-pizzas-thumb.png"
 import ovenFire from "../images/gallery/kitchen/oven-fire.jpg"
-import ovenFireThumb from "../images/gallery/kitchen/oven-fire-thumb.png"
 import ovenCookspace from "../images/gallery/kitchen/oven-cookspace.jpg"
-import ovenCookspaceThumb from "../images/gallery/kitchen/oven-cookspace-thumb.png"
 
 // truck gallery
-import truckLayout from "../images/gallery/truck/truck-layout.jpg"
+import truckLayout from "../images/gallery/truck/truck-layout-sm.jpg"
 import truckAtEvent from "../images/gallery/truck/truck-at-event.jpg"
 import truckMountains from "../images/gallery/truck/truck-mountains.jpg"
 import truckParked from "../images/gallery/truck/truck-parked.jpg"
 import truckRearOpen from "../images/gallery/truck/truck-rear-open.jpg"
-import truckRearOpen2 from "../images/gallery/truck/truck-rear-open2.jpg"
-import truckRearClosed from "../images/gallery/truck/truck-rear-closed.jpg"
+import truckRearClosed from "../images/gallery/truck/truck-rear-closed-sm.jpg"
+import truckExteriorFront from "../images/gallery/truck/truck-exterior-front-sm.jpg"
+import truckExteriorWindow from "../images/gallery/truck/truck-exterior-window-sm.jpg"
+import truckRearDistillery from "../images/gallery/truck/truck-rear-distillery-sm.jpg"
+import truckSideUmbrella from "../images/gallery/truck/truck-side-umbrella-sm.jpg"
 
 // bathroom gallery
-import bathroom from "../images/gallery/bathroom/truck-bathroom.jpg"
+import bathroom from "../images/gallery/bathroom/bathroom-sm.jpg"
 import electricalPanel from "../images/gallery/bathroom/truck-electrical-panel.jpg"
 import electrical from "../images/gallery/bathroom/truck-electrical.jpg"
 
@@ -50,7 +53,6 @@ import veryBeginning2 from "../images/gallery/construction/very-beginning2.jpg"
 import beginnings from "../images/gallery/construction/beginnings.jpg"
 import window from "../images/gallery/construction/window.jpg"
 import bathroomBeginnings from "../images/gallery/construction/bathroom-beginnings.jpg"
-import bathroomBeginnings2 from "../images/gallery/construction/bathroom-beginnings3.jpg"
 import bathroomBeginnings3 from "../images/gallery/construction/bathroom-beginnings3.jpg"
 import bathroom2 from "../images/gallery/construction/bathroom2.jpg"
 import ceiling from "../images/gallery/construction/ceiling.jpg"
@@ -127,24 +129,27 @@ const Info = props => {
             { text: "Signature FlameRoll® generates high, even temperatures" },
           ],
         },
-        { text: "Chimney sweep brushes, 8” on 4’ rod" },
         { text: 'Three-compartment sink, 15"' },
         { text: "Sliding serve window" },
 
         { text: "Hand wash sink, stainless steel with knee valves" },
         { text: "Automatic paper towel dispenser" },
+        { text: "Chimney sweep brushes, 8” on 4’ rod" },
         { text: "Cabinets and racks for storage" },
       ],
       images: [
-        { original: ovenPizzas, thumbnail: ovenPizzasThumb },
-        { original: ovenCookspace, thumbnail: ovenCookspaceThumb },
-        { original: ovenFire, thumbnail: ovenFireThumb },
-        { original: ovenWorkspace, thumbnail: ovenWorkspace },
-        { original: sink, thumbnail: sink },
-        { original: sinkWorkspace, thumbnail: sinkWorkspace },
-        { original: truckWorkspace, thumbnail: truckWorkspace },
-        { original: truckPrepArea, thumbnail: truckPrepArea },
-        { original: servingWindow, thumbnail: servingWindow },
+        { original: ovenPizzas },
+        { original: ovenCookspace },
+        { original: ovenFire },
+        { original: ovenStaff },
+        { original: servingWorkspace },
+        { original: ovenWorkspace },
+        { original: sink },
+        { original: sinkWorkspace },
+        { original: kitchenWorkspace },
+        { original: truckPrepArea },
+        { original: prepTable },
+        { original: servingWindow },
       ],
     },
     {
@@ -163,9 +168,9 @@ const Info = props => {
         { text: "Extra storage" },
       ],
       images: [
-        { original: bathroom, thumbnail: bathroom },
-        { original: electrical, thumbnail: electrical },
-        { original: electricalPanel, thumbnail: electricalPanel },
+        { original: bathroom },
+        { original: electrical },
+        { original: electricalPanel },
       ],
     },
     {
@@ -185,12 +190,15 @@ const Info = props => {
         { boldText: "Current DOT certification", text: "Intrastate CO" },
       ],
       images: [
-        { original: truckLayout, thumbnail: truckLayout },
-        { original: truckAtEvent, thumbnail: truckAtEvent },
+        { original: truckLayout },
+        { original: truckAtEvent },
+        { original: truckExteriorWindow },
+        { original: truckSideUmbrella },
+        { original: truckExteriorFront },
         { original: truckParked, thumbnail: truckParked },
         { original: truckMountains, thumbnail: truckMountains },
-        { original: truckRearOpen2, thumbnail: truckRearOpen2 },
         { original: truckRearOpen, thumbnail: truckRearOpen },
+        { original: truckRearDistillery },
         { original: truckRearClosed, thumbnail: truckRearClosed },
       ],
     },
@@ -236,6 +244,7 @@ const Info = props => {
     {
       label: "Plumbing",
       nextSubsectionLink: "#construction",
+      hasLongDescription: true,
       description: [
         "Fresh water is supplied to two hand wash sinks, a large kitchen three-compartment sink, and toilet.",
         "Supply comes from either the 55-gallon tank or a shore hook-up for a continuous supply.",
@@ -258,9 +267,10 @@ const Info = props => {
     {
       label: "Construction",
       nextSubsectionLink: "#pricing",
+      hasLongDescription: true,
       description: [
-        "In the spring of 2015, I purchased a 26-foot U-Haul box truck, stripped it to the frame, and began following my longtime dream of building a new mobile kitchen.",
-        "Over the course of a year, using similar materials and design principles as used when building a house, I constructed a food truck complete with a brand new oven and full commercial kitchen.",
+        "In the spring of 2015, I purchased a 26-foot U-Haul box truck, stripped it to the frame, and began my longtime dream of building a new mobile kitchen.",
+        "Over several months, I built this food truck from the frame up, using similar materials and design principles to those used when building on the ground.",
       ],
       infos: [
         {
@@ -268,12 +278,13 @@ const Info = props => {
             "Built from the floor up starting with 3”x3” 3/6” tube steel floor joists at 18” on center",
         },
         {
-          text: "Three sliding trays on outer driver’s side for easy access to equipment",
+          text:
+            "Three sliding trays on outer driver’s side for easy access to equipment",
           subInfos: [
             { text: "Onan Commercial 7000w generator" },
             { text: "Four 24-volt batteries" },
             { text: "Propane tank" },
-          ]
+          ],
         },
         {
           text: "R-6 fiberglass insulation in walls and R-13 or 19 in ceiling ",
@@ -288,7 +299,7 @@ const Info = props => {
         { original: beginnings, thumbnail: beginnings },
         { original: bathroom2, thumbnail: bathroom2 },
         { original: bathroomBeginnings, thumbnail: bathroomBeginnings },
-        { original: bathroomBeginnings2, thumbnail: bathroomBeginnings2 },
+        // { original: bathroomBeginnings2, thumbnail: bathroomBeginnings2 },
         { original: bathroomBeginnings3, thumbnail: bathroomBeginnings3 },
         { original: ceiling, thumbnail: ceiling },
         { original: ceiling2, thumbnail: ceiling2 },
@@ -355,15 +366,9 @@ const Info = props => {
     <div id="info" className="section">
       <div className="truckInfo">
         {sections.map((section, i) => {
-          return (
-            <Section
-              key={"section" + i}
-              section={section}
-            />
-          )
+          return <Section key={"section" + i} section={section} />
         })}
       </div>
-
     </div>
   )
 }
