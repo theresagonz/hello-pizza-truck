@@ -21,7 +21,7 @@ function Section({ section }) {
       </Fade>
       <div className="section-content">
         <div
-          className="section-info remove-bootstrap-container-padding"
+          className="section-info"
           style={{ width: columnWidth }}
         >
           {/* {section.label && <h1>{section.label}</h1>} */}

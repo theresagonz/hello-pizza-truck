@@ -126,8 +126,6 @@ i {
 }
 
 .intro-image {
-  /* max-width: 85%; fixes gallery overflow problem */
-  min-width: 300px;
   width: 100%;
   border-radius: 10px;
 }
@@ -576,6 +574,11 @@ div.section-wrapper:last-of-type {
 .email {
   margin: 20px auto 40px;
   width: fit-content;
+  font-size: var(--smaller);
+}
+
+.small-screen-email-break {        
+  display: none;
 }
 
 .contact-form.hide {
@@ -646,7 +649,7 @@ footer a {
 }
 
 .slider-image {
-  border-radius: 5px;
+  border-radius: 2%;
 }
 
 /* for smaller screens */
@@ -749,17 +752,13 @@ footer a {
     margin: 30px auto 0 auto;
   }
 
-  .remove-bootstrap-container-padding {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   .section#pricing,
   .section#contact {
     margin-left: auto;
     margin-right: auto;
     max-width: 90%;
   }
+
   .pricing-item {
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -811,6 +810,10 @@ footer a {
     box-shadow: none;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .small-screen-email-break {
+    display: block;
   }
 }
 
@@ -980,7 +983,7 @@ footer a {
 
 /* phone size screens */
 @media (max-width: 479px) {
-  page {
+  .page {
     width: 100%;
   }
 

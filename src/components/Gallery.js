@@ -21,13 +21,11 @@ class Gallery extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       initialSlide: 0,
-      fade: true,
       responsive: [
         {
           breakpoint: 600,
-          settings: {
+          settings: {   
             arrows: true,
-            fade: false,
           },
         },
       ],
