@@ -8,17 +8,15 @@ function PricingItem({
   level,
   setLevel,
   isDirty,
-  pricingItemDisplayed,
-  changePricingItem,
+  whichPricingItem,
+  handleChangePricingItem,
   handleResetClick,
   setDirtyTrue,
 }) {
-  const handleClick = e => {
-    e.stopPropagation()
-    changePricingItem(pkg.reference)
+  const handleClick = () => {
+    handleChangePricingItem(pkg.reference)
   }
-
-  const active = pricingItemDisplayed === pkg.reference ? " active" : ""
+  const active = whichPricingItem === pkg.reference ? " active" : ""
 
   return (
     <div
@@ -27,7 +25,7 @@ function PricingItem({
         fontFamily: "var(--accent-font)",
         cursor: "pointer",
       }}
-      onClick={e => handleClick(e)}
+      onClick={handleClick}
     >
       <div className="pricing-item-info">
         <div className="pricing-item-category">{pkg.category}</div>
