@@ -39,7 +39,7 @@ function Contact() {
       <div className="flexbox">
         <Fade>
           <div>
-            <h1 className="text-center my-5">Get more info</h1>
+            <h1 className="text-center my-5">Contact</h1>
             <div
               className="contact-info"
               style={{

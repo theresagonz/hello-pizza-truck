@@ -221,13 +221,7 @@ function Pricing() {
     <div id="pricing" className="container section">
       <div className="container pricing-section remove-bootstrap-container-padding">
         <h1 className="section-heading my-6">Pricing</h1>
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: "var(--summary-font-size)",
-            marginBottom: "var(--x-large)",
-          }}
-        >
+        <div className="p-text">
           Customize your setup!
           <br></br>
           Explore add-ons and pricing...

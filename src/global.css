@@ -47,7 +47,7 @@ h4,
 h5,
 h6 {
   font-family: var(--accent-font), serif;
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .page a {
@@ -84,11 +84,6 @@ i {
   align-items: center;
   justify-content: space-evenly;
   min-height: calc(100vh);
-  /* min-height: 100vh; */
-  /* background-image: url("./images/gallery/main/truck-exterior-rear.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center; */
 }
 
 #info {
@@ -131,7 +126,7 @@ i {
 }
 
 .intro-image {
-  max-width: 85%; /* fixes gallery overflow problem */
+  /* max-width: 85%; fixes gallery overflow problem */
   min-width: 300px;
   width: 100%;
   border-radius: 10px;
@@ -153,6 +148,10 @@ i {
   line-height: var(--p-line-height);
 }
 
+.main-head {
+  margin-bottom: 2rem;
+}
+
 .subsection-nav-links {
   font-family: var(--accent-font);
   font-size: 1em;
@@ -172,7 +171,7 @@ i {
 }
 
 .navbar {
-  position: fixed;
+  position: fixed !important;
   width: 100%;
   padding: 10px 35px;
   justify-content: space-between;
@@ -343,10 +342,6 @@ i {
   margin-left: auto;
   margin-right: auto;
 }
-/* 
-.pricing-button {
-  padding: 25px 0;
-} */
 
 .pricing-button i {
   padding: 0;
@@ -507,11 +502,6 @@ i {
   margin-bottom: 20px;
 }
 
-hr {
-  border-color: #e4e4e4;
-  margin: 28px 0 40px;
-}
-
 .expanded-price-info p {
   margin-bottom: 15px;
 }
@@ -548,14 +538,18 @@ hr {
 }
 
 .pricing-section {
-  /* max-width: 100%; */
   padding-bottom: 50px;
 }
 
 .pricing-section > h4,
 .pricing-section > h2 {
   margin: 30px 0 50px 0;
-  /* color: #c3c3c3; */
+}
+
+.p-text {
+  text-align: center;
+  font-size: var(--summary-font-size);
+  margin-bottom: var(--x-large);
 }
 
 .clickable:hover {
@@ -572,7 +566,7 @@ hr {
 }
 
 div.section-wrapper:last-of-type {
-  padding-bottom: 0;
+  padding-bottom: 60px;
 }
 
 .right {
@@ -651,6 +645,10 @@ footer a {
   object-fit: contain;
 }
 
+.slider-image {
+  border-radius: 5px;
+}
+
 /* for smaller screens */
 
 @media (max-width: 600px) {
@@ -664,6 +662,12 @@ footer a {
 
   h4 {
     font-size: 1.2rem;
+  }
+
+  #home {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section-wrapper {
@@ -697,10 +701,6 @@ footer a {
     margin: 0 15px;
   }
 
-  .truckInfo {
-    margin: 0 15px 25px;
-  }
-
   .thumb-carousel {
     display: none !important;
   }
@@ -719,7 +719,17 @@ footer a {
   }
 
   #home {
-    margin-top: 70px;
+    margin-top: 60px;
+  }
+
+  .section {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #pricing {
+    padding-bottom: 0;
   }
 
   .top-content {
@@ -821,6 +831,10 @@ footer a {
     margin-right: auto;
   }
 
+  .city {
+    margin-bottom: 2rem;
+  }
+
   .pricing-items {
     flex-direction: row;
   }
@@ -853,7 +867,7 @@ footer a {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 767px) {
   .welcome-top {
     display: block;
   }
@@ -873,6 +887,46 @@ footer a {
   }
 }
 
+/* special background image styling for Home */
+@media (max-width: 1214px) and (min-width: 768px) {
+  #home {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url("./images/truck-exterior-rear-cropped.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0;
+  }
+
+  .left-container {
+    height: 100vh;
+    background-color: #8080808c;
+    background: rgba(236, 236, 236, 0.61);
+    background: linear-gradient(
+      90deg,
+      rgba(236, 236, 236, 0.8) 22%,
+      rgba(255, 255, 255, 0.2) 72%
+    );
+    padding: 115px 40px 40px 50px;
+    width: 100%;
+  }
+
+  .left-container-content {
+    max-width: 380px;
+  }
+
+  .intro-image {
+    display: none;
+  }
+
+  .welcome-text {
+    line-height: 2rem;
+    font-weight: 400;
+  }
+}
+
 @media (max-width: 991px) {
   .nav-right {
     margin: 1em 0 1em 57px;
@@ -885,9 +939,24 @@ footer a {
     font-size: 17px;
   }
 
+  #home {
+    padding-left: var(--medium);
+    padding-right: var(--medium);
+    padding-top: var(--x-large);
+  }
+
   .section {
     padding-left: var(--x-large);
     padding-right: var(--x-large);
+  }
+
+  .top-content {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .left-container {
+    padding-right: 60px;
   }
 
   .welcome-top {
@@ -898,13 +967,14 @@ footer a {
     display: block;
   }
 
-  #home {
-    padding-top: var(--x-large);
+  .welcome-text {
+    font-size: 1.15rem;
   }
 }
+
 @media (min-width: 1400px) {
   :root {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -917,7 +987,6 @@ footer a {
   .section-info,
   .left-container,
   .pricing-container {
-    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
   }

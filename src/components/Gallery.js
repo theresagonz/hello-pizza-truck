@@ -27,6 +27,7 @@ class Gallery extends Component {
           breakpoint: 600,
           settings: {
             arrows: true,
+            fade: false,
           },
         },
       ],

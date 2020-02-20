@@ -10,7 +10,7 @@ function Section({ section }) {
   const columnWidth = section.hasLongDescription ? "70%" : "40%"
 
   return (
-    <div id={sectionId} className="section-wrapper container-fluid">
+    <div id={sectionId} className="section-wrapper">
       <Fade>
         <h2 className="section-heading">{label}</h2>
       </Fade>

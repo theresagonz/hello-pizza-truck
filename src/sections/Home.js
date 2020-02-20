@@ -2,7 +2,7 @@ import React from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Fade from "react-reveal/Fade"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import truckExteriorRear from "../images/truck-exterior-rear-sm.jpg"
+import truckExteriorRear from "../images/truck-exterior-rear-cropped.jpg"
 
 function Home() {
   const { pageDataYaml } = useStaticQuery(graphql`
@@ -47,8 +47,8 @@ function Home() {
 
   return (
     <div id="home" className="section" style={style}>
-      <div className="top-content row remove-bootstrap-container-padding">
-        <div className="welcome-top col-12" style={{ textAlign: "center" }}>
+      <div className="top-content">
+        <div className="welcome-top" style={{ textAlign: "center" }}>
           <div className="welcome-text">{welcomeText + " "}</div>
           <h1
             className="main-head"
@@ -57,8 +57,18 @@ function Home() {
             <span>{landingText}</span>
           </h1>
         </div>
-        <div className="left-container remove-bootstrap-container-padding col-sm-12 col-md-5 col-lg-4">
-          <div>
+        <div
+          className="large-image right-container"
+          style={{ textAlign: "center" }}
+        >
+          <img
+            className="intro-image a-shadow"
+            src={truckExteriorRear}
+            alt="truck"
+          />
+        </div>
+        <div className="left-container">
+          <div className="left-container-content">
             <div className="welcome-left">
               <div className="welcome-text">{welcomeText + " "}</div>
               <h1
@@ -73,7 +83,7 @@ function Home() {
               style={{
                 fontSize: "22px",
                 fontWeight: "300",
-                margin: "var(--large) 0",
+                margin: "var(--large) 0 2rem",
               }}
             >
               <b>Grand Junction, Colorado</b>
@@ -91,24 +101,12 @@ function Home() {
             LEARN MORE...
           </AnchorLink>
         </div>
-        <Fade>
-          <div
-            className="large-image right-container col-sm-12 col-md-7 col-lg-8"
-            style={{ textAlign: "center" }}
-          >
-            <img
-              className="intro-image a-shadow"
-              src={truckExteriorRear}
-              alt="truck"
-            />
-          </div>
-        </Fade>
       </div>
-      <div className="down-arrow subsection-nav-links">
+      {/* <div className="down-arrow subsection-nav-links">
         <AnchorLink className="nav-link" href="#info">
           <i className="fa fa-chevron-down" />
         </AnchorLink>
-      </div>
+      </div> */}
     </div>
   )
 }
