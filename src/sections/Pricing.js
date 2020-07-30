@@ -50,12 +50,12 @@ function Pricing() {
     setDirty(true)
   }
 
-  const totalPrices = [80000, 87000, 93000, 97000]
+  const totalPrices = [65000, 70000, 74500, 77500]
   const pricingInfo = [
     {
       category: "Just the truck",
       summary: "Truck and oven as described above",
-      price: 80000,
+      price: 65000,
       reference: "truck",
       images: [{ original: truck }],
       hideThumbs: true,
@@ -64,7 +64,7 @@ function Pricing() {
       category: "Kitchen support equipment",
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
-      price: 7000,
+      price: 5000,
       reference: "kitchen",
       expandableInfos: [
         {
@@ -132,7 +132,7 @@ function Pricing() {
       category: "Second unit trailer",
       summary:
         "Make your setup more flexible with this mobile mini-kitchen in a trailer! Can operate independently or along with the truck.",
-      price: 6000,
+      price: 4500,
       reference: "trailer",
       description: [
         {
@@ -185,7 +185,7 @@ function Pricing() {
     {
       category: "Business and support extras",
       summary: "Training to make our pizza plus marketing and logo supplies",
-      price: 4000,
+      price: 3000,
       reference: "business",
       expandableInfos: [
         {
