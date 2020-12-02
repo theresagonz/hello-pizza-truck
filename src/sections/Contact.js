@@ -5,30 +5,39 @@ import michaelAngelosLogo from "../images/logo-transp.png"
 import facebookLogo from "../images/facebook-logo.png"
 
 function Contact() {
-  const [isFormSubmitted, markSubmitted] = useState(false)
-  const [isError, markError] = useState(false)
-  const showForm = isFormSubmitted ? " hide" : " show"
+  // const [isFormSubmitted, markSubmitted] = useState(false)
+  // const [isError, markError] = useState(false)
+  // const showForm = isFormSubmitted ? " hide" : " show"
 
-  const sendEmail = e => {
-    e.preventDefault()
-    emailjs
-      .sendForm(
-        "hellopizzatruck",
-        "pizza_truck_inquiry",
-        e.target,
-        "user_XTQ8oJHyAIsl27GDnArx1"
-      )
-      .then(
-        result => {
-          console.log("result", result)
-          markSubmitted(true)
-        },
-        error => {
-          console.log("error", error)
-          markError(true)
-        }
-      )
-  }
+  // const sendEmail = e => {
+  //   e.preventDefault()
+  //   emailjs
+  //     .sendForm(
+  //       "hellopizzatruck",
+  //       "pizza_truck_inquiry",
+  //       e.target,
+  //       "user_XTQ8oJHyAIsl27GDnArx1"
+  //     )
+  //     .then(
+  //       result => {
+  //         console.log("result", result)
+  //         markSubmitted(true)
+  //       },
+  //       error => {
+  //         console.log("error", error)
+  //         markError(true)
+  //       }
+  //     )
+  // }
+
+  // const showEmailAddress = () => {
+  //   const el = document.getElementById("hidden-email")
+  //   console.log("el", el)
+  //   el.innerHTML = <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
+  //                   <i className="fa fa-envelope"></i>
+  //                   michael@<br className="small-screen-email-break"></br>michaelangeloswoodfiredpizza.com
+  //                 </a>
+  // }
 
   return (
     <div
@@ -54,14 +63,15 @@ function Contact() {
                   <i className="fa fa-phone-alt"></i>(970) 589-1500
                 </a>
               </div>
-                <div className="contact-item">
-                  <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
-                    <i className="fa fa-envelope"></i>
-                    michael@<br className="small-screen-email-break"></br>michaelangeloswoodfiredpizza.com
-                  </a>
-                </div>
+              <div className="contact-item">
+                <a href="mailto:michael@michaelangeloswoodfiredpizza.com">
+                  <i className="fa fa-envelope"></i>
+                  michael@<br className="small-screen-email-break"></br>
+                  michaelangeloswoodfiredpizza.com
+                </a>
+              </div>
             </div>
-            {isFormSubmitted && (
+            {/* {isFormSubmitted && (
               <div className="end-message success">
                 Thanks for your message! We'll be in touch soon.
               </div>
@@ -119,7 +129,7 @@ function Contact() {
                   Send email
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
         </Fade>
         <div className="ma-links">
