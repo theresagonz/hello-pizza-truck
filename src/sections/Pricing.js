@@ -50,12 +50,12 @@ function Pricing() {
     setDirty(true)
   }
 
-  const totalPrices = [65000, 70000, 74500, 77500]
+  const totalPrices = [59000, 66500, 71000, 74000]
   const pricingInfo = [
     {
       category: "Just the truck",
       summary: "Truck and oven as described above",
-      price: 65000,
+      price: 59000,
       reference: "truck",
       images: [{ original: truck }],
       hideThumbs: true,
@@ -64,7 +64,7 @@ function Pricing() {
       category: "Kitchen support equipment",
       summary:
         "Equipment and supplies for running a mobile wood fired pizza business",
-      price: 5000,
+      price: 7500,
       reference: "kitchen",
       expandableInfos: [
         {
