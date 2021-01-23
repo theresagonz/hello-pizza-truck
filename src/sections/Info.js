@@ -287,7 +287,7 @@ const Info = props => {
           ],
         },
         {
-          text: "R-6 fiberglass insulation in walls and R-13 or 19 in ceiling ",
+          text: "R-6 fiberglass insulation in walls and R-13 in ceiling ",
         },
         { text: "Full-size 36” steel entry door and retractable screen door" },
         { text: "Ramp and stairs for easy entry" },
