@@ -30,7 +30,7 @@ import truckRearDistillery from "../images/gallery/truck/truck-rear-distillery-s
 import truckSideUmbrella from "../images/gallery/truck/truck-side-umbrella-sm.jpg"
 
 // bathroom gallery
-import bathroom from "../images/gallery/bathroom/bathroom-sm.jpg"
+import bathroom from "../images/gallery/bathroom/bathroom-curtains.jpg"
 import electricalPanel from "../images/gallery/bathroom/truck-electrical-panel.jpg"
 import electrical from "../images/gallery/bathroom/truck-electrical.jpg"
 
